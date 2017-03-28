@@ -1,0 +1,344 @@
+<html>
+
+    <head>
+        <title>Pf Opgave 1</title>
+        <meta name="viewport"
+          content="initial-scale=1.0, user-scalable=no">
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script type="text/javascript" src="tile.stamen.js?v1.3.0"></script>
+
+        <script type="text/javascript"> 
+            
+            $(function () {
+            $("#window").draggable({ containment: [8,8,726,280], zIndex: 999 });
+        });
+            
+            var map;
+            var iconUniGreen = "Icons/uniGreen.png";
+            var iconUniRed = "Icons/uniRed.png";
+            var iconUniBlack = "Icons/uniBlack.png";
+            var currentMarker;
+            
+            var greenStyles = [
+    {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "weight": 0.9
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#1f8a70"
+            },
+            {
+                "weight": 0.7
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#1f8a70"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#1f8a70"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#fd7400"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "saturation": "35"
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#1c634f"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#1f8a70"
+            },
+            {
+                "lightness": -20
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#1f8a70"
+            },
+            {
+                "lightness": -17
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#1f8a70"
+            },
+            {
+                "lightness": -10
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#004358"
+            }
+        ]
+    }
+];
+            function initMap() {
+                        
+                var options = {
+                    center: new google.maps.LatLng(55.620173, 10.244111),
+                    zoom: 8,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    mapTypeControlOptions: {
+                        mapTypeIds: [google.maps.MapTypeId.ROADMAP,"Watercolor"],
+                        position: google.maps.ControlPosition.RIGHT_TOP
+                    },
+                    styles: greenStyles
+                 };   
+            
+                map = new google.maps.Map(document.getElementById("map"), options);               
+                map.mapTypes.set("Watercolor", new google.maps.StamenMapType("watercolor"));
+                
+                
+                
+                createMarkers();
+            }
+        
+            // Creates a for loop for all the markers and places them in acordance to the info from the cities array
+            function createMarkers() {
+                data = [];
+                for (i = 0; i < cities.length; i++) {
+                    var position = new google.maps.LatLng(cities[i].Latitude, cities[i].Longitude);
+                    var marker = new google.maps.Marker({
+                        title: cities[i].by, 
+                        map: map, 
+                        icon: iconUniGreen,
+                        position: position,
+                        objInfo: cities[i]
+                    });
+                    // Changes the marker icon to red
+                    google.maps.event.addListener(marker, 'mouseover', function () {
+                    myMouseHover(this);
+                    });
+                    google.maps.event.addListener(marker, 'mousedown', function () {
+                    showInfoWindow(this);
+                    });
+                    google.maps.event.addListener(marker, 'mouseout', function () {
+                    myMouseOut(this);
+                    }); 
+
+                
+                data.push(marker);
+            }
+            return data;
+        }
+            
+        function showInfoWindow(m) {
+            document.getElementById("main").innerHTML = 
+                '<img border = "0" width="100%" src="'+ m.objInfo.image +'">' +
+                "<table width='100%'>" +
+                "<tr><td>City:</td><td align='right'>" + m.objInfo.by + "<td/></tr>" +
+                "<tr><td>Adresse:</td><td align='right'>" + m.objInfo.adresse + "</td></td>" +
+                "<tr><td>Telefon</td><td align='right'>" + m.objInfo.telefon + " </td></tr>"
+                "</table>"
+            if (currentMarker != null) { currentMarker.setOptions({ icon: iconUniGreen }) }
+            currentMarker = m;
+            m.setOptions({ icon: iconUniBlack});
+        }
+        function myMouseHover(m) {
+            if (m != currentMarker) {
+                m.setOptions({ icon: iconUniRed });
+            }
+        }
+        
+        function myMouseOut(m) {
+            if (m == currentMarker) {
+                m.setOptions({icon: iconUniBlack});
+            } else {
+                m.setOptions({icon: iconUniGreen});
+            }
+        }
+        
+        // cities array
+        var cities = [
+                {"by": "Odense","image":"images/sduOdense.jpg", "adresse": "Campusvej 55", "telefon":  65501000, "Latitude": 55.368238, "Longitude": 10.426645 },
+                {"by": "Esbjerg","image":"images/sduEsbjerg.jpg", "adresse": "Niels Bohrs vej 9-10", "telefon":  65501000, "Latitude": 55.491127, "Longitude": 8.448613 },
+                {"by": "Kolding","image":"images/sduKolding.jpg", "adresse": "Universitetsparken 1", "telefon":  65501000, "Latitude": 55.486741, "Longitude": 9.482496 },
+                {"by": "Sønderborg","image":"images/sduSønderborg.jpg", "adresse": "Alsion 2", "telefon":  65501000, "Latitude": 54.912778, "Longitude": 9.779255 },
+                {"by": "København","image":"images/sduKøbenhavn.jpg", "adresse": "Strandboulevarden 47", "telefon":  65501000, "Latitude": 55.702307, "Longitude": 12.586774 },
+                {"by": "Slagelse","image":"images/sduSlagelse.jpg", "adresse": "Sdr. Stationsvej 28", "telefon":  65501000, "Latitude": 55.407207, "Longitude": 11.347219 }
+                         
+            ];    
+            
+            
+            
+        </script>
+        <style>
+                    
+            #map {
+                height: 500px;
+                width: 1000;
+            }        
+        #window, #main, #top {   
+            position: absolute;
+            float: left; 
+            z-index: 100;
+            width: 280px;
+            height: 208px;
+            }             
+
+        #window {
+            top: 8px;
+            left: 8px;
+            height: 226px;
+/*            overflow: auto;*/
+            border: 1px solid black;
+/*            background-color: khaki;*/
+/*            font-family: Tebuchet, Arial;*/
+            font-size: 10px;
+            font-weight: bold;
+            text-decoration-color: darkred;
+        }
+
+        #main {
+            top: 18px;
+            left: 0px;
+                        
+            overflow: auto;
+            border: 0px;
+            background-color: white;
+            font-family: Trebuchet MS;
+            font-size: 11px;
+            font-weight: regular;
+            color: maroon;
+        }
+
+        #top {
+            top: 0px;
+            left: 0px;
+            height: 18px;
+            text-align: right;
+            padding-top: 3px;
+            vertical-align: middle;
+            border: 0px;
+            background-color: lightgray;
+            font-family: Tebuchet, Arial;
+            font-size: 9px;
+            font-weight: regular;
+            color: black;
+        }
+        
+        </style>
+    </head>
+
+    <body onload="initMap()">
+        <div id="map"></div>
+        <div id="window">
+            <div id="top">
+                <table style="width: 100%">
+                    <tr>
+                        <td style="align-content:left"></td>
+                        <td style="align-content:right"></td>
+                    </tr>
+                </table>            
+            </div>
+            <div id="main">
+                <div> </div>            
+            </div>
+        </div>    
+    </body>
+</html>
