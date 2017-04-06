@@ -1,0 +1,25 @@
+<html>
+    <head>
+    <script src="base64.js" type="text/javascript"></script>
+<script src="canvas2image.js" type="text/javascript"></script>
+        <script>
+            window.onload = function(){
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+                
+                context.rect(canvas.width / 2 - 403, canvas.height / 2 - 35, 806, 70);
+                context.fillStyle = "#A8A061";
+                context.fill();
+                context.lineWidth = 3;
+                context.strokeStyle = "#F6E975";
+                context.stroke();
+
+                Canvas2Image.saveAsJPEG(canvas);
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="806" height="70" style="border:0px solid black;">
+        </canvas>
+    </body>
+</html>

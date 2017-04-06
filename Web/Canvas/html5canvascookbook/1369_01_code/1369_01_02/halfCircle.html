@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script>
+            window.onload = function(){
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+                context.lineWidth = 10;
+                context.strokeStyle = "#ed19c4"; // line color
+                context.arc(canvas.width / 2, canvas.height / 2 + 10, 80, Math.PI, 2.0 * Math.PI, false);  
+
+                context.stroke();
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="600" height="250" style="border:1px solid black; ">
+        </canvas>
+    </body>
+</html>

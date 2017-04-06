@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      
+        context.beginPath();
+        context.arc(300,200,100,0,  Math.PI,true)
+        context.lineWidth = 10;
+      
+        context.strokeStyle = "purple";
+        context.stroke();
+    </script>
+  </body>
+</html>      

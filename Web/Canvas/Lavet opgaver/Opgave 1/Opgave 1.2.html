@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- saved from url=(0117)file:///C:/Users/Jonas/Dropbox/Uddannelse/Distribueret%20programmering/Klaus/Canvas/Lavet%20opgaver/Opgave%201.2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="1000" height="1000"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.rect(0, 200, 1000, 100);
+      context.fillStyle = 'red';
+      context.fill();
+      context.lineWidth = 1;
+      context.strokeStyle = 'red';
+      context.stroke();
+        
+      context.beginPath();
+      context.rect(450, 0, 100, 600);
+      context.fillStyle = 'red';
+      context.fill();
+      context.lineWidth = 1;
+      context.strokeStyle = 'red';
+      context.stroke();
+    </script>
+  
+      </body></html>

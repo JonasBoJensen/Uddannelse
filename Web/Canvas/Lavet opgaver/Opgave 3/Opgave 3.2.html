@@ -1,0 +1,45 @@
+<html>
+    <head> 
+    
+    </head>
+    
+    <body>
+        <canvas id="myCanvas" width="600" height="200"></canvas>
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");
+            context.rect(0,0, canvas.width, canvas.height);
+            
+            var grd = context.createLinearGradient (0,100, 600, 100);
+            grd.addColorStop(1/7, 'red');
+            grd.addColorStop(2/7, 'orange');
+            grd.addColorStop(3/7, 'yellow');
+            grd.addColorStop(4/7, 'green');
+            grd.addColorStop(5/7, 'blue');
+            grd.addColorStop(6/7, 'purple');
+            grd.addColorStop(7/7, '#9900cc');
+            
+            context.fillStyle = grd;
+            context.fill();
+        
+        
+        
+        
+        
+        </script>
+    
+    
+    
+    
+    
+    
+    </body>
+
+
+
+
+
+
+
+
+</html>

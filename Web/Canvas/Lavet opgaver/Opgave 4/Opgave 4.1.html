@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 20px;
+        padding: 0px;
+      }
+        #myCanvas {
+            border: 1px solid black;
+        }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="200" height="100"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.rect(0, 0, 200, 100);
+      context.fillStyle = '#339900';
+      context.fill();
+      
+    </script>
+  </body>
+</html>      

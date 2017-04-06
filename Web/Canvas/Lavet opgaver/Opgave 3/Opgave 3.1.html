@@ -1,0 +1,41 @@
+<html>
+    <head> 
+    
+    </head>
+    
+    <body>
+        <canvas id="myCanvas" width="600" height="600"></canvas>
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");
+            context.rect(0,0, canvas.width, canvas.height);
+            
+            var grd = context.createLinearGradient (0,0, canvas.width, canvas.height);
+            grd.addColorStop(0,"#99FFFF");
+            grd.addColorStop(0.5,"green");
+            grd.addColorStop(1,"blue")
+            
+            context.fillStyle = grd;
+            context.fill();
+        
+        
+        
+        
+        
+        </script>
+    
+    
+    
+    
+    
+    
+    </body>
+
+
+
+
+
+
+
+
+</html>

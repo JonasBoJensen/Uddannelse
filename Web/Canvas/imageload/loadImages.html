@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="878" height="800"></canvas>
+    <script>
+      function loadImages(sources, callback) {
+        var images = [];
+        var loadedImages = 0;
+        var numImages = 0;
+        // get num of sources
+        for(var src in sources) {
+          numImages++;
+        }
+        for(var src in sources) {
+          images[src] = new Image();
+          images[src].onload = function() {
+
+            if(++loadedImages >= numImages) {
+                callback(images);
+            }
+          };
+          images[src].src = sources[src];
+        }
+      }
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      var sources = {
+        darthVader: 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg',
+        yoda: 'http://www.html5canvastutorials.com/demos/assets/yoda.jpg',
+        lukeSkywalker: 'http://cdn.idigitaltimes.com/sites/idigitaltimes.com/files/2015/10/27/luke-skywalker-star-wars-force-awakens.jpg',
+        
+      };
+
+      loadImages(sources, function(images) {
+        context.drawImage(images.darthVader, 100, 30);
+        context.drawImage(images.yoda, 600, 30);
+        context.drawImage(images.lukeSkywalker, 100, 400);
+
+      });
+
+    </script>
+  </body>
+</html>      

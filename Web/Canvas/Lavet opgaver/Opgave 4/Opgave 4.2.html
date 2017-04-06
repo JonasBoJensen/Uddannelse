@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 20px;
+        padding: 0px;
+      }
+        #myCanvas {
+            border: 1px solid black;
+        }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="200" height="100"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var width = canvas.width;
+      var height = canvas.height;
+
+      context.beginPath();
+      context.rect(0, 0, width/3, height);
+      context.fillStyle = '#33ff33';
+      context.fill();
+              
+      context.beginPath();
+      context.rect(width/3,0,width/3,height);
+      context.fillStyle = "#ffffff";
+      context.fill();
+        
+      context.beginPath();
+      context.rect(width/3*2,0,width/3,height);
+      context.fillStyle = "red";
+      context.fill();
+      
+      
+    </script>
+  </body>
+</html>      

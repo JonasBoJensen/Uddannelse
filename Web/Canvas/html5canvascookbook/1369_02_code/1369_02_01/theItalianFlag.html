@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script>
+            window.onload = function(){
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+              context.beginPath();
+                context.rect(canvas.width / 2 - 100, canvas.height / 2 - 150, 100, 200);
+         //       context.closePath();
+                context.fillStyle = "green";
+                context.fill();
+
+        		context.beginPath();
+				context.rect(canvas.width / 2, canvas.height / 2 - 150, 100, 200);
+		//	  	context.closePath();
+				context.fillStyle = "white";
+ 				context.fill();
+                
+       		context.beginPath();
+				context.rect(canvas.width / 2 + 100, canvas.height / 2 - 150, 100, 200);
+			  	context.closePath();
+				context.fillStyle = "red";
+ 				context.fill();                
+                
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="600" height="450" style="border:1px solid black;">
+        </canvas>
+    </body>
+</html>
