@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Look at the console ouput...</p>
+<script>
+// from: http://eloquentjavascript.net/03_functions.html
+
+function power(base, exponent) {
+  if (exponent == undefined)
+    exponent = 2;
+  var result = 1;
+  for (var count = 0; count < exponent; count++){
+    result *= base;
+  }
+  return result;
+}
+
+console.log(power(4));
+// → 16
+console.log(power(4, 3));
+// → 64
+
+</script>
+</body>
+</html>

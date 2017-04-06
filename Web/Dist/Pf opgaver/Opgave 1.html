@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>Distribueret Programmering Pf opgave 1.</title>
+    
+    </head>
+    <body>
+    <script>
+        var data = [
+            { creator: "Andrea", age: 44, quizzes: [
+                {title: "Do you know your multiplication table?", likes: 150,
+                        questions: [
+                            {question: "What is 3x5?", answers:[12,13,15],correct: 15},
+                            {question: "What is 0x2?", answers:[2,0,1], correct: 0},
+                            {question: "What is 7x7?", answers:[77,48,49], correct: 49}
+                ]},
+                {title: "is your spirit free?", likes: 305, questions: [
+                            {question: "How does it feel to be a rain drop?", answers: 
+                                        ["Blue","Cold","Flying"],correct: "Flying"},
+                            {question: "Clouds are...", answers:
+                                        ["Fluffy","Water vapor","Bad. Sun is better"], correct: "Fluffy"}
+                        ]},
+                                   
+                    ]},
+            { creator: "Bob", age: 25, quizzes:[
+                {title: "Just testing?", likes: 1, questions: [
+                            {question: "testing 123", answers:["1","2","3"],correct: "1"},
+                            {question: "Is it true?", answers:["True","False"], correct: "True"}
+                        ]}             
+             
+             ]}
+    ];
+            // Prints the creators and age headline
+        for (i = 0; i < data.length; i++) {
+            test = data[i];
+            console.log(">>>>>"+ " Creator: " + test.creator + ", Age " + test.age + " <<<<<");
+            
+            // Prints the name of the quiz and how many likes
+            for (l = 0; l < test.quizzes.length; l++) {
+                quiz = test.quizzes[l];
+                console.log(quiz.title + " (" + quiz.likes + " likes)");
+                
+                // Prints all the questions
+                for (j = 0; j < quiz.questions.length; j++) {
+                    ask = quiz.questions[j];
+                    console.log("=>" + ask.question);
+                    
+                    // Prints all the answers and the correct answer
+                    for (k = 0; k < ask.answers.length; k++) {
+                        possible = ask.answers[k];
+                        correct = "  ";
+                        if (possible == ask.correct) {
+                            correct = " (X)";
+                        }
+                        console.log("===>" + possible + correct);
+                    }
+                }
+                // this makes the line between the quizzes
+                console.log("---------------------------------");
+            }
+        }
+
+        for (i = 0; i < data.length; i++){
+            test = data[i];
+            likes = [];
+            for (l = 0; l < test.length; l++){
+                likes = test.quizzes[l];
+            }
+            
+            console.log(test.creator + " got a total of " + likes)
+        }
+        
+            
+                        
+            
+            
+        
+        
+    </script>
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

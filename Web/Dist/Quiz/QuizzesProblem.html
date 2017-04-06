@@ -1,0 +1,82 @@
+<html>
+	<body>
+	<script>
+        
+        //data structure
+        var data = [
+            {author: "Andrea", age: 44, quizzes: [
+                {title: "Do you know your multiplication tables?", likes: 150, questions: [
+                    {question: "What is 3x5 ?", correct: 15, answers: [12, 13, 15]},
+                    {question: "What is 0x2 ?", correct: 0, answers: [2, 0, 1]},
+                    {question: "What is 7x7 ?", correct: 49, answers: [77, 48, 49]}
+                ]},
+                {title: "is your spirit free?", likes: 305, questions: [
+                    {question: "How does it feel to be a rain drop?", correct: "flying", answers: ["cold", "blue", "flying"]},
+                    {question: "Clouds are...", correct: "fluffy", answers: ["fluffy", "water vapor", "bad. Sunny is better"]}
+                ]}
+            ]},
+            
+            {author: "Bob", age: 25, quizzes: [
+                {title: "Just testing?", likes: 1, questions: [
+                    {question: "testing 123", correct: 1, answers: [1, 2, 3]},
+                    {question: "is it true?", correct: true, answers: [true, false]}
+                ]}
+            ]},
+            
+            
+            {author: "Sebastian", age: 21, quizzes: [
+                {title: "Test test", likes: 101, questions: [
+                    {question: "can you see this?", correct: "yes", answers: ["yes", "no", "maybe"]},
+                    {question: "What about this?", correct: "nope", answers: ["no", "more no", "nope", "go away"]},
+                    {question: "Are you stupid?", correct: "very", answers: ["yes", "no", "very"]},
+                    {question: "This is the fourth question", correct: "nice", answers: ["sure?", "impossible", "nice"]},
+                    {question: "How many questions are there?", correct: 5, answers: [3, 4, 5, 6, 7]}
+                ]},
+                {title: "2 question quiz", likes: 5000, questions: [
+                    {question: "How are you?", correct: "Great!", answers: ["Horrible", "okay i guess..", "Great!"]},
+                    {question: "This question has 6 options", correct: "yes", answers: [3, 9, "really?", 4, 44, "yes"]},
+                ]}
+            ]},
+            
+            {author: "Jonas", age: 27, quizzes: [
+                {title: "PENIS", likes: 5000000000, questions: [
+                    {question: "Hvad er klokken", correct: "13:11", answers: ["12:00", "13:11", "16:14", "10:59"]},
+                    {question: "Hvad er klokken", correct: "13:11", answers: ["12:00", "13:11", "16:14", "10:59"]},
+                    {question: "Hvad er klokken", correct: "13:11", answers: ["12:00", "13:11", "16:14", "10:59"]}
+                ]}
+            ]},
+        ];
+        
+        
+        //print
+        for (a = 0; a < data.length; a++) {
+            user = data[a];
+            console.log("By " + user.author + ", age " + user.age);
+            
+            for (b = 0; b < user.quizzes.length; b++) {
+                quiz = user.quizzes[b];
+                console.log("  " + quiz.title + " (" + quiz.likes + " likes)");
+                
+                for (c = 0; c < quiz.questions.length; c++) {
+                    ask = quiz.questions[c];
+                    console.log("    " + ask.question);
+                    
+                    for (d = 0; d < ask.answers.length; d++) {
+                        possible = ask.answers[d];
+                        correct = "";
+                        
+                        if (possible == ask.correct) {
+                            correct = " (x)";
+                        }
+                        
+                        console.log("      " + possible + correct);
+                    }
+                }
+                //end of quiz
+                console.log("");
+            }
+        }
+        
+	</script>
+	</body>
+</html>
