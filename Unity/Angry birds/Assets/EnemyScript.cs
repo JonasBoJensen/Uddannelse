@@ -7,13 +7,10 @@ public class EnemyScript : MonoBehaviour {
 
     public GameObject deathEffect;
     public GameObject canvasObject;
-
     public AudioSource tango;
-
-    public string MainMenu;
-
+    public string NextLevel;
     public float Health = 4f;
-    
+    public static int score = 0;
     public static int EnemiesAlive = 0;
 
     private float timer = 4f;
@@ -34,12 +31,12 @@ public class EnemyScript : MonoBehaviour {
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         EnemiesAlive--;
-        
+        score += 50;
         if (EnemiesAlive <= 0)
         {
             tango.Play();
             canvasObject.SetActive(true);
-            StartCoroutine(ReturnToMainMenu());
+            StartCoroutine(PlayNextLevel());
             gameObject.transform.localScale = new Vector3(0f, 0f, 0f);
 
         } else{
@@ -48,9 +45,9 @@ public class EnemyScript : MonoBehaviour {
         
     }
 
-    IEnumerator ReturnToMainMenu()
+    IEnumerator PlayNextLevel()
     {
         yield return new WaitForSeconds(timer);
-        SceneManager.LoadScene(MainMenu);
+        SceneManager.LoadScene(NextLevel);
     }
 }

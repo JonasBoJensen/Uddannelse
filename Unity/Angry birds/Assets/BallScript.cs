@@ -10,9 +10,12 @@ public class BallScript : MonoBehaviour {
     public float releaseTime = 0.15f;
     public float nextBallTimer = 4f;
     public float maxDragDistance = 2f;
+    public float returnToMain = 5f;
     public GameObject nextBall;
     public AudioSource Attack;
+    public string MainMenu;
     
+
     private bool isPressed = false;
 
     
@@ -54,7 +57,17 @@ public class BallScript : MonoBehaviour {
         if (nextBall != null)
         {
             nextBall.SetActive(true);
+        } else
+        {
+            StartCoroutine(ReturnToMainMenu());
         } 
         
+    }
+
+    IEnumerator ReturnToMainMenu()
+    {
+        yield return new WaitForSeconds(returnToMain);
+        PlayerPrefs.SetFloat("Highscore", EnemyScript.score);
+        SceneManager.LoadScene(MainMenu);
     }
 }

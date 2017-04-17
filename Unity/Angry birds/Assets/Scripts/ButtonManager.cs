@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour {
     public string newGameLevel;
     public string MainMenu;
+    public string Main;
     public AudioSource Acknowledged;
 
     public float newGameTimer = 1f;
@@ -34,6 +35,7 @@ public class ButtonManager : MonoBehaviour {
     public void RestartBtn()
     {
         Enemy.EnemiesAlive = 0;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        EnemyScript.score = 0;
+        SceneManager.LoadScene(Main);
     }
 }
