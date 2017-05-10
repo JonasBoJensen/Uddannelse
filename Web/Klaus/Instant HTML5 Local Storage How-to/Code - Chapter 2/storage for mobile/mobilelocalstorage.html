@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile local storage demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+    <style>
+        #message { display: none; border-radius: 10px; padding: 10px; background-color: #ff0000; color: #fff; }
+        #storageDemoPage h2 { white-space: normal; }
+    </style>
+    <script type="text/javascript">
+        var localStorageKey = "demoStorageKey";
+        if (Modernizr.localstorage) {
+            showStoreValue();
+        } else {
+            $('#message').text("Unfortunately your browser doesn't support local storage").show();
+            $('#addToStorage').attr('disabled', 'disabled');
+        }
+        $('#addToStorage').click(function(e) {
+            localStorage.setItem(localStorageKey, $('#entry').val());
+            showStoreValue();
+            e.preventDefault();
+        });
+
+        function showStoreValue() {
+            var item = localStorage.getItem(localStorageKey);
+            if (item != null) {
+                $('.storeItem').text(item);
+            }
+        }
+    </script>
+</head>
+<body>
+<section data-role="page" id="storageDemoPage">
+    <section data-role="header">
+        <h2>jQuery Mobile local storage demo</h2>
+    </section>
+    <section data-role="content">
+        <p id="message"/>
+        <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">Enter text to store</li>
+            <li>
+                <input type="text" id="entry" name="entry" placeholder="Enter text to store"/>
+                <input type="button" id="addToStorage" value="Add to local storage"/>
+            </li>
+            <li data-role="list-divider">Item in store</li>
+            <li class="storeItem"/>
+        </ul>
+    </section>
+</section>
+</body>
+</html>

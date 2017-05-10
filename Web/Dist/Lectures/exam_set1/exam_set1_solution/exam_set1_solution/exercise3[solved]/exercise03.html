@@ -1,0 +1,38 @@
+<html>
+   <head>
+   <style>
+	.largeDiv {
+		width: 90%;
+		color: blue;
+	}
+	
+	.total {
+		color: green;
+	}
+   </style>
+   <script src="js/jquery-3.2.1.min.js"></script>
+   <script src="js/tripList.js"></script>
+   <script>
+		var tripToKathmandu = new TripList( 'My fantastic trip to Kathmandu (Nepal)' );
+		
+		$(function(){
+			// To do: your jQuery handlers go in here
+		});
+		
+		
+   </script>
+   </head>
+   <body>
+	   <h1>TripList</h1>
+	   <p>Create a list of items to bring in your trip to Kathmandu, Nepal.</p>
+	   <form>
+		<label for="newItem">Item to bring along</label> 
+		<input type="text" id="itemTextInput" name="newItem" placeholder="1 pair socks"><br>
+		
+		<input type="button" id="addItem" value="add the item"></input>
+		<input type="button" id="reset" value="changed my mind"></input>
+	   </form>
+	   <div id="mainArea" class="largeDiv"></div>
+	   <div class="total"></div>
+   </body>
+</html>

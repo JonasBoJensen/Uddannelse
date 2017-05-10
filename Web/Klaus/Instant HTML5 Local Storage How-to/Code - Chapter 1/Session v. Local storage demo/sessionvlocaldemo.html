@@ -1,0 +1,71 @@
+<!DOCType html>
+<html>
+<head>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.min.js"></script>
+  <style type="text/css">
+    #content { width: 400px; padding: 10px; margin-left: auto; margin-right: auto;
+      margin-top: 5%; border: 1px solid #c4c4c4; }
+  </style>
+  <script type="text/javascript">
+  function clickCounter()
+  {
+	if(typeof(Storage)!=="undefined") {
+	  if (sessionStorage.clickcount) {
+	    sessionStorage.clickcount=Number(sessionStorage.clickcount)+1;
+	  } else {
+	    sessionStorage.clickcount=1;
+	  }
+	  document.getElementById("result").innerHTML="You have clicked the button " + sessionStorage.clickcount + " time(s).";
+	} else {
+	  document.getElementById("result").innerHTML="Sorry, your browser does not support web storage...";
+	}
+  }
+
+  function storeItem() {
+    var item = $('#item').val();
+
+    var items = localStorage.getItem('myItems');
+    if (items != null) {
+      items = JSON.parse(items);
+    } else {
+      items = new Array();
+    }
+
+    items.push(item);
+    localStorage.setItem('myItems', JSON.stringify(items));
+    refresh();
+  }
+
+  function refresh() {
+    var items = localStorage.getItem('myItems');
+    var ul = $('ul');
+    ul.html('');
+    if (items != null) {
+	  items = JSON.parse(items);
+	  $(items).each(function (index, data) {
+		  ul.append('<li>' + data + '</li>');
+	  });
+    }
+  }
+
+  $(function () {
+    refresh();
+  });
+  </script>
+</head>
+<body>
+<div id="content">
+  <p><b>SessionStorage Demo:</b></p>
+  <p><button onclick="clickCounter()" type="button">Click me!</button></p>
+  <div id="result"></div>
+  <p>Click the button to see the counter increase.</p>
+  <hr>
+  <p><b>LocalStorage Demo:</b></p>
+  <p>Enter item:</p>
+  <input type="text" id='item' />
+  <input type='button' value='store' onclick='storeItem()' />
+  <br />
+  <ul></ul>
+</div>
+</body>
+</html>

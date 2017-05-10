@@ -1,0 +1,44 @@
+<html>
+<head>
+
+<style>
+.selected {
+  background-color: #ff0000;
+  color: #0000ff;
+}
+
+.verySelected {
+  background-color: #0000FF;
+  color: #FF0000;
+}
+
+</style>
+
+<script>
+// demonstrates: get 1 specific element by ID
+
+function init() {
+	console.log("Starting...");
+	
+	// see: https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById
+	var li = document.getElementById("theLastOne"); 
+	
+	console.log( li );
+	li.className = "verySelected";
+};
+
+
+
+</script>
+
+</head>
+
+<body onload="init();">
+	<p>Ciao</p>
+	<ul>
+		<li>a</li>
+		<li>b</li>
+		<li id="theLastOne">c</li>
+	</ul>
+</body>
+</html>

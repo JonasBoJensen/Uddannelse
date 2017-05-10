@@ -1,0 +1,29 @@
+<html>
+<body>
+<h1>Use assertions to enforce correct parameters in functions</h1>
+
+<script>
+
+function f(n,a){
+	// n must be an integer number
+	console.assert( (typeof(n)=="number") && 
+	                (n.toString().indexOf('.')==-1) , "the first parameter should be an int");
+	// a must be a string containing at least 1 character
+	console.assert( (typeof(a)=="string") && 
+	                (a.length>0) , "the second parameter should be a string with at least 1 character");
+
+	console.log( "the text starts with ["+ a[0] +"]");
+	for (var i=1;i<=n;i++){
+		console.log( "printing "+ a +" "+i+"/"+n);
+	}
+}
+
+f(5,"hello");
+/* Try the following: */
+f("banana",18.3);
+f(18.3,"banana");
+f(3,"");
+
+</script>
+
+</html>

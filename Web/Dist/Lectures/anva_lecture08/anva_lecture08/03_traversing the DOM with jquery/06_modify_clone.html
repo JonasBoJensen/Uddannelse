@@ -1,0 +1,32 @@
+<html>
+<head>
+
+<script src="jquery.js"></script>
+<script>
+	$(document).ready(function() {
+		
+		// desired effect: clone the first <p> and its contents,
+		//                 and place the clone before the <LI> that has "c" as text (the last LI)
+		
+		// this should work, but it doesn't... can you fix it?
+		$("p:contains('Ciao')").clone().insertBefore("li:contains('c')");
+		
+	});
+</script>
+
+</head>
+
+<body>
+	<p>Ciao, <br/>how are things <strong>today</strong>?</p>
+	<ul>
+		<li>a</li>
+		<li>sub list:
+			<ul>
+				<li>x</li>
+				<li>y</li>
+			</ul>
+		</li>
+		<li>c</li>
+	</ul>
+</body>
+</html>

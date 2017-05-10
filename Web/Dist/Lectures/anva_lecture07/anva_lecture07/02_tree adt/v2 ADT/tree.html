@@ -1,0 +1,44 @@
+<html>
+   <body>
+   <h1>Tree Abstract Data Type</h1>
+   <p>open the javascript console to see the results</p>
+   
+   <script src="treeADT.js"></script>
+   <script>   
+   
+	// takes a tree as input, and prints all the nodes in the tree
+	function printAllNodes(tree){
+		if (tree!=null){
+			var outputText = "'" + tree.value + "',children:";
+			outputText += "[";
+			for (var nodeIndex in tree.children){
+				outputText += printAllNodes(tree.children[nodeIndex]);
+			}
+			outputText += "]";
+			return outputText;
+		}
+		return "/"; // empty tree
+	}
+	
+	
+		
+	// define a tree
+	var root = new Node('root');
+	root.addChild(new Node('child 0'));
+	root.addChild(new Node('child 1'));
+
+	var children = root.getChildren();
+	for(var i = 0; i < children.length; i++) {
+		for(var j = 0; j < 5; j++) {
+			children[i].addChild(new Node('second level child ' + j));
+		}
+	}	
+	// test operations 
+	console.log( printAllNodes(root) );
+	children[0].removeChildren();
+	console.log( printAllNodes(root) );
+	console.log(root.getParentNode()); // -> null
+	console.log(children[1].getParentNode());
+   </script>
+   </body>
+</html>

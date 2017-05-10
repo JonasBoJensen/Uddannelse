@@ -1,0 +1,63 @@
+<html>
+<head>
+
+<script>
+
+window.addEventListener('load', function() {
+
+	// initial state of the game
+	var rabbitCouples = 1;
+	
+	var gameIsRunning = true;
+	
+	// the display that will show what happens
+	var status = document.getElementById('status');
+	status.innerHTML = 'You have '+rabbitCouples+' couples of rabbits';
+	
+	var reproduceBtn = document.getElementById('reproduce');
+	var nukeBtn = document.getElementById('nuke');
+	
+	// operation 1
+	reproduceBtn.addEventListener('click', function(){
+		rabbitCouples = rabbitCouples + Math.floor((Math.random() * 10) + 1);
+		status.innerHTML = 'PLOP...PLOP...PLOP... <br>';
+		status.innerHTML += 'You have '+rabbitCouples+' couples of rabbits';
+	});
+
+	// operation 2
+	nukeBtn.addEventListener('click', function(){
+		rabbitCouples = Math.floor(rabbitCouples/10);
+		status.innerHTML = ' &nbspBOOM<br>';
+		status.innerHTML += '&nbsp&nbsp(~~~)<br>';
+		status.innerHTML += '&nbsp&nbsp&nbsp&nbsp(~)<br>';
+		status.innerHTML += '&nbsp&nbsp&nbsp&nbsp(~)<br>';
+		status.innerHTML += 'You have '+rabbitCouples+' couples of rabbits';
+	});
+	
+});
+</script>
+
+<title>Rabbits game</title>
+</head>
+<body>
+	<h1>Rabbits game</h1>
+		
+	<p>
+	Rabbits... you can: <ul>
+	<li>let them reproduce</li>
+	<li>NUKE them</li>
+	</ul>
+
+	<b>What do you want to do?</b>
+	<br/>
+	<button type="button" id="reproduce">reproduce</button>	
+	<button type="button" id="nuke">nuke</button>
+	</p>
+
+	<hr/>	
+	<p><h2>Situation</h2>
+	<div id="status">...</div>
+	</p>
+	
+</body>
+</html>	

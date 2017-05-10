@@ -1,0 +1,56 @@
+<html>
+<body>
+<h1>Creator: Andrea Valente</h1>
+<script>
+var QUIZ_DATA = [
+  {"creator":"Andrea Valente",
+   "quiz":
+	{"template":"template123_by_DeveloperABC",
+	 "title":"do you know your multiplication tables?",
+	 "questions":["what is 3x5 ?","what is 0x2 ?","what is 7x7 ?"],
+	 "answers":[ [12,13,15],[2,0,1],[77,48,49] ],
+	 "rightAnswers": [15,0,49],
+	 "published": true,
+	 "topics": ["math"]
+	}
+   },
+  {"creator":"Bob",
+   "quiz":
+	{"template":"templateXYZ_by_DeveloperMMM	",
+	 "title":"Just testing?",
+	 "questions":["testing 123","is it true?"],
+	 "answers":[ [1,2,3],[true,false] ],
+	 "rightAnswers": [1,true],
+	 "published": true,
+	 "topics": ["science","programming","math"]
+	}
+   }
+];
+
+// create (part of) a table from the data
+var entry,quiz;
+var myTable = "<table style='border:1px solid black;'>";
+
+	// first row of the table
+	myTable += "<tr>";
+	entry = QUIZ_DATA[0];
+	myTable += "<td><b>creator:</b> "+ entry.creator + "</td>";
+	quiz = entry.quiz;
+	myTable += "<td><b>title:</b> "+quiz.title + "</td>";
+	myTable += "</tr>";	
+
+	// second row of the table
+	myTable += "<tr>";
+	entry = QUIZ_DATA[1];
+	myTable += "<td><b>creator:</b> "+ entry.creator + "</td>";
+	quiz = entry.quiz;
+	myTable += "<td><b>title:</b> "+quiz.title + "</td>";
+	myTable += "</tr>";	
+
+myTable += "</table>";
+
+// attaching the table to the DOM
+document.body.innerHTML += myTable; 
+</script>
+</body>
+</html>

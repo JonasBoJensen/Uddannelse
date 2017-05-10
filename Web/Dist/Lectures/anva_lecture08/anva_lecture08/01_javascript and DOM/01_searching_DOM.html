@@ -1,0 +1,59 @@
+<html>
+<head>
+
+<style>
+.selected {
+  background-color: #ff0000;
+  color: #0000ff;
+}
+
+.verySelected {
+  background-color: #0000FF;
+  color: #FF0000;
+}
+
+</style>
+
+<script>
+// demonstrates: get all elements with the same tag
+
+/*  // the same done with jQuery
+	$(document).ready(function() {
+	  $('li').addClass('selected');
+	  $('li').last().addClass('verySelected');
+	});
+*/
+
+
+function init() {
+	console.log("Starting...");
+	
+	// returns an array of elements
+	// see: https://developer.mozilla.org/en-US/docs/Web/API/Element.getElementsByTagName
+	var LIs = document.getElementsByTagName("li"); 
+	
+	// DEBUG console.log( LIs );
+	for (var i=0;i<LIs.length;i++){
+		console.log( LIs[i] );
+		LIs[i].className = "selected";
+	}
+
+	// last
+	LIs[LIs.length-1].className = "verySelected";
+};
+
+
+
+</script>
+
+</head>
+
+<body onload="init();">
+	<p>Ciao</p>
+	<ul>
+		<li>a</li>
+		<li>b</li>
+		<li>c</li>
+	</ul>
+</body>
+</html>

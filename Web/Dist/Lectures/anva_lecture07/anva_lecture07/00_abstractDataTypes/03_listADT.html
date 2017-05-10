@@ -1,0 +1,32 @@
+<html>
+<head>
+	<script src="listLibrary.js"></script>
+</head>
+<body>
+<h1>List ADT</h1>
+<p>Open javascript console to see the results.</p>
+
+<script>
+var List = exports.ListConstructor;
+
+
+var myList = new List();
+console.log( myList.print()  , myList.length() ); // -> empty list
+
+myList.prepend('A');
+console.log( myList.print()  , myList.length() ); // -> (A) 1
+
+myList.prepend('B');
+console.log( myList.print() , myList.length() ); // -> (B,A) 2
+
+myList.prepend('C');
+myList.prepend('D');
+console.log( myList.print()  , myList.length() ); // -> (D,C,B,A) 4
+
+console.log( myList.getHead() ); // -> D
+console.log( myList.getTail() );
+console.log( myList.getTail().print() , myList.getTail().length() ); // -> (C,B,A) 3
+
+</script>
+</body>
+</hmtl>

@@ -1,0 +1,34 @@
+<html>
+<body>
+<h1>Objects</h1>
+<table width="50%">
+<tr><th>Evaluates to</th><th>Indicates</th></tr>
+<tr><td>"number"	</td><td>Operand is a number</td></tr>
+<tr><td>"string"	</td><td>Operand is a string</td></tr>
+<tr><td>"boolean"	</td><td>Operand is a Boolean</td></tr>
+<tr><td>"object"	</td><td>Operand is an object</td></tr>
+<tr><td>null	</td><td>Operand is null.</td></tr>
+<tr><td>"undefined"	</td><td>Operand is not defined.</td></tr>
+</table>
+<p>Look at the javascript console to see the output.</p>
+
+<script>
+var n = 5;
+var b = true;
+var t = "abc";
+var a = [1,2,3];
+var o = {p: 10,q: "oOo"};
+
+console.log("n is of type " , typeof n);
+console.log("b is of type " , typeof b); 
+console.log("t is of type " , typeof t);
+console.log("a is of type " , typeof a); // array is just another kind of object
+console.log("o is of type " , typeof o); 
+
+// mysterious values O_o
+console.log("null is of type " , typeof null); 
+console.log("undefined is of type " , typeof undefined); 
+
+</script>
+</body>
+</html>

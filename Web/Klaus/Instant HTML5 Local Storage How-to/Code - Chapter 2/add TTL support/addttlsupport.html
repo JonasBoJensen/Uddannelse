@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Getting Started with HTML5 local storage</title>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="jstorage.js"></script>
+    <script type="text/javascript">
+    function save() {    
+        try {
+            $.jStorage.set("name", $("#name").val());
+            $.jStorage.set("age", $("#age").val());
+            $("#name").val("");
+            $("#age").val("");
+            $.jStorage.setTTL("name", 30000);
+        }
+        catch (e) {
+            if (e == QUOTA_EXCEEDED_ERR) {
+                console.log("Error: Local Storage limit exceeds.");
+            }
+            else {
+                console.log("Error: Saving to local storage.");
+            }
+        }
+    }
+
+    function get() {
+        console.log("Getting your data from local storage.");
+        $("#name").val($.jStorage.get("name"));
+        $("#age").val($.jStorage.get("age"));
+    }
+
+    function load() {
+        if (typeof(Storage) == "undefined" ) {
+            alert("Your browser does not support HTML5 localStorage. Try upgrading.");
+        }
+        else {
+            console.log("Both localStorage and sessionStorage support is there.");
+        }
+    }
+
+    function sComplexData() {
+        console.log("Saving complex data to local storage.");
+        var personObject = new Object();
+        personObject.name = $("#name").val();
+        personObject.age = $("#age").val();
+        $.jStorage.set("person", JSON.stringify(personObject));
+    }
+
+    function rComplexData() {
+        console.log("Restoring complex data from local storage.");
+        var personObject = JSON.parse($.jStorage.get("person"));
+        $("#name").val(personObject.name);
+        $("#age").val(personObject.age);
+    }    
+
+    function getTTLforName() {
+        var ttl = $.jStorage.getTTL("name");
+        $("#gTTL").html("TTL time for 'name' key, using simple store: " + ttl);
+    }
+    </script>
+    <link rel="stylesheet" type="text/css" href="addttlsupport.css">
+</head>
+<body onload="load()">
+<div id="myform">
+    <div id="results">
+        <b>Simple form with name and age:</b><p>
+        <div id="gTTL"></div>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td><input type="text" id="age">
+            </tr>
+        </table>
+        <p>   
+        <table>  
+            <tr>
+                <td><input type="button" class="button medium gray" id="add" value="Add to Storage" onclick="Javascript:save()"></td>
+                <td><input type="button" class="button medium gray" id="get" value="Get from Storage" onclick="Javascript:get()"></td>                
+                <td><input type="button" class="button medium gray" id="gTTL" value="Get TTL" onclick="Javascript:getTTLforName()"></td>  
+            </tr>
+            <tr>
+                <td><input type="button" class="button medium gray" id="saveC" value="Save complex data" onclick="Javascript:sComplexData()"></td>
+                <td><input type="button" class="button medium gray" id="restoreC" value="Restore complex data" onclick="Javascript:rComplexData()"></td> 
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

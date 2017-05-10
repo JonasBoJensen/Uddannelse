@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>Stack</title>
+  </head>
+  <body>
+  <h1>Stack</h1>
+	<p>Open the javascript console to see the results...</p>
+<script>
+
+	function Stack(){
+		this.stackData = new Array();
+		
+		this.pop = function(){
+			return this.stackData.pop();
+		};
+		
+		this.push = function(item){
+			this.stackData.push(item);
+		};
+		
+		this.toString = function(){
+			var text = "[";
+			for (var i=0;i<this.stackData.length;i++){
+				text += this.stackData[i]
+				if (i+1<this.stackData.length){
+					text += ",";
+				}
+			}
+			text += "]<<-- TOP";
+			return text;
+		};
+	}
+	
+	
+	
+	var myStack = new Stack();
+	console.log( "the stack is now: " + myStack.toString() );
+	myStack.push("A");
+	console.log( "the stack is now: " + myStack.toString() );	
+	myStack.push("B");
+	console.log( "the stack is now: " + myStack.toString() );
+	myStack.push("C");
+	console.log( "the stack is now: " + myStack.toString() );
+
+	console.log( "----------" );
+	
+	console.log( "removed top from the stack: " + myStack.pop() );
+	console.log( "the stack is now: " + myStack.toString() );
+	console.log( "removed top from the stack: " + myStack.pop() );
+	console.log( "the stack is now: " + myStack.toString() );
+	console.log( "removed top from the stack: " + myStack.pop() );
+	console.log( "the stack is now: " + myStack.toString() );
+	
+</script>
+
+  </body>
+</html>

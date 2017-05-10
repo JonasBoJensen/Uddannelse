@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Silvan - Odense</title>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function initialize() {
+            var myOptions = {
+                zoom: 13,
+                center: new google.maps.LatLng(55.401268, 10.387200),
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                streetViewControl: false
+            }
+            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+            var mapStyles = [{
+                "featureType": "road.arterial",
+                "stylers": [{
+                    "color": "#ffff04"
+                }]
+            }, {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [{
+                    "visibility": "on"
+                }, {
+                    "color": "#0000ff"
+                }]
+            }]
+
+            var styledMapType = new google.maps.StyledMapType(mapStyles);
+            map.mapTypes.set('customStyleID', styledMapType);
+            map.setMapTypeId('customStyleID');
+
+
+            var contentString = '<div style="width:90; height:60;"><img src = "img/silvan.png" /></div>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var silvanLogo = 'img/silvan.png';
+            var silvanIcon = 'img/tools.png';
+            var silvanIconRollOver = 'img/tools_rollover.png';
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(55.393860, 10.367619),
+                map: map,
+                icon: silvanIcon
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
+          
+            google.maps.event.addListener(marker, 'mouseover', function () {
+                this.setIcon(silvanIconRollOver);
+            });
+            google.maps.event.addListener(marker, 'mouseout', function () {
+                this.setIcon(silvanIcon);
+            });
+      
+            
+            var marker2 = new google.maps.Marker({
+                position: new google.maps.LatLng(55.379963, 10.422913),
+                map: map,
+                icon: silvanIcon
+            });
+            
+            google.maps.event.addListener(marker2, 'click', function() {
+                infowindow.open(map, marker2);
+            });            
+        
+            google.maps.event.addListener(marker2, 'mouseover', function () {
+                this.setIcon(silvanIconRollOver);
+            });
+            google.maps.event.addListener(marker2, 'mouseout', function () {
+                this.setIcon(silvanIcon);
+            });
+                   
+
+        }
+    </script>
+
+    <div id="map_canvas" style="width: 900px; height: 600px;"></div>
+
+    <script type="text/javascript">
+        initialize();
+    </script>
+</body>
+
+</html>

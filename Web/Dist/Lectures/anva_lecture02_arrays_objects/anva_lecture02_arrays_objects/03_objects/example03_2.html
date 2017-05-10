@@ -1,0 +1,28 @@
+<html>
+<body>
+<h1>Objects</h1>
+Look at the javascript console to see the output.
+
+    
+<script>
+/* for numbers it was:
+	var a = 10;
+	var b = a; // a copy of the value, not an alias!
+	a = a + 1;
+	console.log( a , b ); 
+*/
+var objectA = {value: 10};
+var objectB = objectA;  // copy OR reference to same "thing" in memory? ;)
+objectA.value = objectA.value + 1;
+console.log(objectA , objectB);
+
+// then, let's consider equivalence: when are 2 objects "the same"?
+var objectC = {value: 11};
+console.log("is objectA equal objectB?" , objectA == objectB);
+// -> true
+console.log("is objectA equal objectC?" , objectA == objectC);
+// -> false , even if they both have a property "value" set to 11
+
+</script>
+</body>
+</html>

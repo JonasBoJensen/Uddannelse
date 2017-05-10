@@ -1,0 +1,65 @@
+<html>
+   <head>
+      <style>
+         .questions {
+            color: blue;
+         }
+         
+         .question {
+            color: red;
+         }
+      </style>
+   </head>
+   <body>
+   <h1>Quiz creators</h1>
+   <p>Open the javascript console to see the results.</p>   
+      
+   <div id="quizzes"></div>
+   
+   <script>
+	function QuizCreator(theName,creatorAge){ 
+		this.name = theName;
+		this.age = creatorAge;
+		this.quizzes = [];
+		
+		/* Parameters should be:
+           -> title      is a string
+		   -> questions  is an array of strings 
+        */
+		this.addQuiz = function(quizName,question){
+			// TO DO
+            this.quizzes.push({quiz:quizName,que:question})
+		};
+		
+		this.toHTML = function(){
+			var str = "";
+			str += this.name + " " + this.age;
+            str += "<div class=\"questions\"> ";
+            
+            for (var i=0; i<this.quizzes.length; i++){
+                str += "Quiz Nr. "+ (1+i) + ": " +"<br/>" ;
+                str += this.quizzes[i].quiz + "<br/>" + "<span class='question'>"+ " " + this.quizzes[i].que.join('<br/>') + "</span>" + "<br/" + "<span><-----------------> </span>" + "<br/>"+ "<br/>";
+            }
+            str += "</div>";
+			return str;
+		};
+	}
+
+	// =========== main ==================
+    var quizzesDiv = document.getElementById('quizzes');
+      
+	var a = new QuizCreator("Andrea",44);
+	var b = new QuizCreator("Bob",25);
+	
+	a.addQuiz( "do you know your multiplication tables?", ["what is 3x5 ?","what is 0x2 ?","what is 7x7 ?"] );
+	a.addQuiz( "is your spirit free?", ["how does it feel to be a rain drop?","clouds are..."] );
+	b.addQuiz( "Just testing?", ["testing 123","is it true?"] );
+
+	quizzesDiv.innerHTML += '<ul>';
+	quizzesDiv.innerHTML += '<li>' + a.toHTML() + '</li>';
+	quizzesDiv.innerHTML += '<li>' + b.toHTML() + '</li>';
+	quizzesDiv.innerHTML += '</ul>';
+
+   </script>
+   </body>
+</html>

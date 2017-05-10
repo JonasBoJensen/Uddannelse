@@ -1,0 +1,39 @@
+1- 
+. Consider the the Quiz-R-us player page
+. What does the player need? See: Quiz_R_Us.docx for inspiration and data about what will be needed in the main page   for a player:
+  - perhaps a list of newly available quizzes
+  - personal high-scores and those of friends
+  - a history (of past quizzes) and/or a list of all unfinished quizzes
+  - ... 
+. Make 2 wireframes for the player page:
+  - first make a wireframe for the mobile version of the page (mobile-first)
+  - then make another for the laptop version of the same page
+. The result should be 2 wireframe sketches of how the page/site would look like on a mobile device and on a laptop
+
+
+2- 
+Take your 2 wireframe pages from exercise 1, and put each one into a grid layout.
+Find out column widths, in a 12 cols layout.
+The result should be a copy of your wireframe images, with 12 columns marked.
+
+
+3- 
+. Choose 1 type/style of menu for your player page
+  - Which kind? 
+  - How will it change from mobile to laptop?
+  - Discuss/explain and write down your decision and alternatives (in pairs)
+. Design it: just sketch the menu (implementation later)
+. Remember: mobile-first approach, but it should work also on laptop...
+
+
+4- 
+Finish up the exercises we did today in a coherent, ”usable” page: see folder task-playerPage\
+Decide about fonts and colors: 
+check out https://www.viget.com/articles/color-contrast for a nice intro to colors and combinations
+Implement your wireframe page:
+- use a 12 grid menu
+- implement it with foundation4 (see previous example) or bootstrap, you decide which one you’d like to use
+- implement your menu for the player page
+- images can be (1) found on google images or (2) faked with http://placehold.it/ 
+
+The result should be a working page, but with fake, static data about a player and his/her quizzes

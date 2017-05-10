@@ -1,0 +1,63 @@
+<html>
+   <head>
+   <style>
+	.largeDiv {
+		width: 90%;
+		color: blue;
+	}
+	
+	.total {
+		color: green;
+	}
+	
+	.average {
+		color: cyan;
+	}
+	
+   </style>
+   <script src="js/jquery-3.2.1.min.js"></script>
+   <script src="js/DieRoller.js"></script>
+   <script>
+		var myDieRoller = new DieRoller( 6 ); // 6 is the number of faces
+		
+		$(function(){
+			// To do: your jQuery handlers go in here
+            $('#rollBtn').on('click',function(){
+                $('.total').first().text(''); //Slet tidligere rolls
+                $('.average').first().text(''); // slet tidligere rolls
+                
+                var t= parseInt($('#itemTextInput').val()); // find hvor mange gange terningen skal kastes,
+                
+                myDieRoller.roll(t); // gør javascript på antal rolls
+                
+                $('#mainArea').text(myDieRoller.toString()); // print det hele i mainArea
+                
+            });
+            
+            $('#totalBtn').on('click',function(){
+                $('.total').first().text('Total = '+ myDieRoller.totalSum());
+            });
+            $('#averageBtn').on('click',function(){
+                $('.average').first().text('Average ='+ (myDieRoller.totalSum() / myDieRoller.results.length));
+            });
+		});
+		
+		
+   </script>
+   </head>
+   <body>
+	   <h1>Rolling dice page</h1>
+	   <p>Roll a die many times, and calculate the total and average result.</p>
+	   <form>
+		<label for="times">How many times do you want to roll the die?</label> 
+		<input type="text" id="itemTextInput" name="times" placeholder="10"><br>
+		
+		<input type="button" id="rollBtn" value="roll the die"></input>
+		<input type="button" id="averageBtn" value="compute average"></input>
+		<input type="button" id="totalBtn" value="compute total"></input>
+	   </form>
+	   <div id="mainArea" class="largeDiv"></div>
+	   <div class="total"></div>
+	   <div class="average"></div>
+   </body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<body>
+<h1>Test functions with separate "test suite"</h1>
+
+<script>
+
+function triple(n){
+   return n+n+n;
+}
+
+function tripleB(n){
+   return 2*n+1; // wrong!
+}
+
+function tripleC(n){
+   return Math.abs(2*n+n); // also wrong
+}
+
+// ======================= TESTING SUITE =====================================
+
+function test1(){
+	console.assert( triple(3)==9 , " 3 *3 == 9 ?");
+	console.assert( triple(10)==30 , " 10 *3 == 30 ?");
+}
+
+function test2(){
+	console.assert( tripleB(0)==0 , " 0 *3 == 0 ?");
+	console.assert( tripleB(3)==9 , " 3 *3 == 9 ?");
+	console.assert( tripleB(-1)==-3 , " -1 *3 == -3 ?");
+	console.assert( tripleB(10)==30 , " 10 *3 == 30 ?");
+}
+
+function test3(){
+	console.assert( tripleC(0)==0 , " 0 *3 == 0 ?");
+	console.assert( tripleC(-1)==-3 , " -1 *3 == -1 ?");
+}
+
+function testAll(){
+	test1();
+	test2();
+	test3();
+}
+
+testAll();
+
+</script>
+
+</html>

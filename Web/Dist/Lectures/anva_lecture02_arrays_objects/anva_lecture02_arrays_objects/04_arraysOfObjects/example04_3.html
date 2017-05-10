@@ -1,0 +1,41 @@
+<html>
+<body>
+<h1>Array of objects</h1>
+Look at the javascript console to see the output.
+
+<script>
+
+var arr = [];
+
+function addCar(producer,model) {
+	arr.push( 
+		{ producer: producer , model: model}
+	);
+}
+
+// *** main calculation *******************************************
+
+addCar("renault", "clio");
+addCar("renault", "twingo");
+addCar("citroen", "c3");
+		  
+		  
+//console.log( arr );
+
+console.log("All cars:");
+for (var entry in arr){
+	console.log( arr[entry] );
+}
+console.log("-----------------------------");
+
+// try typing citroen or fiat
+var whichProducer = prompt("Which car poducer?","renault");
+for (var entry in arr){
+	if (arr[entry].producer == whichProducer){
+		console.log( arr[entry] );
+	}
+}
+
+</script>
+</body>
+</html>

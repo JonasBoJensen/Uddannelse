@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../lib/easeljs-0.7.1.min.js"></script>
+</head>
+
+<body onload="init()">
+
+<canvas id="canvas" width="500" height="500"></canvas>
+
+</body>
+
+<script>
+    var stage;
+    function init() {
+        stage = new createjs.Stage(document.getElementById('canvas'));
+        bondEffect();
+        startGame();
+    }
+    function bondEffect() {
+        var front = new createjs.Shape(new createjs.Graphics().beginStroke('black').beginFill('black').drawRect(0,0,canvas.width,canvas.height));
+        
+        var text = new createjs.Text("Create.JS","80px Arial","#ff7700");
+            text.shadow = new createjs.Shadow('red',-5,5,10);
+            text.x = 80;
+            text.y = 200;
+        var mask = new createjs.Shape(new createjs.Graphics().drawCircle(0, 0, 70));
+        text.mask = mask;
+        stage.addChild(mask, front, text);
+        mask.addEventListener('tick', function (e) {
+            e.currentTarget.x = stage.mouseX;
+            e.currentTarget.y = stage.mouseY;
+        })
+    }
+    function startGame() {
+        createjs.Ticker.setFPS(60);
+        createjs.Ticker.addEventListener("tick", function (e) {
+            stage.update();
+        });
+    }
+</script>
+</html>

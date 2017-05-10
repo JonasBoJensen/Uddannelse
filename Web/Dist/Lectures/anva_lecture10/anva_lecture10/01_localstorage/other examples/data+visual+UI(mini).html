@@ -1,0 +1,76 @@
+<html>
+
+<style>
+.button {
+  padding:5px;
+  background-color: #dcdcdc;
+  border: 1px solid #666;
+  color:#000;
+  text-decoration:none;
+}
+
+.myTableStyle {
+    border: 1px solid black;
+}
+</style>
+
+<script src="jquery.js"></script>
+<script>
+
+	// === definition of ADT to hold app's data ===
+
+	function Data(){
+		this.value = 100;
+
+		this.visualize = function(){
+			var $visual = $("#visualization");
+			
+			var stars = "";
+			for (var i=0;i<this.value;i++){
+				if (i % 10 == 0){
+					stars += ".";
+				} else stars += "x";
+			}
+			
+			$visual.text("value is " + this.value)
+				.append( "<p>"+stars+"</p>" );
+		};
+		
+		this.add = function(n){
+			this.value += n;
+			this.visualize();
+		};
+		
+		this.visualize();
+	}
+
+	
+	
+	$(document).ready(function() {
+	
+		// === initialization of data =================
+		var myData = new Data();
+		myData.visualize();
+		
+		// === setup UI ===============================
+		$( "#plus" ).addClass("button").click(function() {
+			myData.add( +1 );
+		});
+
+		$( "#minus" ).addClass("button").click(function() {
+			myData.add( -1 );
+		});
+		
+	});
+</script>
+
+<body>
+<h1>Data + Visual + UI (mini-example)</h1>
+
+<p id="plus">[+1]</p>
+<p id="minus">[-1]</p>
+
+<p id="visualization"></p>
+
+</body>
+</html>

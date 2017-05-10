@@ -1,0 +1,46 @@
+<html>
+<body>
+<h1>Object creation and functions</h1>
+Look at the javascript console to see the output.
+
+<script>
+
+// data: a banana has a color and a price
+var obj1 =  {color: "yellow", price: 10};
+	obj1.price += 5;
+var obj2 = {color: "yellow", price: 10};
+	obj2.color = "dark yellow";
+
+// a function that receives an object as parameter and prints its description on console.log
+function print(aBanana){
+	console.log( "{A banana");
+	console.log( "color is: " , aBanana.color);
+    console.log( "price is: " , aBanana.price);
+	console.log( "}");
+}
+
+print(obj1); // should have a price of 15
+print(obj2); // should have a price of 10
+
+// pass an object to a function, that can change its properties
+function colorBlue(aBanana){
+	aBanana.color = "blue";
+	console.log( "...coloring a banana BLUE..." );
+} // how is it possible to change the value of a parameter inside this function? -> mutability!
+
+// another function that operates on bananas
+function increasePrice(aBanana,deltaPrice){
+	aBanana.price += deltaPrice;
+	console.log( "...price of the banana has been increased..." );
+}
+
+console.log("Now changing color to first banana");
+colorBlue( obj1 );
+print(obj1); print(obj2);
+console.log("Now changing price to second banana");
+increasePrice( obj2 , 100 );
+print(obj1); print(obj2);
+
+</script>
+</body>
+</html>

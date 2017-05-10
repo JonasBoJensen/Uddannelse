@@ -1,0 +1,36 @@
+<html>
+<body>
+<h1>Use console.assert</h1>
+<p>Example: <b>testing the state of an object</b>.
+<br/>Cutting a banana in half.
+</p>
+
+<script>
+function Banana(){
+	this.weight = 50; // in grams
+	
+	this.cutHalf = function(){
+		// Correct implementation: this.weight = this.weight / 2;
+		
+		// wrong implementation:
+		this.weight = this.weight - 1;
+	};
+	
+	this.toString = function(){
+		return "A banana, gr. " + this.weight;
+
+	};
+};
+
+// ============ now testing ==============================================
+
+var b1 = new Banana();
+
+console.assert( b1.weight == 50 , "the banana should weight 50gr here! :(");
+
+console.log("Now cut the banana in half.");
+b1.cutHalf();
+console.assert( b1.weight == 25 , "the banana should weight 25gr here! :(");
+</script>
+
+</html>

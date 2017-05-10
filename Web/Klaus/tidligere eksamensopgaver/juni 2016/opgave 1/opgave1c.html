@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="../lib/easeljs-0.7.1.min.js"></script>
+</head>
+
+<body onload="init()" style="margin: 20px">
+
+    <canvas id="canvas" width="578" height="200"></canvas>
+
+</body>
+
+<script>
+    var stage;
+    var colorArray = ['black', 'yellow', 'blue', 'green'];
+
+    function init() {
+        stage = new createjs.Stage(document.getElementById('canvas'));
+        createjs.Ticker.addEventListener("tick", handleTick);
+        createjs.Ticker.setFPS(60);
+        start();
+    }
+
+    function handleTick(e) {
+        stage.update();
+    }
+
+    function start() {
+        var g = new createjs.Graphics().beginStroke('#FF2A2A').beginFill('#FF2A2A').drawRoundRect(0, 0, 578, 200, 10);
+        var square = new createjs.Shape(g);
+        square.x = square.y = 0;
+        stage.addChild(square);
+
+        for (var i = 0; i < 20; i++) {
+            var colorIndex = Math.round(Math.random() * (colorArray.length - 1));
+            var deltaX = Math.random() * canvas.width;
+            var deltaY = Math.random() * canvas.height;
+            var text = new createjs.Text("Hello Create.js", "30px Calibri", colorArray[colorIndex]);
+
+            text.textBaseline = "middle";
+            text.textAlign = "center";
+            text.x = deltaX;
+            text.y = deltaY;
+
+            stage.addChild(text);
+        }
+    }
+</script>
+
+</html>

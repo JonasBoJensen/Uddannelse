@@ -1,0 +1,57 @@
+<html>
+   <body>
+   <h1>Serching in a Tree</h1>
+   <p>Open javascript console to see the results...</p>
+   
+   <script src="treeADT.js"></script>
+   <script>   
+	var root = new Node("html");
+	var body = new Node("body");
+		root.addChild( body );
+			body.addChild( new Node("p") );
+			body.getChildren()[0].addChild( new Node("text'Ciao'") );
+			var ul = new Node("ul");
+			body.addChild( ul );
+				ul.addChild( new Node("li") );
+					ul.getChildren()[0].addChild( new Node("text'a'") );
+				ul.addChild( new Node("li") );
+					ul.getChildren()[1].addChild( new Node("text'b'") );
+				ul.addChild( new Node("li") );
+					ul.getChildren()[2].addChild( new Node("text'c'") );
+	
+	console.log("==== printing the root of the tree =====");
+	console.log(root);
+
+	
+	function findNode(aNode,valueToFind) {
+		if ((aNode==undefined) || (aNode==null)){ // base case
+			return null; // not found
+
+		} else {          // recursive step
+			// DEBUG console.log("-->"+(aNode.value==valueToFind));
+			if (aNode.value==valueToFind){ 
+				return aNode;
+			}
+			
+			// multiple recursive calls
+			for (var nodeIndex in aNode.getChildren()){
+				var found = findNode( aNode.getChildren()[nodeIndex], valueToFind);
+				if (found!=null){
+					return found;
+				}
+			}
+			return null;
+		}
+    }
+	
+	console.log("==== searching for elements in the tree =====");
+	console.log( "is there a node with value = 'body' ?" );
+	console.log( findNode(root,"body") ); // -> Node {value: "body", children: Array[2], parent: Node}
+	console.log( "is there a node with value = 'banana' ?" );
+	console.log( findNode(root,"banana") ); // -> null
+	console.log( "is there a node with value = 'li' ?" );
+	console.log( findNode(root,"li") ); // -> Node {value: "li", children: Array[1], parent: Node}
+	// why the output is only 1 node, and not all 3 <li> nodes we have in the tree?
+   </script>
+   </body>
+</html>

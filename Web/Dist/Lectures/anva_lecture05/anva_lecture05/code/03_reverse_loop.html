@@ -1,0 +1,46 @@
+<html>
+<body>
+<p>Open javascript console to see the results.</p>
+<script>
+/*
+function reverseLoop(text) {
+	var reversedText = "";
+	for (var i=text.length-1;i>=0;i--){
+		reversedText += text.charAt(i);
+	}
+	console.log( reversedText );
+}
+
+console.log( reverseLoop("Andrea") );
+// -> aerdnA
+*/
+
+// recursive version
+function reverseRec(text) {
+	// TO DO
+	// Hint: the empty string "" is already its own reverse, and
+	//       to reverse a string you can print the last character and then reverse the rest,
+	//       so: to reverse of "abc", print "c" and reverse "ab" ...
+	if (text==""){
+		// nothing to do here
+	} else {
+		if (text.length==1){
+			console.log( text );
+		} else {
+			var last = text.charAt(text.length-1);
+			var rest = text.substring(0,text.length-1);
+			console.log(last);
+			//console.log("recursion on ", rest);
+			reverseRec(rest);
+		}
+	}
+	
+}
+reverseRec("a");
+reverseRec("abc");
+reverseRec("Andrea");
+// -> aerdnA
+
+</script>
+</body>
+</hmtl>

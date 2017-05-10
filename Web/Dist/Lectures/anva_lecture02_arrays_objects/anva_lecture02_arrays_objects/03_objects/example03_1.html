@@ -1,0 +1,32 @@
+<html>
+<body>
+<h1>Objects</h1>
+Look at the javascript console to see the output.
+
+<script>
+
+// Declarations and printing
+var book = { topic: "Eloquent Javascript", fat: true };
+console.log( book.topic );  // or book[”topic”] 
+book.author = "Marijn Haverbeke";   // create new property
+console.log( book.author );
+
+// Reading a property that doesn’t exist will produce the value undefined
+console.log( book.price );
+
+// example: quoted properties
+book["ISBN code"] = "12345ABC";
+console.log( book["ISBN code"] ); // could I write   book.ISBN code  ?? 
+
+
+var book2 = { topic: "Discworld", fat: false , author:  "Terry Pratchett" };
+console.log( book , " & " , book2 );
+// remove a property
+delete book.author;
+console.log( book , " & " , book2 );
+console.log("author" in book); // is there a property called "author"?
+console.log("author" in book2); // is there a property called "author"?
+
+</script>
+</body>
+</html>

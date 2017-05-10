@@ -1,0 +1,145 @@
+<html>
+  <head>
+    <title>jQuery News</title>
+	<style>
+	.alt {
+		background-color: #FF0000;
+	}
+	</style>
+	
+    <script src="jquery.js"></script>
+	
+	<script>
+	(function($) {
+		$.extend($.expr[':'], {
+			group: function(element, index, matches, set) {
+				var num = parseInt(matches[3], 10);
+				if (isNaN(num)) {
+					return false;
+				}
+				return index % (num * 2) <num;
+			}
+		});
+	})(jQuery);
+	</script>
+	
+	<script>
+		$(document).ready(function() {
+// *******************************************************************		
+			$('tr').filter( ':group(2)' ).addClass('alt');
+// *******************************************************************
+		});
+	</script>
+  </head>
+  <body>
+  <h1>jQuery News</h1>
+
+  <table>
+	<tbody>
+	  <tr>
+		<td>Dec 27</td>
+		<td>The Path to 1.1</td>
+		<td>John Resig</td>
+		<td>Miscellaneous</td>
+	  </tr>
+	  <tr>
+		<td>Dec 18</td>
+		<td>Meet The People Behind jQuery</td>
+		<td>John Resig</td>
+		<td>Community</td>
+	  </tr>
+	  <tr>
+		<td>Dec 13</td>
+		<td>Helping you understand jQuery</td>
+		<td>John Resig</td>
+		<td>Documentation</td>
+	  </tr>
+	  <tr>
+		<td>Dec 12</td>
+		<td>jQuery 1.0.4</td>
+		<td>John Resig</td>
+		<td>Releases</td>
+	  </tr>
+	  <tr>
+		<td>Dec 12</td>
+		<td>jQuery v1.0.3 API docs on gotAPI.com</td>
+		<td>Rey Bango</td>
+		<td>Documentation</td>
+	  </tr>
+	  <tr>
+		<td>Dec 12</td>
+		<td>jQuery Presentation in Phoenix</td>
+		<td>Rey Bango</td>
+		<td>Conferences</td>
+	  </tr>
+	  <tr>
+		<td>Nov 28</td>
+		<td>jQuery at AZPhp</td>
+		<td>Rey Bango</td>
+		<td>Conferences</td>
+	  </tr>
+	  <tr>
+		<td>Nov 14</td>
+		<td>Expandable Sidebar Menu Screencast</td>
+		<td>John Resig</td>
+		<td>Documentation</td>
+	  </tr>
+	  <tr>
+		<td>Oct 27</td>
+		<td>jQuery 1.0.3</td>
+		<td>John Resig</td>
+		<td>Releases</td>
+	  </tr>
+	  <tr>
+		<td>Oct 26</td>
+		<td>jQuery Button Contest</td>
+		<td>Rey Bango</td>
+		<td>Miscellaneous</td>
+	  </tr>
+	  <tr>
+		<td>Oct 25</td>
+		<td>Friends of Firefox: Mozilla Utilizes jQuery</td>
+		<td>Will Jessup</td>
+		<td>Miscellaneous</td>
+	  </tr>
+	  <tr>
+		<td>Oct 18</td>
+		<td>Zebra Table Showdown</td>
+		<td>John Resig</td>
+		<td>Documentation</td>
+	  </tr>
+	  <tr>
+		<td>Oct 13</td>
+		<td>Minor API Change in 1.0.2</td>
+		<td>John Resig</td>
+		<td>Releases</td>
+	  </tr>	
+	  <tr>
+		<td>Dec 17</td>
+		<td>JSON and RSS</td>
+		<td>John Resig</td>
+		<td>Documentation</td>
+	  </tr>
+	  <tr>
+		<td>Dec 14</td>
+		<td>Google Homepage API</td>
+		<td>John Resig</td>
+		<td>Miscellaneous</td>
+	  </tr>
+	  <tr>
+		<td>Dec 13</td>
+		<td>XPath and CSS Selectors</td>
+		<td>John Resig</td>
+		<td>Miscellaneous</td>
+	  </tr>
+	  <tr>
+		<td>Dec 12</td>
+		<td>Sparklines with JavaScript and Canvas</td>
+		<td>John Resig</td>
+		<td>Miscellaneous</td>
+	  </tr>
+	</tbody>
+  </table>
+
+  </body>
+</html>

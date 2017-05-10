@@ -1,0 +1,44 @@
+<html>
+<body>
+<p>Compute exponential function</p>
+
+<div>
+Base: <input type="number" id="theBase"><br>
+Exponent: <input type="number" id="theExp"><br>
+<button type="button" id="theButton">compute result</button>
+<div id="theResult"></div>
+</div>
+
+<script>
+
+// power(4, 3) -> 64
+function power(base, exponent) {
+  var result = 1;
+  for (var count = 0; count < exponent; count++)
+    result *= base;
+  return result;
+}
+
+
+
+// ********************************************************
+
+var btn = document.getElementById("theButton");
+btn.addEventListener("click", function(){
+	var b = parseFloat( document.getElementById("theBase").value );
+	var e = parseInt( document.getElementById("theExp").value );
+	
+	/* // DEBUG
+	console.log( typeof b );
+	console.log( typeof e );
+	*/
+	
+	var res = power(b,e);
+	
+	var result = document.getElementById("theResult");
+	result.innerHTML = "the result is " + res;
+});
+
+</script>
+</body>
+</hmtl>

@@ -1,0 +1,40 @@
+<html>
+<body>
+   <p>Open the javascript console to see the results</p>
+<script>
+
+/* 
+Write a program that prints a multiplication table for numbers up to 12
+
+1 2 3 4 5 6 7 8 9 10
+2 4 6 8 10 12 14 16 18 20
+...
+12 24 .. 144
+
+Consider printing spaces between some of the numbers to get a better alignment.
+*/
+   
+var max = 12;
+
+for (var j=1;j<=max;j++){
+   
+   // print a row
+   var st = '';
+   for (var i=1;i<=max;i++){
+      var value = i*j;
+      if (value>99){
+         st = st + ' ' + value;
+      } else if (value>9){
+         st = st + ' 0' + value;
+      } else {
+         st = st + ' 00' + value;
+      }
+
+   }
+   console.log( st );
+
+}
+
+</script>   
+</body>   
+</html>

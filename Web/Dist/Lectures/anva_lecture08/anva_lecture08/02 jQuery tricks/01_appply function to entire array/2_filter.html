@@ -1,0 +1,20 @@
+<html>
+   <body>
+   <h1>Filter elements out of an array, passing functions as parameters</h1>
+   <p>And still... no iteration :p</p>
+   
+   <script>
+   // see also: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+   
+	function isBigEnough(element) {
+		return element >= 10;
+	}
+	var numbers = [12, 5, 8, 130, 44];
+	var filtered = numbers.filter(isBigEnough); // filter is just another kind of map()
+
+	console.log( numbers );
+	console.log( "all elements greater or equal to 10 ->" ,filtered );
+	
+	</script>
+   </body>
+</html>

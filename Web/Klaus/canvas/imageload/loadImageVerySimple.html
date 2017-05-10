@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="878" height="200"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+        picture = new Image();
+  //      picture.onload = function() {context.drawImage(picture, 100, 30, 200, 137);};
+        picture.src = 'http://cdn.idigitaltimes.com/sites/idigitaltimes.com/files/2015/10/27/luke-skywalker-star-wars-force-awakens.jpg';
+       context.drawImage(picture, 100, 30, 200, 137);
+    </script>
+</body>
+
+</html>

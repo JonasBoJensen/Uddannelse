@@ -1,0 +1,35 @@
+<html>
+<body>
+<p>Open javascript console to see the results.</p>
+<script>
+
+// Parameters:  test  is a boolean value,  then  is a function
+// Meaning: the  then  function is executed only if the test if false
+function unless(test, then) {
+	if (!test) then();
+}
+
+// Parameters:  times  is a number,  body  is a function
+// Meaning: the  body  function is executed repeatedly, for  times  times
+function repeat(times, body) {
+	for (var i = 0; i < times; i++){ 
+		body(i);
+	}
+}
+
+
+
+
+// repeat for 3 times (n will be 0, then 1, ... until 5): 
+//     do not print "is even" unless n is divisible by 2
+repeat(6, function(n) {
+	unless( (n % 2)!=0 , function() {
+		console.log(n, "is even");
+	});
+});
+// -> 0 is even
+// -> 2 is even
+
+</script>
+</body>
+</hmtl>

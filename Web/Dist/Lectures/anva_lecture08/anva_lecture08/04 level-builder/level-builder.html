@@ -1,0 +1,104 @@
+<html>
+<head>
+   
+<style>
+   .level {
+      margin-left: 5px;
+      
+   }
+   .room {
+      margin-left: 15px;
+      padding: 5px;
+      border: 2px solid gray;
+   }
+   .chest,.book {
+      margin-left: 25px;
+   }
+   .map {
+      margin-left: 35px;
+   }
+   
+   #player {
+      color: darkcyan;
+   }
+</style>
+
+<script src="jquery.js"></script>
+<script>
+   function randInt(min,max){
+      return parseInt( Math.random()* (max+1 - min) ) + min;
+   }
+   /* to test:
+   var a = [0,0,0,0,0,0,0,0,0,0,0,0,0];
+   for (i=0;i<5000;i++){ 
+      a[ randInt(5,10) ]++ };
+   console.log(a);
+   console.assert(a[4]==0,'error!');
+   console.assert(a[5]!=0,'error!');
+   console.assert(a[10]!=0,'error!');
+   console.assert(a[11]==0,'error!');
+   */
+</script>
+   
+   
+<script>   
+   /* Problem definition:
+      In an RPG game, a level can contain from 5 to 10 rooms 
+      (use a random value to decide how many).
+      Each room can have inside: 
+         - a treasure chest -> 50% probability of having it
+         - a book -> 50% probability of having it
+      Each treasure chest can contain (or not, 50% probabilty):
+         - 100 gold coins
+      Each book can contain (or not, 50% probabilty for each item):
+         - a map of the entire level
+         - a golden bookmarker
+         
+      Using jQuery:
+      1) Write a program that generates a random level, using
+         nested DIVs to represent the rooms, chests, books ect.
+      2) When the user clicks the button, place the player in a room with a book;
+         If no room has a book, place him in the last room of the level
+		 Note: there is already a DIV with ID player. 
+		       You need to remove it and place it at the appropriate place, when the button is clicked.
+
+   */
+   
+	$(document).ready(function() {
+       
+        // FINISH THE CODE BELOW...
+        var roomNum = 0;
+		$('#level').empty();
+        $('#level').append(
+           $('<div>', {id:'room'+roomNum,class: 'room'}).text('room '+roomNum) 
+        );
+        roomNum += 1;
+        $('#level').append(
+           $('<div>', {id:'room'+roomNum,class: 'room'}).text('room '+roomNum) 
+        );
+       
+        if (randInt(0,100)>=50){
+            $('#room'+0).append( 
+               $('<div>', {class: 'chest'}).text('treasure chest')
+            );
+        }
+        
+       
+        // what to do when the button is clicked
+        $('#bnt').click(function(event){
+           console.log( 'button clicked' );
+           // place the player in a room with a book
+           // if no room has a book, place him in the last room of the level
+        });
+	});
+</script>
+
+</head>
+
+<body>
+	<p>An RPG game</p>
+    <div id="player">:)+<</div>
+    <div id="level">... your level goes here...</div>
+    <button id="bnt">Start</button>
+</body>
+</html>

@@ -1,0 +1,34 @@
+Exercise 2
+==========
+
+Work with a responsive, flex-grid. In the code I'm using Respond.js.
+The text in the example is taken from the book Postsingular by R. Rucker.
+
+
+1) Change the HTML page so that the paragraph with title 'From Chpt 2: "Nant Day"' 
+only occupies 2 columns, instead of 3 as it does now.
+
+2) Change again the HTML page. Add a new DIV with a picture of the cover of the book.
+The image should always occupy 1 column, at any resulution. 
+Place the cover image to the left of the section with title 'Source'.
+I provided the cover image in file: images/cover.jpg
+
+3) 
+In the css you can see that the breakpoints are:
+320px , 480px , 600px , 768px , 1024px , 1280px , 1400px
+
+In the CSS file you will see a comment like the following:
+
+/*
+FOLDING FLUID GRID
+
+< 767px			- 1-Column Fluid Grid
+
+768px - 1023px		- 2-Column Fluid Grid
+
+> 1024px		- 3-Column Fluid Grid
+
+Change widths as necessary
+*/
+
+Change the breakpoint, so that the 1-column is active only below 600px.

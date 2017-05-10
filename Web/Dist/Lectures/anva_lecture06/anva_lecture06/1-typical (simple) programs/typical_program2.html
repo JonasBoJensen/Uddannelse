@@ -1,0 +1,63 @@
+<html>
+<head>
+   <title>Rabbits Game</title>
+</head>
+<body>
+   
+<script>
+   
+/* A typical interactive program:
+   0- use some variables to represent a situation
+   1- present the situation to the user
+   2- ask user what to do -> eventually QUIT
+   3- change situation
+   4- go back to 1
+*/
+
+var rabbitCouples = 1;
+
+
+var user;
+user = parseInt( prompt(
+   '- Situation ---------------------\n'+
+   'You have ' + rabbitCouples + ' couples of rabbits\n'+
+   '---------------------------------\n'+
+   
+   'Type 1 to let them reproduce \n'+
+   'Type 2 to NUKE them \n' + 
+   'Type 0 to QUIT \n' + 
+   'What do you want to do? ') );
+
+while (user!=0){
+   if (user==1){
+      rabbitCouples = rabbitCouples + Math.floor(Math.random()*10+1);
+      alert('  PLOP...PLOP...PLOP... ');
+   } else if (user==2){
+      rabbitCouples = Math.floor(rabbitCouples/10);
+      alert('  BOOM  \n'+
+            ' (~~~) \n'+
+            '  (~) \n'+
+            '  (~) \n');
+   } else {
+      alert('ERROR: your input was wrong');
+   }
+   
+   user = parseInt( prompt(
+      '- Situation ---------------------\n'+
+      'You have ' + rabbitCouples + ' couples of rabbits\n'+
+      '---------------------------------\n'+
+
+      'Type 1 to let them reproduce \n'+
+      'Type 2 to NUKE them \n' + 
+      'Type 0 to QUIT \n' + 
+      'What do you want to do? ') );
+
+}
+alert('- Situation ---------------------\n'+
+      'You finished the game with ' + rabbitCouples + ' couples of rabbits\n'+
+      '---------------------------------\n'+ 
+      'Game Over');
+
+</script>   
+</body>   
+</html>

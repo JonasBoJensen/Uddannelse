@@ -1,0 +1,103 @@
+<html>
+<head>
+   
+<style>
+   .planet {
+      margin: 5px;
+      width: 200px;
+   }
+   .continent {
+      margin: 2px 0px 2px 15px;
+      padding: 5px;
+      background-color: #5a1e1e;
+      color: darkgray;
+   }
+   .ocean {
+      margin: 2px 0px 2px 15px;
+      background-color: blue;
+      color: white;
+   }
+   .aquaticLife {
+      margin-left: 25px;
+      background-color: #4ace4a;
+      color: black;
+   }
+   
+   .spaceship {
+      margin-left: 30px;
+      background-color: silver;
+      color: red;
+   }
+</style>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+   function randInt(min,max){
+      return parseInt( Math.random()* (max+1 - min) ) + min;
+   }
+</script>
+   
+   
+<script>   
+   /* Problem definition:
+      For a game, you need to generate a description of a solar system that has from 5 to 10 planets
+      (use a random value to decide how many).
+      Each planet can have: 
+         - and 0 to 5 continents (use a random value to decide how many)
+		 - an ocean (10% probability)
+	  Each ocean can have:
+		 - aquatic life (10% probability)
+         
+      Using jQuery:
+      1) Write a program that generates a random solar system, using
+         nested DIVs to represent the planets, continents, and oceans and aquatic life.
+      2) When the user clicks the button, create a new DIV representing a space ship (give it the class 'spaceship').
+         If there is at least a planet in your solar system that has aquatic life, put the spacesphip inside the DIV of
+		 that planet. 
+		 If in your current solar system there are no planets with aquatic life, then place your spaceship on the 3rd planet.
+   */
+   
+	$(function() {
+       
+        // FINISH THE CODE BELOW...
+		$('#solarSystem').empty();
+       
+        var planetIndex = 0;
+        $('#solarSystem').append(
+           $('<div>', {id:'planet'+planetIndex,class: 'planet'}).text('Planet '+planetIndex) 
+        );
+		
+        var k = randInt(0,5);
+        for (var i=0;i<k;i++){
+            $('#planet'+0).append( 
+               $('<div>', {class: 'continent'}).text('continent')
+            );
+        }
+
+        planetIndex = 1;
+        $('#solarSystem').append(
+           $('<div>', {id:'planet'+planetIndex,class: 'planet'}).text('Planet '+planetIndex) 
+        );
+
+        if (randInt(0,100)<=10){ // 10% probability
+            var $ocean = $('<div>', {class: 'ocean'}).text('a blue ocean');
+            $('#planet'+1).append( $ocean );
+           
+           // it should also be with 10% probability
+            $ocean.append(
+               $('<div>', {class: 'aquaticLife'}).text('plankton and algae')
+            );
+
+        }
+       
+	});
+</script>
+
+</head>
+
+<body>
+	<h1>A solar system</h1>
+    <div id="solarSystem">... your planets go here...</div>
+    <button id="bnt">land a spaceship</button>
+</body>
+</html>

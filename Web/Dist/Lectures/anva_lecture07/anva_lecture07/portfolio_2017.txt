@@ -1,0 +1,43 @@
+15:06 03/04/2017
+
+Tasks to deliver (before the exam)
+
+(CHECK: OK)
+I- 1 example of using a wireframe to design a mobile-first layout for the a page (like the task of lecture 3).
+The page should be responsive and adapt to at least small and large screens. The elements of the page should be arranged in a grid, and be sure to use a 12 cols layout.
+The page should also be implemented using one of the flexible grids plugins discussed in the responsive book.
+The page should have a responsive menu. Your design of the menu should follow one of the techniques discussed in the responsive book about responsive menu (the nav).
+Deliver: an image of 1 or more wireframes, your implementation of the page with flexible grid and responsive menu.
+
+(CHECK: OK)
+II- 1 example of reactive tables (similar to our task in lecture 4). 
+- 2 pages using 2 different ways to make a table "responsive". E.g. footable and horizontal overflow.
+The table should contain text and images, in both cases. 
+- All images used in the page should come from a single large image that works as a sprite-sheet; the CSS of your page should cut your "icons" from the large image and you can use DIV tags to display the icons in your table (like what we did with spritecow)
+Deliver: a page with a reactive table, one or more javascript files with the code and the libraries you need to make the table reactive, the large image, eventually an external CSS file.
+
+(CHECK: OK)
+III - 1 example of using javascript objects to model data (like in the task about functional-programming style in lecture 5), high-order functions and anonymous function, and functions used as constructors. 
+Your program should have an array of objects, with data about some problem. Using high-order functions (like map ) and callbacks, the program should calculate some statistical values (mean or totals) across a subset of all the available data. E.g. an array of objects representing people, compute average age of all females.
+Deliver: an html file containing a javascript program
+
+(CHECK: TO VERIFY FOR 2017)
+IV - 1 example of remembering data via local storage and json (like the example2_editor_v5.html in lecture 7).
+A page that acts as a quiz editor. It should be possible to: 
+- see a table with my data, as creator of quizzes. All the quizzes I currently   have created should be listed (none initially
+- have a button to add a new quiz. When the "add-quiz" button is clicked, 
+  some data are asked and then inserted in the table, including:
+	title, 
+ 	list of questions, 
+	list of possible answers per question, 
+	list of correct answers, 
+	and list of topics
+- next time I open the page the table should still remember all my data from previous time I opened it (persistence)
+
+
+(CHECK: TO VERIFY FOR 2017)
+V - 1 example of a page using jQuery AJAX deferred object (like we discussed in lecture 9, the task PlayQuiz with the animations).
+Modify your solution to PlayQuiz: 
+- instead of loading data from a local JSON file, get the JSON file from the server using AJAX. 
+- Be sure to set timeout and fail callback for the the jQuery AJAX.After the file is loaded, use the data in the JSON file in the same way as in task IV, to enable a player to play his/her quiz and see the result.
+- Test you solution with a local server  (like WAMP) and try to open the page from localhost after renaming the JSON file (so you can see the effect of an error).

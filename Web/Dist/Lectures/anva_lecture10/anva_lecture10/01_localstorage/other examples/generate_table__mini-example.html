@@ -1,0 +1,69 @@
+<html>
+
+<style>
+.button {
+  padding:5px;
+  background-color: #dcdcdc;
+  border: 1px solid #666;
+  color:#000;
+  text-decoration:none;
+}
+
+.myTableStyle {
+    border: 1px solid black;
+}
+    .color {
+        color:white;
+        background-color: blue;
+    }
+</style>
+
+<script src="jquery.js"></script>
+<script>
+
+	// === definition of ADT to hold app's data ===
+
+	function Data(){
+		this.books = [ {title:"Postsingular", descr:"by Rudy Rucker - free online!",price:0},
+		               {title:"Foundation", descr:"by Isaac Asimov (1951)",price:15},
+		             ];
+
+		this.generateTable = function(){
+			var $myBooksTable = $("#generated_book_table");
+			if ($myBooksTable){
+				$myBooksTable.remove();
+			}
+			
+			$myBooksTable = $("<table id='generated_book_table'></table>");
+			$myBooksTable.addClass("myTableStyle");
+			$("body").append($myBooksTable);
+			
+			$myBooksTable.append( $("<tr>"+
+					"<th>book title</th>"+
+					"<th>description</th>"+
+                    "<th>price</th>"+                
+					"</tr>") );
+
+			for (var i=0;i<this.books.length;i++){
+				$myBooksTable.append( $("<tr>"+
+									"<td class='color'>"+this.books[i].title+"</td>"+
+									"<td>"+this.books[i].descr+"</td>"+
+                                    "<td>"+this.books[i].price+"</td>"+    
+									"</tr>") );
+			}
+		};
+		
+	}	
+	
+	$(document).ready(function() {
+		var myData = new Data();
+		myData.generateTable();
+	});
+
+</script>
+
+<body>
+<h1>Generation of a table from javascript objects</h1>
+
+</body>
+</html>

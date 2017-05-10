@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<script>
+	window.onload = function() {	
+        var a = 10;
+        var o = {x:1.2,t:"text"};
+        var arr = [1,2,3,10];
+		console.log( a , JSON.stringify(a) );
+        console.log( o , JSON.stringify(o) );
+        console.log( arr , JSON.stringify(arr) );
+        
+        var temp = JSON.stringify(a);
+		console.log( JSON.parse( temp ) );
+
+        var temp = JSON.stringify(o);
+		console.log( JSON.parse( temp ) );
+
+        var temp = JSON.stringify(arr);
+		console.log( JSON.parse( temp ) );
+
+        /*
+        var f = function(a,b){return a+b;} 
+        console.log( f );
+        var temp = JSON.stringify( f );
+		console.log( temp ); 
+        */
+    };
+</script>
+
+<body>
+<h1>JSON: data 2 string... and back</h1>
+Open the javascript console to see the results.
+</body>
+</html>

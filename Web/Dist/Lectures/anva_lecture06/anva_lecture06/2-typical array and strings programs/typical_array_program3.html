@@ -1,0 +1,39 @@
+<html>
+<body>
+   <p>Open the javascript console to see the results</p>
+<script>
+
+/*
+A typical array program
+1- read input values and place them into an array
+2- modify all elements of the array, one by one, in a loop
+3- print results
+*/
+   
+   
+var arr = prompt( 'Type a list of numbers', '1,2,3,4,5' ).split(",");   
+for (var i=0;i<arr.length;i++){
+   arr[i] = parseInt(arr[i]);
+}
+console.log( ''+arr );
+
+
+// print the list reversed
+for (var index=arr.length;index>0;index--){
+   console.log(arr[index-1]);
+}
+console.log('The original list did not change => ' + arr );
+
+// reverse the list "in place"
+var temp;
+for (var index=0;index<arr.length/2;index++){
+   // swap one element with another
+   temp = arr[index];
+   arr[index] = arr[ arr.length-1 -index ];
+   arr[ arr.length-1 -index ] = temp;
+}
+console.log('The reversed list is now reversed => ' + arr );
+   
+</script>   
+</body>   
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled 1</title>
+<script type="text/javascript">
+// if localStorage is present, use that
+if (('localStorage' in window) && window.localStorage !== null) {
+  // easy object property API
+  localStorage.wishlist = '["Jaguar","Bugatti","Aston Martin"]';
+} else {
+  // without sessionStorage we'll have to use a far-future cookie
+  //   with document.cookie's awkward API :(
+  var date = new Date();
+  date.setTime(date.getTime()+(365*24*60*60*1000));
+  var expires = date.toGMTString();
+  var cookiestr = 'wishlist=["Jaguar","Bugatti","Aston Martin"];'+
+                  ' expires='+expires+'; path=/';
+  document.cookie = cookiestr;
+}
+</script>
+</head>
+<body>
+</body>
+</html>

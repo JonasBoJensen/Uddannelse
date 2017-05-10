@@ -1,0 +1,37 @@
+<html>
+<body>
+   <p>Open the javascript console to see the results</p>
+<script>
+
+/* 
+Write a program to find all pairs of integers whose sum is equal to a given number. 
+For example if input integer array is 
+   {0, 2, 6, 3, 9, 11}
+and given sum is 
+   9
+output should be both (0,9) and (6,3)
+*/
+
+function findAllPairs(arr,sumNumber){
+   // TO DO 
+   console.log('No idea... O_O');
+   
+   var result = [];
+   for (var i=0;i<arr.length;i++){
+      for (var j=0;j<arr.length;j++){
+         if (arr[i]+arr[j]==sumNumber)
+            result.push([ arr[i],arr[j] ]) ;
+      }      
+   }
+   console.log( result.join(' | ') );
+}   
+   
+var arr = [0, 2, 6, 3, 9, 11];
+var sumNumber = 9;
+console.log( ''+arr );
+   
+findAllPairs(arr,sumNumber);
+
+</script>   
+</body>   
+</html>

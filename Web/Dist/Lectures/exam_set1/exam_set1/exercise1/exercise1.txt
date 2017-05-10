@@ -1,0 +1,35 @@
+Exercise 1
+==========
+
+Look in the file book.html
+
+There is a constructor function for the Book data-type.
+In this program:
+- A book has a title and a number of pages. 
+- A book can provide its own description, with a toString method.
+
+What you have to do:
+1) Finish implementing the Book constructor, so that each Book object
+   actually has the right attributes.
+   To be sure that your job is done, when you are done the 
+   assertions in the file, in section:
+       // 1) testing the Book constructor
+   should pass correctly, without errors.
+   
+2) Finish implementing the toString function, so that it
+   returns a string describing the current book.
+   For example, a book with title 'Abc' and 567 pages, will be described as:
+      'Book "Abc" 567 pages'
+   To be sure that your job is done, when you are done the 
+   assertions in the file, in section:  
+      // 2) testing the toString method
+      
+3) Now you should create 3 book objects, and place them into an array.
+   To be sure that your job is done, when you are done the 
+   assertions in the file, in section:  
+      // 3) testing an array of books
+      
+4) Print the title for each book in the array. Use a for-loop.
+   To be sure that your job is done, when you are done the 
+   assertions in the file, in section:  
+      // 4) print the titles of all books in the array.

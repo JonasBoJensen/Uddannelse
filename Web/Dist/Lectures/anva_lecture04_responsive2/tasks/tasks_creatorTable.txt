@@ -1,0 +1,29 @@
+Task - Reactive Tables for Quizzes
+
+Work in pairs
+Given a table about the quizzes that a creator is currently working on (see folder tasks)
+Make the table ”responsive” 
+using 2 of the methods discussed before
+but first: decide which info are more important and how the table should look like when on small screens
+Test your solutions by resizing the browser window
+you should have at least 2 versions, 1 for small and 1 for large screens
+
+
+
+Task - icons in the table
+
+Work in pairs
+Use spriteCow to add icons to your table (task 1). For example an icon can show if a quiz is published or not, and there could be an icon to symbolize the topic of a quiz (out of a palette of a few possible topics)
+- use icons from http://www.freepik.com/free-icons/  to add icons to your table
+- use GIMP (for example) to compose all the icons you need in a single large image
+- then use spriteCow to find the coordinates for the CSS of each icon you want, from the large image
+test your table with icons, for small and large screens
+
+
+Task - require
+
+Start from the original code in task 1 (folder tasks)
+Rewrite it using requirejs
+- put the definition of data in a module
+- create a function that creates the table, that returns a string with the table definition, and takes the data as input parameter. Make a second module just for the function 
+- require both modules and use them in your main javascript module to create the table 

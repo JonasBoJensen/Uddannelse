@@ -1,0 +1,65 @@
+<html>
+   <body>
+   <h1>Person</h1>
+   <p>Definition: A person has a name, a height, a weight and some cash.
+      <br/>A person can provide his/her own description.
+      <br/>A person can buy something, and be left with less cash.
+      <br/>A person can withdraw money from the bank, and increase his/her cash.
+   </p>
+   
+   <script>
+   
+	// the CONSTRUCTOR of Person objects
+	//  n = name
+	//  h = height
+	//  w = weight
+	//  c = cash (in the wallet)
+    function Person(n,h,w,c){  
+        // attributes
+        this.name = n;
+		this.height = h;
+		this.weight = w;
+		this.cash = c;
+		
+        // operations
+		this.describe = function(){
+			var description = "";
+
+			description = "Person: " +
+							this.name + ";" +
+						  this.height + "cm," +
+						  this.weight + "kg," +
+						  "and in the wallet... " + this.cash + "$";
+
+			return description;
+		};
+        this.buy = function(productName,amount){
+           this.cash -= amount;
+        };
+        this.withdraw = function(amount){
+           this.cash += amount;           
+        };
+	}
+	
+	/* How should I use person objects??
+      A person can provide his/her own description.
+      A person can buy something, and be left with less cash.
+      A person can withdraw money from the bank, and increase his/her cash.
+    */
+	var person = new Person( "Andrea", 1.93 , 78, -50);   // here we call the constructor
+	console.log( person );
+	console.log( person.describe() ); // prints description of this person
+    console.log( person.buy('apple',10) ); // buying an apple for 10 kr
+    console.assert( person.cash == -60, 'Sorry, but you should have -60 after buying the apple');
+
+	var another = new Person( "Darth Vader", 2.02 , 120, 10000);
+	console.log( another );
+    console.assert( another.cash == 10000, 'Darth Vader must have at least 10000 kr in his bank account :(');
+	console.log( another.withdraw(500) );
+    console.assert( another.cash == 10500, 'Error... the withdraw operation does not work :/');
+      
+
+
+   </script>
+   </body>
+</html>

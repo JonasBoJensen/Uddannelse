@@ -1,0 +1,90 @@
+<html>
+   <body>
+   <h1>Traversing a Tree in various ways</h1>
+   <p>Open javascript console to see results.</p>
+   
+   <script src="treeADT.js"></script>
+   <script>   
+	var root = new Node("html");
+	var body = new Node("body");
+		root.addChild( body );
+			body.addChild( new Node("p") );
+//			body.getChildren()[0].addChild( new Node("text'Ciao'") ); // try decommenting this line...
+			var ul = new Node("ul");
+			body.addChild( ul );
+				ul.addChild( new Node("li") );
+					ul.getChildren()[0].addChild( new Node("text'a'") );
+				ul.addChild( new Node("li") );
+					ul.getChildren()[1].addChild( new Node("text'b'") );
+				ul.addChild( new Node("li") );
+					ul.getChildren()[2].addChild( new Node("text'c'") );
+	
+	console.log(root);
+
+// ************************************************************
+
+	function printPreOrder(aNode) {
+		if ((aNode==undefined) || (aNode==null)){ // base case
+			console.log("empty");
+		} else {          // recursive step
+			console.log("value:"+aNode.value);
+			for (var nodeIndex in aNode.getChildren()){
+				printPreOrder( aNode.getChildren()[nodeIndex] );
+			}			
+		}
+    }
+      
+    // Better implementation of pre-order printing: does not use console.log! More reusable!!
+	function printPreOrderBetter(aNode,tabs) {
+        if (tabs==undefined) tabs = '';
+       
+		if ((aNode==undefined) || (aNode==null)){ // base case
+			return "()";
+		} else {          // recursive step
+            var result = "(";
+			result += aNode.value + '\n';
+			for (var nodeIndex in aNode.getChildren()){
+				result += tabs+printPreOrderBetter( aNode.getChildren()[nodeIndex] , tabs+'--');
+			}
+            result += tabs+")\n";
+            return result;
+		}
+    }      
+
+	// very useful for trees with mathematical expressions
+	function printPostOrder(aNode) {
+		if ((aNode==undefined) || (aNode==null)){ // base case
+			console.log("empty");
+		} else {          // recursive step
+			for (var nodeIndex in aNode.getChildren()){
+				printPostOrder( aNode.getChildren()[nodeIndex] );
+			}			
+			console.log("value:"+aNode.value);
+		}
+    }
+	
+	function printLevelOrder(aNode) {
+		var queue = [aNode];
+		while (queue.length != 0) {
+			var node = queue.shift(); // pop an element from the queue		
+			
+			console.log("value:"+node.value);
+			for (var nodeIndex in node.getChildren()){
+				queue.push( node.getChildren()[nodeIndex] );
+			}
+		}
+    }	
+	
+// ************************************************************	
+	
+	// TEST: printPreOrder(null);
+	console.log("=============== pre order ========================");
+	  printPreOrder(root);      
+    // TRY THIS ONE TOO --->  console.log( printPreOrderBetter(root) );
+	console.log("=============== post order ========================");
+	printPostOrder(root);
+	console.log("=============== level order ========================");
+	printLevelOrder(root);
+   </script>
+   </body>
+</html>

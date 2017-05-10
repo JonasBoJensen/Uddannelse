@@ -1,0 +1,23 @@
+Exercise 4
+==========
+
+Look at the file: forestGenerator.html
+
+You need to generate a description of a forest that has from 3 to 8 trees (use a random value to decide how many).
+Each tree can have: 
+- a broken branch -> 30% probability of having it
+- and 0 to 6 leaves (use a random value to decide how many)
+
+Each broken branck can have (or not, 50% probabilty):
+- a leaf
+         
+Using jQuery:
+1) Write a program that generates a random forest, using
+   nested DIVs to represent the trees, broken branches, and leaves.
+
+2) When the user clicks the button, place the bird on the first tree in your forest 
+   (inside the DIV representing a tree) with a broken branch.
+   If in your current forest no trees have a broken brance, place the bird on the first tree.
+
+Note: there is already a DIV with ID bird. 
+      You need to remove it and place it at the appropriate place, when the button is clicked.

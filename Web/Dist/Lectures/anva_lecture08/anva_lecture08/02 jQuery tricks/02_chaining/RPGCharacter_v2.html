@@ -1,0 +1,105 @@
+<html>
+   <body>
+   <h1>RPGCharacter Abstract Data Type</h1>
+   <p>jQuery uses chaining, so to better understand how chaining can be implemented, 
+   here is an example, using javascript objects.</p>
+   <div id="outputDiv"></div>
+   
+   <script>
+    var outputDiv = document.getElementById("outputDiv");
+    function output(text,color,imgSrc){
+       if (color!=undefined){
+         text = '<span style="color:'+color+';">' +
+               text +
+               '</span>';
+       }
+       if (imgSrc!=undefined){
+          text += '<img src="'+ 
+                    imgSrc+
+                  '"></img>';
+       }
+       outputDiv.innerHTML += text+'<br/>';
+    }       
+
+	function RPGCharacter(){   // CONSTRUCTOR
+		this.xp = 0;    	// experience points
+		this.health = 100;  // health points
+		this.money = 0;
+		this.alive = true;
+		
+		this.eat = function(amountOfEnergy){
+			this.health += amountOfEnergy;
+			if (this.health>100){
+				this.health = 100;
+			}
+			
+			return this; // VERY IMPORTANT WHEN CHAINING!
+		};		
+
+		this.foundCoins = function(amountOfCoins){
+			this.money += amountOfCoins;
+
+			return this; // VERY IMPORTANT WHEN CHAINING!
+		};		
+
+		this.hitEnemy = function(){
+			// an integer random value from 1 to 10
+			var p = Math.floor((Math.random() * 10) + 1);
+			output("Enemy looses "+ p + " health points", 'green');
+			this.xp += p;
+
+			return this; // VERY IMPORTANT WHEN CHAINING!
+		};		
+		
+		this.getDamage = function(amountOfDamage){
+			this.health -= amountOfDamage;
+			output("ouch, lost "+amountOfDamage+" HPs!", 'red', 'ouch.png');
+			if (this.health<=0){
+				this.health = 0;
+				this.alive = false;
+			}
+			
+			return this; // VERY IMPORTANT WHEN CHAINING!
+		};		
+
+		this.printState = function(){
+			if (this.alive)
+				output("RPGCharacter, xp="+this.xp
+						+" hp="+this.health
+						+" money="+this.money);
+			else
+				output("RPGCharacter is dead ", 'purple', 'rip.png');
+			
+			return this; // VERY IMPORTANT WHEN CHAINING!
+		};	
+        
+        this.foundLevelUp = function(){
+            
+            if (this.xp >= 100){
+                this.health = 100;
+                console.log("Found a bonus!");
+            }
+            
+            return this;
+        };
+	}
+
+// =============== Here starts the use ====================	
+	
+	var warrior = new RPGCharacter( );   
+	warrior
+		.printState()
+		.eat(10)
+		.hitEnemy()
+		.getDamage(50)
+        .foundLevelUp()
+		.printState()
+		.eat(10)
+		.foundCoins(1500)
+		.printState()
+		.getDamage(1000)
+		.printState();
+
+	</script>
+   </body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+<body>
+<p>Open javascript console to see the results.</p>
+<script>
+
+// ***** an example of HOF ************************************
+// Parameters: array is an array, and action is a function
+function forEach(array, action) {
+	for (var i = 0; i < array.length; i++){
+		action(array[i]);
+	}
+}
+
+
+function print(t){
+	console.log( t ); 
+}
+forEach(["Wampeter", "Foma", "Granfalloon"], print);
+// -> Wampeter
+// -> Foma
+// -> Granfalloon
+
+
+
+// Anonymous Functions
+// ***** calling forEach with an anonymous functions *********
+var arr = [1,2,3,5,7,11,13,17,19];
+forEach(arr, function(n){  
+				// n iterates over each element of the array arr
+				var temp = n*10;
+				console.log( temp );
+				return temp; 
+			}
+		);
+
+		
+		
+
+		
+// ***** Another use of forEach ******************************
+// Notice how JavaScript's lexical scoping rules work to our advantage when using functions in this way:
+//   sum is declared outside the anonymous function that we pass to forEach, 
+//   but the anonymous function lives inside the environment of the outer one (the global scope), 
+//   hence it can use the variable sum.
+var numbers = [1, 2, 3, 4, 5];
+var sum = 0;
+forEach(numbers, function(number) {
+	sum += number;
+});
+console.log("sum of the array: ",sum);
+// -> 15
+
+
+
+		
+
+// NOTE: arrays in Javascript have a forEach method	already
+["a", "b", "c"].forEach(function(element) {
+    console.log(element);
+});
+
+
+</script>
+</body>
+</hmtl>

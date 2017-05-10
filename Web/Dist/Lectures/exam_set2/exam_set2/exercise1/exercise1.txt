@@ -1,0 +1,42 @@
+Exercise 1
+==========
+
+Look in the file pizza.html
+
+There is a constructor function for the Pizza data-type.
+In this program:
+- A pizza has a name, a price and it can be organic or not. 
+- A pizza can provide its own description, with a toString method.
+
+What you have to do:
+1) Finish implementing the Pizza  constructor, so that each Pizza object
+   actually has the right attributes.
+   To be sure that your job is done, when you are done the assertions in the file, in section:
+       // 1) testing the Pizza constructor
+   should pass correctly, without errors.
+   
+2) Finish implementing the toString function, so that it
+   returns a string describing the current pizza.
+   For example, a pizza with name 'Abc' and price 123, and organic, will be described as:
+      'Pizza *Abc*, price 123kr, organic'
+   for non-organic pizza, like name 'Xyz' and price 666, and not organic, the description is:
+      'Pizza *Xyz*, price 666kr'
+   To be sure that your job is done, when you are done the assertions in the file, in section:  
+      // 2) testing the toString method
+   should pass correctly, without errors.
+      
+3) I created an array with 4 pizza, then I saved it in the localstorage.
+   You should load the array  aCloneOfTheTable  from localstorage, so it becomes a clone of 
+   the  tableOrder  array.
+   To be sure that your job is done, when you are done the assertions in the file, in section:  
+      // 3) testing an array of pizzas
+   should pass correctly, without errors.
+      
+4) Print the price of each pizza in the array. Use a for-loop.
+   To be sure that your job is done, when you are done the 
+   assertions in the file, in section:  
+      // 4) print the price of each pizza in the array
+   should pass correctly, without errors.
+
+The image finalScreenshot.png shows how the page should look like, when your have solved all 
+the above points.

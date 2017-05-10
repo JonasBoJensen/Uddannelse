@@ -1,0 +1,61 @@
+<html>
+   <body>
+   <h1>Books</h1>
+   <p>Definition: A book has a title and a number of pages.
+      <br/>A book can provide its own description, with a toString method.
+   </p>
+   <p>Open the javascript console to see the results of this program.</p>
+   
+   <script>
+
+      // the CONSTRUCTOR of Book objects
+      function Book(title,pages){
+          this.title = title;
+          this.pages = pages;
+         // attributes
+         // TO DO 
+        
+         // operations
+         // TO DO 
+
+         /* Returns a string describing the current book
+            For example, a book with title 'Abc' and 567 pages, will be described as:
+            'Book "Abc" 567 pages'
+         */
+         this.toString = function(){
+            // finish, so it prints title and pages
+            return 'Book "'  + b1.title + '" ' + b1.pages + ' pages' ;
+         }
+         
+      }
+
+      // 1) testing the Book constructor
+      var b1 = new Book('Animal Farm',122);
+      console.log( b1 );
+      console.log( b1.toString() );
+      
+      console.assert( b1.title == 'Animal Farm', 'your book has the wrong title :(');
+      console.assert( b1.pages == 122, 'your book has the wrong number of pages :(');
+      
+      // 2) testing the toString method
+      console.log( b1.toString());
+      console.assert( b1.toString()=='Book "Animal Farm" 122 pages', 
+                        'your toString function is not working properly :(');
+      
+      // 3) testing an array of books
+      var myBooks = [];
+      var book1 = new Book('Armada',349);
+      var book2 = new Book('Postsingular',320);
+      var book3 = new Book('The Long Earth',336);
+      myBooks.push(book1,book2,book3);
+      // add the 3 books to the array ... to do
+      console.assert( myBooks.length==3, 'where are the 3 books? not in the array it seems... :(');
+      
+      // 4) print the titles of all books in the array. 
+      // to do
+      for (i=0; i<myBooks.length; i++){
+          console.log(myBooks[i].title);
+      }
+   </script>
+   </body>
+</html>

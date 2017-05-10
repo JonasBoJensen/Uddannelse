@@ -1,0 +1,49 @@
+<html>
+<body>
+   <p>Open the javascript console to see the results</p>
+<script>
+
+/* 
+Write function that translates a text to Pig Latin and back. 
+English is translated to Pig Latin by:
+- taking the first letter of every word, 
+- moving it to the end of the word and adding ‘ay’. 
+
+"the quick brown fox" becomes "hetay uickqay rownbay oxfay".
+
+[hint]
+Start solving the problem for a single word: "andrea" -> "ndreaay"
+Then consider what happens with a string containing many words.
+*/
+   
+function pigLatin(text){
+   var result = [];
+   
+   var words = text.split(' ');   
+   for (var i=0;i<words.length;i++){
+      var word = words[i];
+      var first = word.charAt(0);
+      //console.log(first);
+      var rest = word.substr(1,word.length-1);
+      //console.log(rest);    
+      //console.log(rest + first + 'ay'); 
+      result.push( rest + first + 'ay' );
+   }
+   
+   return result.join(' ');
+}
+
+console.log( pigLatin('andrea') ); // -> ???   
+console.log( pigLatin('andrea eats an apple') ); // -> ???
+
+    
+/*    
+var a = 'andrea eats an apple'.split(' ');
+console.log( a );
+var b = a.join(' ... ');
+console.log( b );
+// prints: andrea ... eats ... an ... apple
+*/  
+</script>   
+</body>   
+</html>

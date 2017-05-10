@@ -1,0 +1,38 @@
+<html>
+<body>
+<h1>Arrays: methods</h1>
+Look at the javascript console to see the output.
+
+<script>
+
+var a = []; // Start with an empty array
+a.push("zero") // Add a value at the end. a = ["zero"]
+a.push("one", "two") // Add two more values. a = ["zero", "one", "two"]
+console.log("array a: " ,a.toString() );
+
+var x = a.pop(); // remove the last element of the array
+console.log("the last element in a was: " , x);
+console.log("array a: " , a.toString() );
+console.log("length of a: " , a.length );
+console.log("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+
+a[5] = "test";
+console.log("array at 3: " , a[3]);
+console.log("array a: " , a.toString() );
+console.log("length of a: " , a.length );
+console.log("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+
+a.push("three");
+a.push("four");
+console.log("the join method :" , a.join("->"));
+console.log("length of a: " , a.length );
+console.log("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+
+// Given a variable, determine if its value is an array or not
+var someArray = [];
+console.log( "\ntype of someArray? " , typeof(someArray) );
+console.log( "is someArray an array? " , Array.isArray(someArray) );
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<body>
+   <p>Open the javascript console to see the results</p>
+<script>
+
+/* 
+Find the missing number in integer array of 1 to 100
+
+You have given an integer array which contains numbers from 1 to 100 but one number is missing, 
+you need to write a javascript program to find that missing number in an array. 
+
+*/
+
+function allButOne(){
+   var arr = [];
+   for (var i=0;i<100;i++){
+       arr[i] = i+1;
+   }
+   var removeIndex = Math.floor(Math.random()*100);
+   arr.splice(removeIndex,1);
+   
+   // now: shuffle the numbers
+   arr.sort(function() {
+     return .5 - Math.random();
+   });
+   
+   return arr;
+}
+
+// find the single missing number in the array
+// TO DO 
+var myArray = allButOne();
+console.log(''+myArray);
+console.log(myArray.length);
+   
+// NOTE: 1+2+3+..+100 is 5050
+var sum = 0;
+for (var i=0;i<myArray.length;i++){
+   sum += myArray[i];
+}
+var missingValue = 5050-sum;
+console.log( 'missing value ' + missingValue );
+   
+console.log( 'is the missing value present in the array? ' + myArray.indexOf(missingValue)>-1 );
+
+</script>   
+</body>   
+</html>

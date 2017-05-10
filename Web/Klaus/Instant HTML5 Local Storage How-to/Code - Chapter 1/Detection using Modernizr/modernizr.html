@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta content="charset=utf-8">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+  <style type="text/css">
+    body { padding: 20px; font-family: Arial; font-size: 16px; }    
+    #localtxt { margin: 5px; }
+    #sessiontxt { margin: 5px; }
+    #details { border-radius: 4px; padding: 5px;}
+    .supportedtxt { background-image:url('tick.png'); background-repeat: no-repeat; padding-left: 25px; background-color: green; }
+    .notsupportedtxt { background-image:url('cross.png'); background-repeat: no-repeat; padding-left: 25px; background-color: red; }
+    #supportdlg { border-radius: 4px; border: 1px solid black; padding: 5px; width: 500px; color: #fff; font-weight: bold; }
+    .no-js #supportdlg { background-color: red; border: 1px solid black; }  /* No JavaScript Fallback for Modernizr */
+  </style>
+</head>
+</head>
+<body>
+  <div id="supportdlg">
+    <div id="details">
+      <div id="localtxt">LocalStorage is not supported or javascript is disabled</div>
+      <div id="sessiontxt">SessionStorage is not supported or javascript is disabled</div>
+    </div>
+  </div>
+  <script>
+    if(Modernizr.localstorage){
+      $('#localtxt').html("LocalStorage is supported");
+      $('#localtxt').removeClass().addClass("supportedtxt");
+      $('#details').css("background-color", "green");      
+    } else {
+      $('#localtxt').html("LocalStorage is not supported");
+      $('#localtxt').removeClass().addClass("notsupportedtxt");
+      $('#details').css("background-color", "red");
+    }
+
+    if(Modernizr.sessionstorage){
+      $('#sessiontxt').html("SessionStorage is suppported");
+      $('#sessiontxt').removeClass().addClass("supportedtxt");
+      $('#details').css("background-color", "green");      
+    } else {
+      $('#sessiontxt').html("SessionStorage is not suppported");
+      $('#sessiontxt').removeClass().addClass("notsupportedtxt");
+      $('#details').css("background-color", "red");      
+    }
+  </script>
+</body>
+</html>

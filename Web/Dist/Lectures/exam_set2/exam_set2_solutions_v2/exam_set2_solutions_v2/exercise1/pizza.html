@@ -1,0 +1,62 @@
+<html>
+   <body>
+   <h1>Pizzas</h1>
+   <p>Definition: A pizza has a name, a price and it can be organic or not.
+      <br/>A pizza can provide its own description, with a toString method.
+   </p>
+   <p>Open the javascript console to see the results of this program.</p>
+   
+   <script>
+
+      // the CONSTRUCTOR of pizza objects
+      function Pizza(name,price,organic){
+         // attributes
+         // TO DO 
+        
+         // operations
+         // TO DO 
+
+         /* Returns a string describing the current pizza */
+         this.toString = function(){
+            // finish, so it prints title and pages
+            return 'a pizza';
+         }
+      }
+
+      // 1) testing the Pizza constructor
+      var p = new Pizza('Margherita',50,true);
+      console.log( p );      
+      console.log( ''+p );
+      console.assert( p.price == 50, 'your pizza has the wrong price :(');
+      console.assert( p.name == 'Margherita', 'your pizza has the wrong name :(');
+      
+      // 2) testing the toString method
+      console.log( p.toString() );
+      console.assert( p.toString()=='Pizza *Margherita*, price 50kr, organic', 
+                        'your toString function is not working properly :(');
+       
+      var anotherPizza = new Pizza('Prosciutto',55,false);
+      console.log( anotherPizza.toString() );
+      console.assert( anotherPizza.toString()=='Pizza *Prosciutto*, price 55kr',
+                        'your toString function is not working properly :(');       
+      
+      // 3) testing an array of pizzas
+      var tableOrder = [ new Pizza('4 Stagioni',60,false), 
+						 new Pizza('Margherita',50,true),
+						 new Pizza('Prosciutto',55,false),
+						 new Pizza('Marinara',45,true) ];						 
+      // the entire array is saved in the localstorage						 
+	  localStorage.setItem('allMyPizzas', JSON.stringify(tableOrder));
+	  
+      var aCloneOfTheTable = null;
+	  // TO DO: load the array  aCloneOfTheTable  from localstorage, so it becomes a clone of the tableOrder array
+      console.log( aCloneOfTheTable	);	  
+      console.assert( aCloneOfTheTable.length==tableOrder.length, 'array was not loaded correctly from localstorage :(');
+      
+	  
+      // 4) print the price of each pizza in the array
+      // to do
+       
+   </script>
+   </body>
+</html>

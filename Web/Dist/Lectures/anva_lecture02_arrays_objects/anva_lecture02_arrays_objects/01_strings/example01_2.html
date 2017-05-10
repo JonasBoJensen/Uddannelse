@@ -1,0 +1,35 @@
+<html>
+	<body>
+	<p>Look at the javascript console</p>
+	<script>
+
+	var text = "abc";
+		var textB = text; // copy!
+		text = text + "def";
+		console.log( text , textB );
+		// -> abcdef   abc
+		
+		
+	/* When passing parameters to functions,
+	 * immutable types are also copied, so
+	 * it is useless to try and change the parameters inside a function,
+	 * because when the function returns, the original values will be unchanged.
+	 */
+	var attachX = function(someText){
+		someText = someText + "X";
+		console.log( "attachX : " , someText );
+	}
+	var attachX2 = function(txt){
+		txt = txt + "X";
+		console.log( "attachX2 : " , txt );
+		return txt;
+	}	
+	
+	var t = "andrea";
+	attachX(t);
+	console.log( "top : " , t ); // -> andrea
+
+	console.log( "top : " , attachX2(t) ); // -> andreaX
+	</script>
+	</body>
+</html>

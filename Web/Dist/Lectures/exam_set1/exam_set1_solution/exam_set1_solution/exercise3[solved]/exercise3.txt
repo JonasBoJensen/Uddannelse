@@ -1,0 +1,29 @@
+Exercise 3
+==========
+
+Look in the files:
+- exercise03.html
+- js/tripList.js
+
+The tripList.js file define a TripList data-type, that represents a list of
+things to bring to a trip.
+
+In the HTLM file you can see that an object of TripList type is created, using
+the constructor function.
+In the HTML page the trip is called 'My fantastic trip to Kathmandu (Nepal)'.
+
+In the HMTL page there is also a form, with text inputs and buttons.
+
+1) Using jQuery, write an event handler for the click event of the 'addItem' button
+so that when the button is clicked, the text in 'itemTextInput' is appended in the 'mainArea' DIV.
+Then clear the text in 'itemTextInput', so the user can input something else.
+NOTE: remember to add your items also to the TripList object, each time the 'addItem' button is clicked.
+
+2) Modify the handler you just wrote for the 'addItem' button, so that it also 
+writes the number of items currently in the list, in the last DIV of the page.
+
+3) Using jQuery, write an event handler for the click event of the 'reset' button
+so that when the button is clicked, all text in the 'mainArea' DIV is erased.
+After your clicked the 'reset' button, the user can input a new item: 
+the 'mainArea' will show only that last item, and the total number of items will be 1.
+

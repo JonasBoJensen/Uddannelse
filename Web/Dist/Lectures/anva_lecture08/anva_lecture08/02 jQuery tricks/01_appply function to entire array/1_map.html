@@ -1,0 +1,21 @@
+<html>
+   <body>
+   <h1>Apply a function to all elements of an array</h1>
+   <p>Easy, sure. But let's do it without iteration... </p>
+   <p>[JQuery works on collection of objects with single function calls, and here
+   is some ideas of how that can be achieved in plain javascript]</p>
+   <script>
+   // see also: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+   
+	var myFunction = function(n){
+		return 100 + n;
+	};
+   
+	var numbers = [1, 4, 9];
+	var roots = numbers.map(myFunction);
+	console.log( numbers );
+	console.log( roots );
+	
+	</script>
+   </body>
+</html>

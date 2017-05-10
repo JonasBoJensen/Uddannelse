@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        function storeItem() {
+            var item = $('#item').val();
+
+            var items = localStorage.getItem('myItems');
+            if (items != null) {
+                items = JSON.parse(items);
+            } else {
+                items = new Array();
+            }
+
+            items.push(item);
+
+            localStorage.setItem('myItems', JSON.stringify(items));
+
+            refresh();
+        }
+
+        function refresh() {
+            var items = localStorage.getItem('myItems');
+            var ul = $('ul');
+            ul.html('');
+            if (items != null) {
+                items = JSON.parse(items);
+                $(items).each(function (index, data) {
+                console.log("index: " + index + ", data: " + data);
+                    ul.append('<li>' + data + '</li>');
+                });
+            }
+        }
+        
+        $(function () { refresh(); });
+    </script>
+    Enter item:
+    <input type="text" id='item' />
+    <input type='button' value='store' onclick='storeItem()' />
+    <br />
+    <ul></ul>
+</body>
+</html>

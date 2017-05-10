@@ -1,0 +1,31 @@
+12:28 15/04/2017
+
+What we have covered so far:
+- javascript -> [ELO] book, chapters 1 to 6, (chapters 3 to 6 in more details)
+	- defining abstract data types in javascript, 
+          constructors, this, attributes and methods -> [ELO] chapter 6
+	- data structures in javascript: arrays, linked list (1), 
+	  use an array as a stack (push/pop), use an object as a table (key-value pairs)
+          -> ELO chpts 5,6
+ 	- trees -> [ELO] chpt 13
+	- sorting, filtering data from an array, using functions as parameters -> material from lecture 07
+	- callbacks AKA high-order functions, functions that take another function as parameter -> ELO chpt 5
+	- DOM API -> [jQuery] chapters ... , ELO] chpt 13, [W3Cschool_1]
+	- JSON, localstorage -> ...
+- create responsive pages, 12-grids, use plugins for tables, responsive menus -> [Responsive] book
+- jQuery 
+	- basic stuff -> [jQuery] chapters 1,2,3,5
+	- ...
+
+
+More refs:
+- Linked List examples: 
+	- http://www.i-programmer.info/programming/javascript/5328-javascript-data-structures-the-linked-list.html
+	- https://gist.github.com/wesleyhales/2023993
+
+- [Responsive] Book ...
+- [ELO] Eloquent javascript online book
+- [jQuery] book ...
+
+- [W3Cschool_1]
+  https://www.w3schools.com/js/js_htmldom_methods.asp

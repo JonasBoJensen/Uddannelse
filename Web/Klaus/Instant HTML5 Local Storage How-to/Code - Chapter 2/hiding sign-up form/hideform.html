@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hiding a sign-up form demo</title>
+
+    <link href="hideform.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="http://modernizr.com/downloads/modernizr-latest.js"></script>
+	<script type="text/javascript" src="hideform.js"></script>
+</head>
+<body>
+<section id="container">
+	<button id="hide-button">Hide</button>
+	<button id="show-button">Show</button>
+
+ 	<div id="sign-up-form">
+        <form>
+        	<h3>Enter your details to sign up to our newsletter:</h3>
+            <div class="input-prepend">
+                <span class="add-on">@</span><input name="email" type="email" placeholder="Enter your e-mail address">
+            </div>
+            <div class="input-prepend">
+                <span class="add-on">@</span><input name="emailconfirm" type="email" type="text" placeholder="Please re-enter it to confirm">
+            </div>
+            <input type="submit" value="Submit" name="subscribe" class="btn btn-small">
+        </form>
+	</div>
+</section>
+</body>
+</html>

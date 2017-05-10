@@ -1,0 +1,34 @@
+<html>
+<body>
+   <p>Open the javascript console to see the results</p>
+<script>
+
+/* 
+Find largest and smallest number in unsorted array.
+You could sort the array and then pick the top and bottom element. 
+Consider doing with and without sorting the array.
+*/
+
+var arr = [];
+for (var i=0;i<10;i++){
+   arr.push(  Math.floor( Math.random()*100 )  );
+}
+console.log( ''+arr );
+   
+// TO DO -> find largest and smallest number in the array
+var largest = -Infinity; // or , if arr has length at least 1, largest = arr[0];
+var smallest = Infinity; //                                    smallest = arr[0];
+for (var i=0;i<arr.length;i++){
+   if (arr[i]>largest){
+      largest = arr[i];
+   }
+   if (arr[i]<smallest){
+      smallest = arr[i];
+   }
+}
+   
+console.log('largest '+largest);
+console.log('smallest '+smallest);
+</script>   
+</body>   
+</html>

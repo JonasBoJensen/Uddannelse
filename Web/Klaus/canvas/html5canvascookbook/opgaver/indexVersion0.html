@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script>
+            window.onload = function(){
+				// get the canvas DOM element by its ID
+                var canvas = document.getElementById("myCanvas");
+				// declare a 2-d context using the getContext() method of the 
+				// canvas object
+                var context = canvas.getContext("2d");
+                
+				// set the line width to 10 pixels
+                context.lineWidth = 5;
+				// set the line color to blue
+                context.strokeStyle = "red";
+				// position the drawing cursor
+                context.moveTo(50, 200);
+				// draw the line
+                context.lineTo(550, 50);
+                context.lineTo(550, 200);
+                context.lineTo(50, 200);
+				// make the line visibile with the stroke color
+                context.stroke();
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="600" height="250" style="border:1px solid black;">
+        </canvas>
+    </body>
+</html>

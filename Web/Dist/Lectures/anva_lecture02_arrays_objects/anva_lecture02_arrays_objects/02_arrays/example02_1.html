@@ -1,0 +1,53 @@
+<html>
+<body>
+<h1>Arrays</h1>
+Look at the javascript console to see the output.
+
+<script>
+
+// Declarations
+var empty = []; // An array with no elements
+var primes = [2, 3, 5, 7, 11]; // An array with 5 numeric elements
+
+var magicNumber = 1024;
+var table = [magicNumber, magicNumber+1, magicNumber+2, magicNumber+3];
+
+// printing
+console.log("Some prime numbers: " + primes);
+
+// printing via iteration
+console.log( "[Primes again:" );
+for (var i=0;i<primes.length;i++){
+	console.log( "--> "+primes[i] );
+}
+console.log( "done.]" );
+
+// find the position of an element
+console.log( "what is the index of 7 in the array primes? " + primes.indexOf(7) );
+console.log( "is 6 a prime? " + ( primes.indexOf(6)!=-1 ) );
+console.log( "is 5 a prime? " + ( primes.indexOf(5)!=-1 ) );
+
+
+// populating an array with numbers from 10 down to 1
+var arr = [];
+for (var i=0;i<=9;i++){
+    // load values into the array backwards (from index 4 back to 0)
+	arr[9-i] = i+1;
+	// TRY UNCOMMENTING:
+	//console.log("arr: "+arr);
+	//console.log("arr.length: "+arr.length);
+}
+console.log("arr: "+arr);
+console.log("arr.length: "+arr.length);
+
+
+// Changing size dynamically, also when an array has "holes"
+var a = new Array();
+console.log("Size of dynamic array is " + a.length); // should be 0
+a[6] = "testing array"; // remember: position 7, index 6
+console.log("Size of dynamic array is " + a.length); // should be 7
+console.log( a[0] ); 
+
+</script>
+</body>
+</html>

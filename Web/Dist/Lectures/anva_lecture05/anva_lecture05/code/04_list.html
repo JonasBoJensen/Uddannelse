@@ -1,0 +1,96 @@
+<html>
+<body>
+<p>Open javascript console to see the results.</p>
+<script>
+
+/*
+  In Javascript I can use an array to do the job of a list, 
+  but it is nice to try and build my own version of a list.
+*/
+
+var list = {
+	value: 1,
+	rest: {
+		value: 2,
+		rest: {
+			value: 3,
+			rest: null
+		}
+	}
+};
+
+console.log( list );
+
+// ====== task =============================
+
+// 1. arrayToList (iterative version)
+function arrayToList(arr){
+	// if the array has at least 1 element then:
+	
+	/*var o = {value: arr[arr.length-1] , rest: null};
+	o = {value: arr[arr.length-1 -1] , rest:  o };
+	...
+	o = {value: arr[0] , rest:  o };
+	*/
+	var o = null;
+	for (var i=arr.length-1;i>=0;i--){
+		o = {value: arr[i] , rest:  o };
+	}
+	return o;
+}
+
+function arrayToListRec(arr){
+	if (arr.length==0){
+		return null;
+	} else {
+		var first = arr.shift();
+		return {value: first, 
+				rest: arrayToListRec(arr)};
+	}
+}
+var l1 = arrayToListRec( [10,20,30,40] );
+console.log( l1 );
+
+/*
+// 2. listToArray (recursive version)
+function listToArray(l){
+	if (l==null){ // empty list
+		return []; // BASE CASE
+	} else {
+		return [l.value].concat( 
+					listToArray(l.rest) // RECURSIVE CALL
+				);
+	}
+}
+
+*/
+    
+    function listToArray (l) {
+        var arr = [];
+        while (l.rest != null){
+            arr.push(l.value);
+            l = l.rest;
+        }
+        arr.push(l.value);
+        return arr;
+        
+    }
+    
+var list2 = {
+	value: 100,
+	rest: {
+		value: 200,
+		rest: {
+			value: 300,
+			rest: null
+		}
+	}
+};
+var arr = listToArray( list2 );
+console.log( arr );
+
+    
+
+</script>
+</body>
+</hmtl>

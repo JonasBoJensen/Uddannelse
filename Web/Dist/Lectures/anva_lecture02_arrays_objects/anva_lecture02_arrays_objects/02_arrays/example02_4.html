@@ -1,0 +1,43 @@
+<html>
+<body>
+<h1>Heterogeneous and nested arrays</h1>
+Look at the javascript console to see the output.
+
+<script>
+
+var aDog = [ "fido","cocker",22];
+var aPerson = ["Andrea",[27,08], [ aDog ] ];
+var people = [aPerson, ["Alex",[21,12], [ ["fuffi","terrier",34],["bob","boxer",18] ] ] ];
+console.log( people );
+console.log( people.toString() );
+console.log( "\n" );
+
+// print names and birthdate of all people in the array
+for (var index = 0; index < people.length; index++){
+	console.log( "Name= "+people[index][0] );
+	console.log( "      Birthday= "+ ((people[index])[1])[0] +"/"+ people[index][1][1]);
+}
+console.log( "\n");
+
+// print all details of all people (and their dogs) in the array
+// for every person in the people array...
+for (var i = 0; i < people.length; i++){
+	var  person = people[i];
+	console.log( "Name= "+ person[0] );
+	console.log( "      Birthday= "+ person[1][0] +"/"+ person[1][1]);
+	console.log( "      Dogs< ");	
+
+	// for every dog in of the current person...
+	var dogs = person[2];
+	for (var j = 0; j < dogs.length; j++){
+		console.log( "      Dog name= " + dogs[j][0]);
+		console.log( "         breed= " + dogs[j][1]);
+        console.log( "         Weight= " + dogs[j][2]);
+	}
+	console.log( "      > ");
+}
+
+
+</script>
+</body>
+</html>

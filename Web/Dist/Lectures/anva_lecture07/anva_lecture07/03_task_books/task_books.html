@@ -1,0 +1,45 @@
+<html>
+   <body>
+   <h1>Book genres</h1>
+   <p>Open javascript console to see results.</p>
+   
+   <script src="treeADT.js"></script>
+   <script>   
+
+	function printPreOrder(aNode) {
+		if ((aNode==undefined) || (aNode==null)){ // base case
+			return "<div></div>";
+		} else {          // recursive step
+            var result = "<div>";
+			result += aNode.value + '\n';
+			for (var nodeIndex in aNode.getChildren()){
+				result += printPreOrder( aNode.getChildren()[nodeIndex] );
+			}
+            result += "</div>\n";
+            return result;
+		}
+    }
+
+// ************************************************************
+	
+    var node;
+
+    var root = new Node("genre");
+    node = new Node("drama");
+	root.addChild( node );
+   
+       node = new Node("verse drama");
+       root.getChildren()[0].addChild( node );
+       node = new Node("prose drama");
+       root.getChildren()[0].addChild( node );
+      
+    node = new Node("fiction");
+    root.addChild( node );
+
+// ************************************************************	
+	
+	console.log( printPreOrder(root) );
+	
+   </script>
+   </body>
+</html>

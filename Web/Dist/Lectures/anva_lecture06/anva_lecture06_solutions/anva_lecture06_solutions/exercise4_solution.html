@@ -1,0 +1,45 @@
+<html>
+<body>
+   <p>Open the javascript console to see the results</p>
+<script>
+
+/* 
+Determine if two strings are anagram or not.
+Def: any word that exactly reproduces the letters in another order is an anagram.
+
+E.g.
+  silent = listen
+  William Shakespeare = I am a weakish speller
+
+[hint]
+A simple solution would be to sort given strings.
+*/
+      
+var string1 = 'William Shakespeare';
+var string2 = 'I am a weakish speller'; // 'banana';
+
+// prepare the first string
+string1 = string1.toLocaleLowerCase();
+var array = string1.split(' ').join(''); // remove all spaces
+   array = array.split(''); // convert the string to an array of individual characters
+console.log( array );
+var sorted = array.sort();
+console.log( sorted );
+var string1Sorted = sorted.join('');
+console.log( string1Sorted );   
+   
+// now the second string
+string2 = string2.toLocaleLowerCase();
+var string2Sorted = string2.split(' ').join('').split('').sort().join('');
+console.log( string2Sorted );   
+   
+// then test
+if (string1Sorted==string2Sorted){
+   console.log( 'the two strings are anagram on one another');
+} else {
+   console.log( 'not anagram on one another');
+}
+
+</script>
+</body>   
+</html>

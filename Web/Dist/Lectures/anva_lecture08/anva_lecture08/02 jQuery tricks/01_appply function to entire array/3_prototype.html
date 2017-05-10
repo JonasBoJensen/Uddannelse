@@ -1,0 +1,39 @@
+<html>
+   <body>
+   <h1>Filter elements out of an array, passing functions as parameters</h1>
+   <p>See: <a href="http://www.w3schools.com/jsref/jsref_prototype_array.asp">http://www.w3schools.com/jsref/jsref_prototype_array.asp</a></p>
+   
+   <script>
+	// see also: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+   
+    /* 
+	   Add a new method to the Array object: 
+	      all arrays will have this method!
+		  
+	   arr.allNot(test) returns an array with all the elements 
+	   of arr for which the test is NOT true.
+	*/
+	Array.prototype.allNot = function(test) {
+		var a = [];
+		for (i = 0; i < this.length; i++) {
+			if (!test(this[i])){
+				a.push( this[i] );
+			}
+		}	
+		return a;
+	}
+	
+	// *******************************************************
+   
+	function isBigEnough(element) {
+		return element >= 25;
+	}
+	var numbers = [12, 5, 8, 130, 44];
+	var filtered = numbers.allNot(isBigEnough); // calling  allNot  as if it was a standard Array method
+
+	console.log( numbers );
+	console.log( "all elements that are NOT greater or equal to 25 ->" ,filtered );
+	
+	</script>
+   </body>
+</html>

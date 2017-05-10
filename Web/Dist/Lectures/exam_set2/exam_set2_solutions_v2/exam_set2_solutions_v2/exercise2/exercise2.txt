@@ -1,0 +1,45 @@
+Exercise 2
+==========
+
+Work with a responsive page. In the code I'm using a Foundation grid.
+The text in the example is taken from the book Postsingular by R. Rucker.
+
+
+1) Change the HTML page so that the paragraph with title 'From Chpt 2: "Nant Day"' 
+only occupies 10 columns on a large screen, and 11 on a small screen.
+
+2) Change again the HTML page. Add a new DIV with a picture of the cover of the book.
+Give it a title like 'Cover' using headline h3.
+I provided the cover image in file: images/cover.jpg
+Place the cover image to the left of the section with title 'Original text', in the same row as
+'Original text' and 'Author' sections.
+On large screen the 3 sections in that row should occupy:
+-> 5 colums - 'Cover'
+-> 2 colums - 'Original text'
+-> 5 colums - 'Author' 
+On a small screen instead:
+-> 3 colums - 'Cover'
+-> 3 colums - 'Original text'
+-> 6 colums - 'Author' 
+
+3) Add a div on top of the page, with 3 DIVs inside. Place the following text inside
+the 3 DIVs (left to right): 'sideImageLeft', 'TITLE' and 'sideImageRight' 
+(see image screenshot07.png and screenshot08.png)
+On large screens the 3 DIVs should occupy 2, 8 and 2 columns respectively;
+on small screens the 3 DIVs should be the same size.
+
+
+
+
+Images:
+- screenshot01.png => shows the page on a small screen
+- screenshot02.png => shows the page on a large screen
+
+- screenshot03.png => shows the page after point 1 is solved (on a small screen)
+- screenshot04.png => shows the page after point 1 is solved (on a large screen)
+
+- screenshot05.png => shows the page after point 2 is solved (on a small screen)
+- screenshot06.png => shows the page after point 2 is solved (on a large screen)
+
+- screenshot07.png => shows the page after point 3 is solved (on a small screen)
+- screenshot07.png => shows the page after point 3 is solved (on a large screen)

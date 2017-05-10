@@ -1,0 +1,48 @@
+<html>
+<body>
+   <p>Open the javascript console to see the results</p>
+<script>
+
+/*
+A typical string program
+1- read input values and place them into a string
+2- manipulate the string, create other strings from it
+3- print results
+*/
+  
+   
+   
+/* mix 2 strings:
+s1 = 'abc'
+s2 = 'wxyz'
+result should be 'awbxcyz'
+*/
+   
+   
+var s1 = prompt('Type a string:', 'abc');
+var s2 = prompt('Type another string:', '12345');
+
+var sResult = '';
+var maxLenght = 0;
+
+if (s1.length>s2.length){
+   maxLenght = s1.length;
+} else {
+   maxLenght = s2.length;
+}
+//console.log(maxLenght);
+
+for (index=0;index<maxLenght;index++){
+   if (index<s1.length){
+      sResult = sResult + s1.charAt(index);
+   }
+   if (index<s2.length){
+      sResult = sResult + s2.charAt(index);
+   }
+}
+   
+console.log('The mixed string is ' + sResult );
+   
+</script>
+</body>   
+</html>

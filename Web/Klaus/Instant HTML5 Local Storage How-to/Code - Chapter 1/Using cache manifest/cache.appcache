@@ -1,0 +1,16 @@
+CACHE MANIFEST
+
+# Version 1.5
+# LAST UPDATE
+# 09/12/12
+
+# Add the entire internet to the "white list" of sites that may be accessed by this site.
+# This is needed for TypeKit and Google Analytics
+NETWORK:
+*
+
+# The following files are explicitly cached -
+CACHE:
+style.css
+tick.png
+manifest.html

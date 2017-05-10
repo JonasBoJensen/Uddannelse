@@ -1,0 +1,4 @@
+body { padding: 20px; font-family: Arial; font-size: 16px; }    
+#details { border-radius: 4px; padding: 5px; background-color: purple;}
+#supportdlg { border-radius: 4px; border: 1px solid black; padding: 5px; width: 500px; color: #fff; font-weight: bold; }    
+#online { background-image:url('tick.png'); background-repeat: no-repeat; padding-left: 25px; background-color: purple; margin: 5px; }

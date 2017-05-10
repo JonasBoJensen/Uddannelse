@@ -1,0 +1,44 @@
+<html>
+<body>
+<h1>Object as map</h1>
+Look at the javascript console to see the output.
+
+<script>
+
+// === objects as associative arrays =======
+var dictionary = {};
+dictionary["apple"] = "mela";
+dictionary["room"] = "stanza";
+dictionary["sword"] = "spada";
+dictionary["hi"] = "ciao";
+console.log( dictionary );
+
+console.log("\nList of all  keys  in the dictionary:");
+console.log( Object.keys(dictionary) );
+
+// meaning "for every KEY in my dictionary, do something ..."
+console.log("\nContents of my dictionary: START");
+for (var key in dictionary){
+	console.log( key + "  translates to  " + dictionary[key] );
+}
+console.log("STOP");
+
+
+// is there a key "sword" in the dictionary? And "smurf"?
+console.log( "is \"sword\" in my dictionary?" , "sword" in dictionary );
+console.log(  "is \"smurf\" in my dictionary?" ,"smurf" in dictionary );
+
+/*    
+    
+// another example of for...in to list all properties of an object
+var obj = {a:1, b:2, c:3};
+    
+for (var prop in obj) {
+  console.log("o." + prop + " = " + obj[prop]);
+}
+
+*/
+
+</script>
+</body>
+</html>

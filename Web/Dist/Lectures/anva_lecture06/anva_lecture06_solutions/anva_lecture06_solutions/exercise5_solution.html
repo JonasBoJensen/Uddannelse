@@ -1,0 +1,31 @@
+<html>
+<body>
+   <p>Open the javascript console to see the results</p>
+<script>
+
+/* 
+Check if array contains a number.
+The array is not sorted.
+*/
+
+function contains(theArray,theValueToFind){
+   var result = false;
+   
+   for (var i=0;i<theArray.length;i++){
+      if (theArray[i]==theValueToFind){
+         result = true;
+         break; // jumps out of the for loop
+      }
+   }
+   
+   return result;
+}
+   
+var arr = [5,3,2,7,2,3,5];
+console.log( contains(arr,5) ); // -> true
+console.log( contains(arr,1) ); // -> false
+
+
+</script>   
+</body>   
+</html>

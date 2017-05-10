@@ -1,0 +1,42 @@
+<html>
+<body>
+   <p>Open the javascript console to see the results</p>
+<script>
+
+/* 
+Read a string and determine whether each left parenthesis ( has a matching right parenthesis ).
+
+E.g.
+"3"                                                   -> matched
+"(3+ (7 * 2) – 6)"                                    -> matched
+"HELLO AND (WELCOME (TO THE) PARENTHESIS (CONTEST)"   -> not matched
+
+*/
+
+function matchingParenthesis(text){
+   console.log( text );
+   var insideLevel = 0;
+   for (var i=0;i<text.length;i++){
+      if (text.charAt(i)=='('){
+         insideLevel++;
+      }
+      if (text.charAt(i)==')'){
+         insideLevel--;
+      }
+   }
+   var balanced = (insideLevel==0);
+   
+   if (balanced){
+      result = 'matched';
+   } else {
+      result = 'not matched';      
+   }
+   return result;
+}
+
+console.log( matchingParenthesis("(3+ (7 * 2) - 6)") ); // -> matched
+console.log( matchingParenthesis("(3+ (7 * 2 - 6)") ); // -> not matched
+console.log( matchingParenthesis("HELLO AND (WELCOME (TO THE) PARENTHESIS (CONTEST)" )); // -> not matched
+</script>   
+</body>   
+</html>

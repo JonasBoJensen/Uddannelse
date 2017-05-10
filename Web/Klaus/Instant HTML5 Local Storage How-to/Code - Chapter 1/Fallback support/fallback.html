@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="store+json2.min.js"></script>
+  <style type="text/css">
+  #storeout { border: 1px solid #000; padding: 5px; margin-left: 5px; margin-top: 5px; width: 450px; }
+  #details { background-color: #b80000;  font-weight: bold; font-family: Arial; color: #fff; }
+  #details p { width: 325px; padding: 5px;}
+  </style>
+</head>
+<body>
+  <div id="storeout">
+    <div id="details">
+	  <script>
+		if (store.enabled) {
+		  document.write("<p>LocalStorage is available!</p>");
+		  store.set('myage', 38);
+		  store.set('user', { name: 'Alex', likes: 'javascript' })
+
+		  document.write("<p>Hi my name is " + store.get('user').name + " and I'm " + store.get('myage') + " years old.</p>");
+		} else {
+		  alert("Sorry, localStorage is not available.");
+		}
+	  </script>
+	</div>
+  </div>
+</body>
+</html>

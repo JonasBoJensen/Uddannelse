@@ -1,0 +1,92 @@
+
+============================================
+
+====
+Data
+====
+
+Creator: Andrea 
+Age: 44
+
+Andrea's quizzes:
+- quiz title: "do you know your multiplication tables?"
+- quiz questions:
+	- question number 1: "what is 3x5 ?"
+	- question number 2: "what is 0x2 ?"
+	- question number 3: "what is 7x7 ?"
+- possible answers:
+	- possible answers to question 1: 12,13,15
+	- possible answers to question 2: 2,0,1
+	- possible answers to question 3: 77,48,49
+- right answers:
+	- for question 1: 15
+	- for question 2: 0
+	- for question 3: 49
+
+
+- quiz title: "is your spirit free?"
+- quiz questions:
+	- question number 1: "how does it feel to be a rain drop?"
+	- question number 2: "clouds are..."
+- possible answers:
+	- possible answers to question 1: "cold","blue","flying"
+	- possible answers to question 2: "fluffy","water vapor","bad. Sunny is better"
+- right answers:
+	- for question 1: "flying"
+	- for question 2: "fluffy"
+
+- number of likes:
+	- quiz 1 got 150 likes
+	- quiz 2 got 305 likes
+
+
+Creator: Bob
+Age: 25
+
+Bob's quizzes:
+- quiz title: "Just testing?"
+- quiz questions:
+	- question number 1: "testing 123"
+	- question number 2: "is it true?"
+- possible answers:
+	- possible answers to question 1: 1,2,3
+	- possible answers to question 2: true,false
+- right answers:
+	- for question 1: 1
+	- for question 2: true
+
+- number of likes:
+	- quiz 1 got 1 likes
+
+
+============================================
+
+
+A) Decide how to represent the data above; for example you could use arrays
+of strings, or objects, or arrays of arrays. 
+Write down you decision and be sure you can represent all the data above
+in your data model.
+
+B) Write a progra that declares and initializes the data above (according
+to your design for the data model), then:
+- print all questions of the quiz "is your spirit free". After each question
+print all its possible answers and mark the correct answer (for example
+put a "(*)" near each correct answer, for each question).
+The printed quiz should look like this:
+
+	is your spirit free?
+	=> how does it feel to be a rain drop?
+	===> cold
+	===> blue
+	===> flying (*)
+	=> clouds are...
+	===> fluffy (*)
+	===> water vapor
+	===> bad. Sunny is better
+
+C) in the same program as B), add some code to print also the total number of likes, for each of the quiz creators. The result should look something like:
+
+	- creators -
+	Andrea got a total of 455 likes for 2 quiz
+	Bob got a total of 1 likes for 1 quiz
+

@@ -1,0 +1,33 @@
+Practice with method chaining
+=============================
+
+
+Modify the RPGCharacter example, by implementing new methods for the RPGCharacter ADT. The methods should be:
+
+-> foundLevelUp() 
+when the method is called, the character should receive 100 experience points (XP) and heal completely. 
+Test that your method "chains" like all the others.
+
+-> drinkPotion(potionName)
+the parameter potionName is a string, and it can be one of 3: 
+	- "yellow", "blue" or "green" potions.
+If the character drings a yellow potion, it looses 10 health points, but receives 10 coins. 
+Drinking the blue potions kills you instantly; while drinking a green potion restores you health to 100 and increases your XP of 2.
+Any potion with other names should have no effect on the character.
+
+
+
+[Advanced] Change the RPGCharacter constructor: add attributes  luck  and  strength .
+
+- RPGCharacter should also return a randomized character every time. 
+  Randomize: health in [70,100], xp in [10,50], luck in [2,8] and strength in [2,8]. 
+
+- Change the function getDamage, so that if strength is more than 6, only half of the damage is taken.
+
+- Change the function foundCoins, so that if luck is more than 6, amountOfCoins is doubled before 
+  adding it to the current money.
+
+- Finally, change the printState function to print also the new attributes. 
+
+Test your new RPGCharacter by creating 3 characters, 
+then make them attack, get damage and find coins.

@@ -1,0 +1,171 @@
+<html>
+
+<style>
+.button {
+  padding:5px;
+  background-color: #dcdcdc;
+  border: 1px solid #666;
+  color:#000;
+  text-decoration:none;
+}
+
+.myTableStyle {
+    border: 1px solid black;
+}
+</style>
+
+<script src="jquery.js"></script>
+<script>
+	var quizzes = [];
+	
+	function loadAll(){
+		if(typeof(Storage) !== "undefined") {
+			// Retrieve the object from storage
+			var retrievedObject = localStorage.getItem('_quizzes');
+			if (retrievedObject){
+				quizzes = JSON.parse(retrievedObject);
+			}
+		} else {
+			console.log("ERROR: No Web Storage support..");
+			quizzes = [];
+		}
+	}
+	
+	function storeAll(){
+		if(typeof(Storage) !== "undefined") {
+			var clone = quizzes.slice(0);
+			localStorage.setItem('_quizzes', JSON.stringify(clone));
+		} else {
+			console.log("ERROR: No Web Storage support..");
+		}		
+	}
+
+	
+	function addQuiz(title,questions,possibleAnswers,correctAnswers,topics){
+		var newQuiz = {"title":title, 
+					   "questions": questions,
+					   "possibleAnswers": possibleAnswers,
+					   "correctAnswers": correctAnswers,
+					   "topics": topics };
+		quizzes.push( newQuiz );
+		console.log(  );
+		console.log( quizzes );
+		storeAll();
+	}
+
+	function generateTable(){
+		// keep in mind this is (re)generation of the table!
+		var $myTable = $("table[id=generated_table]");
+		if ($myTable){
+			$myTable.remove();
+		}
+		
+		$myTable = $("<table id='generated_table'></table>");
+		$myTable.addClass("myTableStyle");
+		$("body").append($myTable);
+
+		// header
+		$myTable.append( $("<tr>"+
+							"<th>Title</th>"+
+							"<th>Questions</th>"+
+							"<th>Possible Answers</th>"+
+							"<th>Correct Answers</th>"+
+							"<th>Topics</th>"+
+							"</tr>") );
+		
+		// rows and cells in the table
+		for (var i=0;i<quizzes.length;i++){
+			$myTable.append( $("<tr>"+
+								"<td>"+quizzes[i].title+"</td>"+
+								"<td>"+quizzes[i].questions+"</td>"+
+								"<td>"+quizzes[i].possibleAnswers+"</td>"+
+								"<td>"+quizzes[i].correctAnswers+"</td>"+
+								"<td>"+quizzes[i].topics+"</td>"+
+								"</tr>") );
+		}
+		
+		// perhaps try with   $('#generated_table td').addClass("myTableStyle");
+	}
+	
+// -----------------------------------------------
+	
+	
+	
+	$(document).ready(function() {
+	
+		// init: load all data, and show them
+		loadAll();
+		console.log( quizzes );
+		// build a table with quizzes before continuing
+		generateTable();
+	
+	
+	
+		$("form[id='quizData']").hide()
+		.submit(function(e) {
+			e.preventDefault();  
+
+//			alert("new quiz added '" + $( "input[name='quizTitle']").val() +"'");
+
+			addQuiz( $( "input[name='quizTitle']").val() ,
+			         $( "input[name='quizQuestions']" ).val(),
+			         $( "input[name='quizPossibleAnswers']" ).val(),
+			         $( "input[name='quizCorrectAnswers']" ).val(),
+			         $( "input[name='quizTopics']" ).val() );
+			$("form[id='quizData']").hide();
+			generateTable();
+		});
+	
+		$( "p:contains('add a quiz')" ).addClass("button").click(function() {
+			if ($("form[id='quizData']").is(":visible")){
+				$("form[id='quizData']").hide();
+			} else {
+				$("form[id='quizData']").show();
+			}
+		});
+		
+		$( "p:contains('reset')" ).addClass("button").click(function() {
+			// perhaps ask for confirmation before erasing!
+			$("form[id='quizData']").hide();
+			console.log("RESETTING.... bzzzz");
+			quizzes = [];
+			storeAll();
+			generateTable();
+			console.log( quizzes );
+		});
+	});
+</script>
+
+<body>
+<h1>Quiz page for the creator: Andrea</h1>
+
+<p>[add a quiz]</p>
+<form id="quizData">
+<table>
+<tr>
+	<td>title:</td>
+	<td><input type="text" name="quizTitle" value="Do you know Math?" size="60"/></td>
+</tr><tr>
+	<td>questions:</td>
+	<td><input type="text" name="quizQuestions" 
+		value="['1+1?','0*0?','0/1?']" size="60"/></td>
+</tr><tr>
+	<td>possible answers:</td>
+	<td><input type="text" name="quizPossibleAnswers" 
+	value="[['1','2','11'],['0','infinity','impossible'],['0','infinity','impossible']]" size="60"/></td>
+</tr><tr>
+	<td>correct answers:</td>
+	<td><input type="text" name="quizCorrectAnswers" value="[2,1,1]" size="60"/></td>
+</tr><tr>
+	<td>topics:</td>
+	<td><input type="text" name="quizTopics" 
+			value="'math','arithmetic'" size="60"/></td>
+</tr>
+</table>
+<input type="submit">
+</form>
+
+<p>[reset all]</p>
+
+</body>
+</html>

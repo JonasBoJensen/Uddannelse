@@ -1,0 +1,68 @@
+<html>
+<body>
+<h1>Object factories using closures</h1>
+<p>Open javascript console to see the results.</p>
+<script>
+
+// Define the factory
+function newPerson(name, age) {
+
+  // Store the message in a closure
+  var message = name + ", who is " + age + " years old, says hi!";
+
+  return {
+
+    // Define a function
+    greet: function() {
+      console.log(message);
+    },
+
+    // Define a "setter" function 
+    setMsg: function(newMsg) {
+		message = newMsg + "(from "+name+" , age "+age+")";
+		// Notice how we are using local variables 
+		// even after  newPerson  has been deallocated from the call stack!
+    },
+
+    oneMoreYear: function (){
+        age++;
+        console.log ("the age is now " +age);
+        message = name + ", who is " + age + " years old, says hi!";
+    }
+  };
+    
+}
+
+// use factory like this
+var bob = newPerson("Bob", 47);
+var jake = newPerson("Jake", 17);
+var tim = newPerson("Tim", 28);
+
+bob.greet();
+jake.greet();
+tim.greet();
+
+bob.setMsg("Hello, my friend!");
+jake.setMsg("Whazup :P ");
+tim.setMsg("Hi!");
+
+bob.oneMoreYear();
+
+
+bob.greet();
+jake.greet();
+tim.greet();
+    
+bob.oneMoreYear();
+
+
+bob.greet();
+// it is not possible to access the variable  message  
+// because it is enclosed inside the closure newPerson
+// so this will not work:     console.log( tim.message );
+
+
+// Adapted by Andrea Valente, from: http://howtonode.org/why-use-closure 
+</script>
+</body>
+</hmtl>

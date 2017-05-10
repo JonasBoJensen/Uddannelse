@@ -1,0 +1,23 @@
+<html>
+<body>
+   <p>Open the javascript console to see the results</p>
+<script>
+
+/* 
+Write a program that asks the user for a number n and 
+prints the sum of the numbers 1 to n
+*/
+
+var n = parseInt( prompt('Type a number','10'));
+
+var sum = 0;
+for (var i=1;i<=n;i++){
+   sum += i;
+}
+
+console.log( 'the sum of the numbers from 1 to '+n+' is '+sum);
+// test with: n = 10 gives 55
+//            n = 100 gives 5050
+</script>   
+</body>   
+</html>

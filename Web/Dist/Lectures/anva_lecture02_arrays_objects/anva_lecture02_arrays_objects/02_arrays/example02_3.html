@@ -1,0 +1,20 @@
+<html>
+<body>
+<h1>Heterogeneous and nested arrays</h1>
+Look at the javascript console to see the output.
+
+<script>
+
+var heterogeneousArray = [ 1,"abc" , 3.2 ];
+console.log( heterogeneousArray.toString() );
+
+var nestedArray = [ [1,2,3] , 4 , 5 , 6 ];
+console.log( nestedArray );
+
+var anotherNestedArray = [ [1,2,3] , [ 123, ["ciao","hi","hej","hello"] ] ];
+console.log( anotherNestedArray );
+console.log( "a flat version of the nested array => " + anotherNestedArray.toString() );
+
+</script>
+</body>
+</html>

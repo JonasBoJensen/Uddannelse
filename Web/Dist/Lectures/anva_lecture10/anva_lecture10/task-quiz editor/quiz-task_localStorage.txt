@@ -1,0 +1,27 @@
+Task - quiz editor
+------------------
+
+I would like to have a page in which: 
+- see a table with my data, as creator of quizzes. All the quizzes I currently   have created should be listed (none initially)
+- have a button to add a new quiz. When the ”add-quiz” button is clicked, 
+  some data are asked and then inserted in the table, including:
+	title, 
+ 	list of questions, 
+	list of possible answers per question, 
+	list of correct answers, 
+	and list of topics
+Next time I open the page the table should still remember all my data from previous time I opened it (persistence)
+
+See example: 01_localstorage/editor_v4.html 
+
+===========================================
+
+Start from the code in 01_localstorage/editor_v4.html 
+
+A- Add an icon [x] (delete.png) to the end of each row of the Books and of the Actors tables.
+B- Add events, so that when the [x] icon is clicked, that row is erased from the
+Books or Actors data in the myData object; and the tables should be re-generated.
+  Main problem: how to find out, given the row where the icon is clicked, which data to
+  remove from the myData object (and its internal arrays)?
+
+

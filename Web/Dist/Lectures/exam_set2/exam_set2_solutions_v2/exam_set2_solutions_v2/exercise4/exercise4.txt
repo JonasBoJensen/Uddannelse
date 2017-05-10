@@ -1,0 +1,25 @@
+Exercise 4
+==========
+
+Look at the file: solarSystem.html
+
+For a game, you need to generate a description of a solar system that has from 5 to 10 planets
+      (use a random value to decide how many).
+      Each planet can have: 
+         - and 0 to 5 continents (use a random value to decide how many)
+		 - an ocean (10% probability)
+	  Each ocean can have:
+		 - aquatic life (10% probability)
+         
+Using jQuery:
+1) Write a program that generates a random solar system, using
+   nested DIVs to represent the planets, continents, and oceans and aquatic life.
+
+2) When the user clicks the button, create a new DIV representing a space ship (give it the class 'spaceship').
+   If there is at least a planet in your solar system that has aquatic life, put the spacesphip inside the DIV of
+   that planet. 
+   If in your current solar system there are no planets with aquatic life, then place your spaceship on the 
+   3rd planet.
+
+Image generation.png shows the result after you have implemented point 1 above,
+and image spaceshipLanded.png shows the result after pressing the button to land the spaceship.

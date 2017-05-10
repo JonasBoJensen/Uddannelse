@@ -1,0 +1,79 @@
+<html>
+   <body>
+   <h1>RPGCharacter Abstract Data Type</h1>
+   <p>jQuery uses chaining, so to better understand how chaining can be implemented, 
+   here is an example, using javascript objects.</p>
+   
+   <script>
+
+	function RPGCharacter(){   // CONSTRUCTOR
+		this.xp = 0;    	// experience points
+		this.health = 100;  // health points
+		this.money = 0;
+		this.alive = true;
+		
+		this.eat = function(amountOfEnergy){
+			this.health += amountOfEnergy;
+			if (this.health>100){
+				this.health = 100;
+			}
+			
+			return this; // VERY IMPORTANT WHEN CHAINING!
+		};		
+
+		this.foundCoins = function(amountOfCoins){
+			this.money += amountOfCoins;
+
+			return this; // VERY IMPORTANT WHEN CHAINING!
+		};		
+
+		this.hitEnemy = function(){
+			// an integer random value from 1 to 10
+			var p = Math.floor((Math.random() * 10) + 1);
+			console.log("Enemy looses "+ p + " health points");
+			this.xp += p;
+
+			return this; // VERY IMPORTANT WHEN CHAINING!
+		};		
+		
+		this.getDamage = function(amountOfDamage){
+			this.health -= amountOfDamage;
+			console.log("ouch, lost "+amountOfDamage+" HPs!");
+			if (this.health<=0){
+				this.health = 0;
+				this.alive = false;
+			}
+			
+			return this; // VERY IMPORTANT WHEN CHAINING!
+		};		
+
+		this.printState = function(){
+			if (this.alive)
+				console.log("RPGCharacter, xp="+this.xp
+						+" hp="+this.health
+						+" money="+this.money);
+			else
+				console.log("RPGCharacter is dead __+__ ");
+			
+			return this; // VERY IMPORTANT WHEN CHAINING!
+		};				
+	}
+
+// =============== Here starts the use ====================	
+	
+	var warrior = new RPGCharacter( );   
+	warrior
+		.printState()
+		.eat(10)
+		.hitEnemy()
+		.getDamage(50)
+		.printState()
+		.eat(10)
+		.foundCoins(1500)
+		.printState()
+		.getDamage(1000)
+		.printState();
+
+	</script>
+   </body>
+</html>

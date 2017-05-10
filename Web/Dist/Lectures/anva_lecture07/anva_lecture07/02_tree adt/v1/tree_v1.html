@@ -1,0 +1,52 @@
+<html>
+   <body>
+   <h1>A simple tree</h1>
+   <p>open the javascript console to see the results</p>
+   
+   <script>
+		// for now no constructor function, 
+		// just a simple object used to represent a node in the tree
+		var treeRoot = {parent:null,
+						value:"html", 
+						children:[]};
+		
+		// attach a child below the root of the tree
+		var bodyNode = 
+		treeRoot.children[0] = {parent:treeRoot,
+								value:"body", 
+								children:[]};
+
+		// attach 2 children below the "body" node of the tree
+		bodyNode.children[0] = {parent:treeRoot.children[0],
+								value:"p", 
+								children:[]};
+								
+		bodyNode.children[1] = {parent:treeRoot.children[0],
+								value:"ul", 
+								children:[]};
+								
+		var nodeLi = {parent: bodyNode.children[1],
+					  value:"li", 
+				      children:[]};
+		bodyNode.children[1].children[0] = nodeLi;		  
+						
+		console.log( treeRoot );
+		
+		// takes a tree as input, and prints all the nodes in the tree
+		function printAllNodes(tree){
+			if (tree!=null){
+				var outputText = "'" + tree.value + "',children:";
+				outputText += "[";
+				for (var nodeIndex in tree.children){
+					outputText += printAllNodes(tree.children[nodeIndex]);
+				}
+				outputText += "]";
+				return outputText;
+			}
+			return "/"; // empty tree
+		}
+		
+		console.log( printAllNodes(treeRoot) );
+   </script>
+   </body>
+</html>
