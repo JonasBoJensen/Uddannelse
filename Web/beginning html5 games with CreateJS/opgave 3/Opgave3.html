@@ -1,0 +1,70 @@
+<html>
+<head>
+    <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+    <script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
+    
+    
+    <script>
+        var triangle;
+        var star;
+        var batman;
+        var stage; 
+        function init(){
+            // set the stage
+            stage = new createjs.Stage('canvas');
+            createjs.Ticker.setFPS(60);
+            createjs.Ticker.addEventListener("tick", function (e) {
+                stage.update();
+            });
+            
+            boxOfStuff();
+            
+        };
+    
+        function boxOfStuff(){
+            // container to put the stuff
+            var container = new createjs.Container();
+            // draw the triangle
+            triangle = new createjs.Shape();
+            triangle.graphics.beginStroke("blue").beginFill('blue');           triangle.graphics.moveTo(20,20).lineTo(125,20).lineTo(20,125).lineTo(20,20);
+            //Draw the star
+            star = new createjs.Shape();
+            star.graphics.beginStroke('#000');
+            star.graphics.beginFill('#ffff00');
+            star.graphics.drawPolyStar(0, 0, 50, 7, 0.6);
+            star.x = 175;
+            star.y = 75;
+            // Draw the batman symbol
+            batman = new createjs.Bitmap('img/batman.png');
+            batman.x = 50;
+            batman.y = 150;
+            // Draw the box for the container
+            var containerBox = new createjs.Shape();
+            containerBox.graphics.beginStroke('Black').drawRect(0,0,250,250);
+            container.regX = container.regY = 125;
+            container.x = 150;
+            container.y = 150;
+            /* add the containerBox, star, triangle and the batman symbol to the container*/
+            
+            container.addChild(containerBox,star,triangle,batman);
+            stage.addChild(container);
+            createjs.Tween.get(container).to({rotation:360},4000);
+            createjs.Tween.get(container).to({x:container.x+325,y:container.y+125},4000);
+
+        };
+    
+    </script>
+</head>
+
+<body onload="init()">
+    <canvas id="canvas" height="400" width="600" style="border: 1px solid black"></canvas>
+</body>
+
+
+
+
+
+
+
+
+</html>

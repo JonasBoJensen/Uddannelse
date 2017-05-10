@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width">
+  <title>Chapter 2 - Foundation 4 grid</title>
+  <link rel="stylesheet" href="css/foundation.css">
+  <script src="js/custom.modernizr.js"></script>
+  <style>
+    .row {
+		margin-bottom: 20px;
+	}
+    .columns {
+		min-height: 50px; 
+		border: 1px solid gray; 
+		background: #EEE;
+		text-align: center; 
+		line-height: 50px;
+	}
+  </style>
+  
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="js/foundation.min.js"></script>
+  
+</head>
+<body>
+
+
+  <div class="row" id="#titleBar">
+	<div class="small-4 large-2 columns">sideImageLeft</div>
+	<div class="small-4 large-8 columns">TITLE</div>
+	<div class="small-4 large-2 columns">sideImageRight</div>
+  </div>  
+
+  <div class="row">
+	<div class="small-11 large-10 large-centered columns">
+		<h3>From Chpt 2: "Nant Day"</h3>
+		<p>
+		Ond wasn't around as much as before - he was putting in long hours at the Nantel labs in the China Basin biotech district of San Francisco. 
+		The project remained secret until the day President Dick Dibbs announced that the US was going to rocket an eggcase of nants to Mars. 
+		The semiliving micron-sized dust specks had been programmed to turn Mars entirely into - more nants! 
+		Ten-to-the-thirty-ninth nants, to be precise, each of them with a billion bytes of memory and a computational engine cranking along 
+		at a billion updates a second. 
+		The nants would spread out across the celestial sphere of the Mars orbit, populating it with a swarm that 
+		would in effect become a quakkaflop quakkabyte solar-powered computer, the greatest intellectual resource ever under the control of man, 
+		a Dyson sphere with a radius of a quarter-billion kilometers.
+		</p>
+	</div>
+  </div>
+
+  <div class="row">
+  
+	<div class="small-3 large-5 columns">
+		<h3>Cover</h3>
+		<img src="images/cover.jpg"></img>
+	</div>
+	
+	<div class="small-3 large-2 columns">
+		<h3>Original text</h3>
+		<p>The book is freely available <a href="http://www.rudyrucker.com/postsingular/#postsingulardownload">here</a>
+		</p>
+	</div>
+	
+	<div class="small-6 large-5 columns">
+		<h3>Author</h3>
+		<p>
+		Rudy Rucker is a writer and a mathematician who worked for twenty years as a Silicon Valley computer science professor,
+		and published a number of software packages.
+		Rucker is regarded as contemporary master of science-fiction, and received the Philip K. Dick award twice. 
+		His thirty published books include both novels and non-fiction books on the fourth dimension, infinity, and the meaning of computation.
+		A founder of the cyberpunk school of science-fiction, Rucker also writes SF in a realistic style known as transrealism. 
+		</p>
+	</div>
+	
+  </div>  
+  
+  
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>

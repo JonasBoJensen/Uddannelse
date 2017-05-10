@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Odense</title>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function initialize() {
+            var myOptions = {
+                zoom: 14,
+                center: new google.maps.LatLng(55.401268, 10.387200),
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                streetViewControl: false
+            }
+            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+            var mapStyles = [{
+                "featureType": "road.arterial",
+                "stylers": [{
+                    "color": "#ffff04"
+                }]
+            }, {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [{
+                    "visibility": "on"
+                }, {
+                    "color": "#0000ff"
+                }]
+            }]
+
+            var styledMapType = new google.maps.StyledMapType(mapStyles);
+            map.mapTypes.set('customStyleID', styledMapType);
+            map.setMapTypeId('customStyleID');
+        }
+    </script>
+
+    <div id="map_canvas" style="width: 900px; height: 600px;"></div>
+
+    <script type="text/javascript">
+        initialize();
+    </script>
+</body>
+
+</html>

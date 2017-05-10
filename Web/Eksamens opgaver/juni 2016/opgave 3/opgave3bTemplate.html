@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+    <script>
+        function init(){
+           $('input[value="Reduce Opacity"]').on('click',function(){
+                $('img').css('opacity','0.3');
+            }); 
+            
+           $('input[value="Reset"]').on('click',function(){
+               $('img').css('opacity','1');
+           })    
+        };
+        
+    </script>
+</head>
+
+    
+<body onload="init()">
+    <div id="animals">
+        <img src="../images/Cat.png" />
+        <img src="../images/Dog.png" />
+        <img src="../images/Elephant.png" />
+        <img src="../images/Hippopotamus.png" />
+        <img src="../images/Panda.png" />
+    </div>
+    <input type="button" value="Reduce Opacity">
+    <input type="button" value="Reset">
+</body>
+
+</html>

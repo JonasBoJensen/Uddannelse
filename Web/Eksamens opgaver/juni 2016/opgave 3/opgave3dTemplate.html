@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<style>
+		.highlight {
+			width: 300px;
+			border: 3px double green;
+			background-color: lightyellow;
+		}   
+	</style>
+    <script>
+        function init(){
+            $('#btnTestIt').one('click',function(){
+            $('li:last').append('<li>Implementation</li>');
+        });
+        };
+        
+	</script>
+</head>
+<body onload="init()">
+	<ul>
+		<li>Marketing</li>
+		<li>Sales</li>
+		<li>Technology</li>
+		<li>Customer Support</li>
+	</ul>
+   
+	<input id="btnTestIt" type="button" value="Test It">
+</body>
+</html>

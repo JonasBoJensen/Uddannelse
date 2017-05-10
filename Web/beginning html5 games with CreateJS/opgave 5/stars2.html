@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../lib/easeljs-0.7.1.min.js"></script>
+    <script src="../lib/tweenjs-0.5.1.min.js"></script>
+</head>
+
+<body onload="init()" style="margin: 20px">
+
+<canvas id="canvas" width="800" height="600" style="border: black solid 1px"></canvas>
+
+</body>
+
+<script>
+    var stage;
+    function init() {
+        stage = new createjs.Stage(document.getElementById('canvas'));
+    //    var bg = new createjs.Shape(new createjs.Graphics().beginFill('#000').drawRect(0, 0, 800, 600));
+        var bg = new createjs.Shape(new createjs.Graphics().beginLinearGradientFill(["#000000","#091985"], [0, 1], 0, 200, 0, 600).drawRect(0, 0, 800, 600));
+        stage.addChild(bg);
+        createjs.Ticker.addEventListener("tick", handleTick);
+        createjs.Ticker.setFPS(60);
+        start();
+    }
+    function handleTick(e) {
+        stage.update();
+    }
+
+    function start() {
+
+
+        //STAR
+        var stars = new Array();
+                for (i = 0; i < 200; i++)
+        {
+        var star = new createjs.Shape();
+        star.graphics.beginFill('#ffff00');
+        
+        var starRadius = (Math.random() * 6) + 1;
+        var numberOfArms = Math.floor(Math.random() * 7) + 5;
+        star.graphics.drawPolyStar(0, 0, starRadius, numberOfArms, 0.6);
+        star.x = Math.random() * 800;
+        star.y = Math.random() * 600;
+        stars.push(star);
+        }
+        
+        for (j = 0; j < 200; j++) {stage.addChild(stars[j]);}
+
+
+
+    }
+
+</script>
+
+</html>

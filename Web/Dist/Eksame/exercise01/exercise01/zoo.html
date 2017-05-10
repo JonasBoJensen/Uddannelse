@@ -1,0 +1,52 @@
+<html>
+   <body>
+   <h1>Zoo</h1>
+   <p>Open the javascript console to see the results of this program.</p>
+   
+   <script>
+
+      // the CONSTRUCTOR of Animal objects
+      function Animal(){
+         // FINISH THE IMPLEMENTATION OF THE CONSTRUCTOR
+         
+         // FINISH THE IMPLEMENTATION OF THE toString METHOD
+         this.toString = function(){
+            return 'someAnimal';
+         }
+      }
+
+      // 1)
+      var a = new Animal('alligator','bob',12345,false);
+      console.log( a ); 
+      /* TO DO  
+         inspect object  a  in the browser's js console to see
+         if it has all the right attributes set with the correct values
+      */
+      
+      
+      // 2)
+      console.log( a.toString() );
+      console.assert( a.toString()=='alligator #bob#, code:12345, healthy', 
+                        'your toString function is not working properly for Bob :(');
+      
+      var b = new Animal('baboon','jack',6789,true);
+      console.log( b.toString() );
+      console.assert( b.toString()=='baboon #jack#, code:6789, sick', 
+                        'your toString function is not working properly for Jack :(');
+      
+      // 3)
+      var zooAnimals;
+      var animal1 = new Animal('alligator','bob',12345,false);
+      var animal2 = new Animal('baboon','jack',6789,true);
+      var animal3 = new Animal('cangaroo','roo',31415,false);
+      // TO DO: add the all animals to the zooAnimals array ...
+      
+      console.log( zooAnimals.join(';\n') );
+      console.assert( zooAnimals != null, 'Error: your zooAnimals array is not initialized :(');
+      console.assert( zooAnimals.length==3, 'Error: your zoo should have 3 animals :(');
+      
+      // 4) print the array in various ways ...
+      // TO DO 
+   </script>
+   </body>
+</html>

@@ -1,0 +1,108 @@
+<html>
+<head>
+   
+<style>
+   .forest {
+      margin-left: 5px;
+   }
+   .tree {
+      margin-left: 15px;
+      padding: 5px;
+      border: 2px solid brown;
+   }
+   .branch {
+      margin-left: 25px;
+      border: 1px solid darkred;
+   }
+   .leaf {
+      margin-left: 25px;
+      border: 3px solid lightgreen;
+   }
+   
+   #bird {
+      color: cornflowerblue;
+   }
+</style>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+   function randInt(min,max){
+      return parseInt( Math.random()* (max+1 - min) ) + min;
+   }
+</script>
+   
+   
+<script>   
+   /* Problem definition:
+      You need to generate a description of a forest that has from 3 to 8 trees
+      (use a random value to decide how many).
+      Each tree can have: 
+         - a broken branch -> 30% probability of having it
+         - and 0 to 6 leaves (use a random value to decide how many)
+      Each broken branck can have (or not, 50% probabilty):
+         - a leaf
+         
+      Using jQuery:
+      1) Write a program that generates a random forest, using
+         nested DIVs to represent the trees, broken branches, and leaves.
+      2) When the user clicks the button, place the bird on the first tree in your forest 
+         (inside the DIV representing a tree) with a broken branch.
+         If in your current forest no trees have a broken brance, place the bird on the first tree.
+		 Note: there is already a DIV with ID bird. 
+		       You need to remove it and place it at the appropriate place, when the button is clicked.
+   */
+   
+	$(function() {
+       
+        // FINISH THE CODE BELOW...
+        var treeIndex = 0;
+		$('#forest').empty();
+        $('#forest').append(
+           $('<div>', {id:'tree'+treeIndex,class: 'tree'}).text('tree '+treeIndex) 
+        );
+        var k = randInt(0,6);
+        for (var i=0;i<k;i++){
+            $('#tree'+0).append( 
+               $('<div>', {class: 'leaf'}).text('leaf')
+            );
+        }
+
+       
+        treeIndex += 1;
+        $('#forest').append(
+           $('<div>', {id:'tree'+treeIndex,class: 'tree'}).text('tree '+treeIndex) 
+        );
+       
+        if (randInt(0,100)>=30){
+            $('#tree'+0).append( 
+               $('<div>', {class: 'branch'}).text('broken branch')
+            );
+        }
+        
+       
+        // what to do when the button is clicked
+        $('#bnt').click(function(event){
+           console.log( 'button clicked' );
+           // FINISH THIS FUNCTION...
+           
+           var $brokenBranch = $('div.branch').first();
+           if ($brokenBranch.length>0){
+              $('#bird').detach().appendTo( $brokenBranch.parent() );
+           } else {
+              $('#bird').detach().appendTo( $('.tree').first() );              
+           }
+           
+           
+        });
+	});
+</script>
+
+</head>
+
+<body>
+	<p>A forest</p>
+    <div id="bird"> &#128038; </div>
+    <div id="forest">... your forest goes here...</div>
+    <button id="bnt">Start</button>
+</body>
+</html>

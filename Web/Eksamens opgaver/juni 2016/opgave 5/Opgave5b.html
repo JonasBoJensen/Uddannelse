@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../lib/easeljs-0.7.1.min.js"></script>
+</head>
+
+<body onload="init()" style="margin: 20px">
+
+<canvas id="canvas" width="500" height="500" style="border: black solid 1px"></canvas>
+
+</body>
+var clones = 12;
+
+<script id="editable">
+	var stage, dashCmd;
+	function init() {
+		stage = new createjs.Stage("canvas");
+		var blackRect = new createjs.Shape();
+		stage.addChild(blackRect);
+		blackRectWidth = 8;
+		blackRectHeight = 40;
+		blackRect.graphics.beginFill("#000000").drawRect(0, 0, blackRectWidth, blackRectHeight);
+		blackRect.x = canvas.width/2;
+		blackRect.y = 100;
+        blackRect.regX =4; // center the coordinates 
+        blackRect.regY =20; // center the coordinates
+        
+        for (i=0; i < clones; i++){
+            
+        }
+		createjs.Ticker.addEventListener("tick", handleTick);
+		createjs.Ticker.setFPS(60);
+	}
+
+	function handleTick(e) {
+		stage.update();
+	}
+
+</script>
+
+</html>

@@ -1,0 +1,23 @@
+<html>
+
+   <head>
+      <title>Opgave6a.html</title>
+       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+       
+       <script>
+        function init(){
+            $('input[value="Load Data"]').on('click',function(){
+                $('#stage').load('info.html');
+            })
+            
+        }
+       </script>
+   </head>
+   <body onload="init()">
+      <p>Click on the button to load info.html file:</p>
+      <div id = "stage" style = "background-color:cc0;">
+      </div>
+      <input type = "button" id = "driver" value = "Load Data" />
+   </body>
+	
+</html>

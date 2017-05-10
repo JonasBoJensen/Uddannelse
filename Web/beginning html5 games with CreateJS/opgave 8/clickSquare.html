@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../lib/easeljs-0.7.1.min.js"></script>
+</head>
+
+<body onload="init()" style="margin: 20px">
+
+<canvas id="canvas" width="500" height="500" style="border: black solid 1px"></canvas>
+
+</body>
+
+
+<script id="editable">
+  const TWO = 50;
+  const ARROW_KEY_UP = 38;
+	var stage;
+	var shape = new createjs.Shape();	
+	
+	function init() {
+		stage = new createjs.Stage("canvas");
+    stage.enableMouseOver();		
+		shape.graphics.setStrokeStyle(2).beginStroke("#000000").beginFill("#ffff00").drawRect(0, 0, 100, 100);
+		shape.regX = 50;
+		shape.regY = 50;
+		shape.x = 250;
+		shape.y = 250;
+		stage.addChild(shape);
+		
+    window.onkeyup = moveShapeUp;
+
+		createjs.Ticker.addEventListener("tick", handleTick);
+		createjs.Ticker.setFPS(60);
+	}
+	
+    shape.addEventListener('mouseover', function (e) {shape.graphics.beginFill("#0000ff").drawRect(0, 0, 100, 100);});	
+    shape.addEventListener('mouseout', function (e) {shape.graphics.beginFill("#ffff00").drawRect(0, 0, 100, 100);});	
+    shape.addEventListener('dblclick', function (e) {shape.scaleY = 0.50;});	
+    shape.addEventListener('click', function (e) {shape.rotation = 40;});	
+
+    function moveShapeUp(e){
+        switch (e.keyCode){
+            case ARROW_KEY_UP:
+                shape.y -= 10;
+                break;
+            case TWO:
+                var txt = new createjs.Text("2", " 150px Arial", "#00ff00");
+                txt.x = 50;
+                txt.y = 50;
+                stage.addChild(txt);
+                stage.update();
+                break;                
+        }
+    }
+
+	function handleTick(e) {
+		stage.update();
+	}
+
+</script>
+
+</html>

@@ -1,0 +1,9 @@
+{ 
+	"employees": [
+		{"employeeName":"Jane Smith", "department":"Marketing", "salary":"$95000", "company_id":"M165"},
+		{"employeeName":"John Smith", "department":"Technology", "salary":"$90000", "company_id":"T440"},
+		{"employeeName":"Brian Adam", "department":"Sales", "salary":"$72000", "company_id":"Sa031"},
+		{"employeeName":"Mary Jones", "department":"Support", "salary":"$60000", "company_id":"Su738"},
+		{"employeeName":"Michael Jefferson", "department":"Technology", "salary":"$85000", "company_id":"T265"}
+	]
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="../lib/jquery.js"></script>
+
+    <style>
+        .list {
+            border: 3px double green;
+            width: 350px;
+        }
+
+        .tableHeader {
+            background-color: lightgray;
+        }
+        
+        .listDepartments {
+            width: 200px;
+        }
+    </style>
+
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <strong>Departments:</strong>
+    <div>
+        <ul class="listDepartments">
+            <li>Marketing</li>
+            <li>Sales</li>
+            <li>Technology
+                <ul id="tech">
+                    <li>Hardware Technology</li>
+                    <li id="newRecord">Software Technology</li>
+                </ul>
+            </li>
+            <li>Customer Support</li>
+        </ul>
+    </div><br>
+
+    <input id="btnTestIt" type="button" value="Test It">
+</body>
+
+</html>

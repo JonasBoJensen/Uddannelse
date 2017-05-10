@@ -1,0 +1,43 @@
+08/05/2017
+
+
+Topics covered in the course, and useful when preparing for the exam
+
+- javascript -> [ELO] book, chapters 1 to 6, (chapters 3 to 6 in more details)
+	- defining abstract data types in javascript, 
+          constructors, this, attributes and methods 
+		-> [ELO] chapter 6
+	- data structures in javascript: arrays, linked list [list], 
+	  use an array as a stack (push/pop), use an object as a table (key-value pairs)
+          	-> ELO chpts 5,6
+ 	- trees -> [ELO] chpt 13
+	- sorting, filtering data from an array, using functions as parameters 
+		-> material from lecture 07, [ELO] chpt 4
+	- callbacks AKA high-order functions, functions that take another function as parameter -> ELO chpt 5
+	- DOM API -> [JQUERY] chapters 2 and 5, [ELO] chpt 13, [W3Cschool_1]
+	- JSON, localstorage -> [W3Cschool_2], [storingObjects]
+
+- responsive pages:
+	- create responsive pages -> [Responsive] book, chapter 1
+        - 12-grids                -> [Responsive] book, chapter 2
+	- use plugins for tables  -> [Responsive] book, chapters 2,7
+	- responsive menus        -> [Responsive] book, chapter 3
+
+- jQuery 
+	- basic stuff -> [JQUERY] chapters 2,3,5
+	- advanced selectors and traversing: [JQUERY] chapter 9
+
+
+***************************************************
+
+Books and references:
+- Eloquent Javascript (AKA [ELO]): http://eloquentjavascript.net/
+- Responsive Web Design with jQuery (book, [RES])
+- Learning jQuery 4th Edition (book [JQUERY])
+
+- [list] Linked List examples: 
+	- http://www.i-programmer.info/programming/javascript/5328-javascript-data-structures-the-linked-list.html
+	- https://gist.github.com/wesleyhales/2023993
+- [W3Cschool_1] https://www.w3schools.com/js/js_htmldom_methods.asp
+- [W3Cschool_2] https://www.w3schools.com/html/html5_webstorage.asp
+- [storingObjects] http://stackoverflow.com/questions/2010892/storing-objects-in-html5-localstorage

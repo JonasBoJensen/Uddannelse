@@ -1,0 +1,248 @@
+<html>
+   <!--
+
+
+
+         ##      ##    ###    ########  ##    ## #### ##    ##  ######   
+         ##  ##  ##   ## ##   ##     ## ###   ##  ##  ###   ## ##    ##  
+         ##  ##  ##  ##   ##  ##     ## ####  ##  ##  ####  ## ##        
+         ##  ##  ## ##     ## ########  ## ## ##  ##  ## ## ## ##   #### 
+         ##  ##  ## ######### ##   ##   ##  ####  ##  ##  #### ##    ##  
+         ##  ##  ## ##     ## ##    ##  ##   ###  ##  ##   ### ##    ##  
+          ###  ###  ##     ## ##     ## ##    ## #### ##    ##  ######   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         READ BELOW ONLY AFTER YOU HAVE SOLVED THE EXERCISE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         READ BELOW ONLY AFTER YOU HAVE SOLVED THE EXERCISE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   -->
+   <body>
+   <h1>Zoo</h1>
+   <p>Open the javascript console to see the results of this program.</p>
+   
+   <script>
+
+      // the CONSTRUCTOR of Animal objects
+      /*
+      - it has a name, for example 'Bob'
+      - it has a species name, for example 'alligator'
+      - it has a numerical code, for example 12345
+      - it can be sick or not
+      */
+      function Animal(species,name,code,isSick){
+         this.species = species;
+         this.name = name;
+         this.code = code;
+         this.isSick = isSick;
+         
+         this.toString = function(){
+            var s = '';
+            s += this.species +' #'+ this.name +'#';
+            s += ', code:' + this.code ;
+            s += ', ';
+            if (this.isSick){
+               s += 'sick';
+            } else {
+               s += 'healthy';
+            }
+            return s;
+         }
+      }
+
+      // 1)
+      var a = new Animal('alligator','bob',12345,false);
+      console.log( a ); 
+      /* TO DO  
+         inspect object  a  in the browser's js console to see
+         if it has all the right attributes set with the correct values
+      */
+      
+      
+      // 2)
+      console.log( a.toString() );
+      console.assert( a.toString()=='alligator #bob#, code:12345, healthy', 
+                        'your toString function is not working properly for Bob :(');
+      
+      var b = new Animal('baboon','jack',6789,true);
+      console.log( b.toString() );
+      console.assert( b.toString()=='baboon #jack#, code:6789, sick', 
+                        'your toString function is not working properly for Jack :(');
+      
+      // 3)
+      // 3.a)
+      var zooAnimals;
+      var animal1 = new Animal('alligator','bob',12345,false);
+      var animal2 = new Animal('baboon','jack',6789,true);
+      var animal3 = new Animal('cangaroo','roo',31415,false);
+      // add the all animals to the zooAnimals array ...
+      zooAnimals = [];
+      zooAnimals.push( animal1 );
+      zooAnimals.push( animal2 );
+      zooAnimals.push( animal3 );
+      /*
+      // or:
+      zooAnimals = [];
+      zooAnimals.push( animal1,animal2,animal3 );
+
+      // or:
+      zooAnimals = [animal1,animal2,animal3];
+      */
+      
+      console.log( zooAnimals.join(';\n') );
+      console.assert( zooAnimals != null, 'Error: your zooAnimals array is not initialized :(');
+      console.assert( zooAnimals.length==3, 'Error: your zoo should have 3 animals :(');
+      // 3.b)
+      zooAnimals.splice(1, 1);
+      console.log( zooAnimals.join(';\n') );
+      // 3.b)
+      zooAnimals.unshift( new Animal('elephant','Ely',1111,true) );
+      zooAnimals.unshift( new Animal('frog','Francis',2222,false) );
+      zooAnimals.unshift( new Animal('hippo','Harry',3333,true) );
+      console.log( zooAnimals.join(';\n') );
+      
+      // 4) print the array in various ways ...
+      // 4.a) Print the species and name for each animal in the array. Use a for-loop.
+      for (var i=0;i<zooAnimals.length;i++){
+         console.log( i +') '+ zooAnimals[i].species + ' => ' + zooAnimals[i].name);
+      }
+      
+      // 4.b) Sort the array by animal name, alphabetically. Then print a description of each animal 
+      // in the array using the toString method. Use a for-loop.
+      zooAnimals.sort();
+      for (var i=0;i<zooAnimals.length;i++){
+         console.log( i +') '+ zooAnimals[i]); 
+         /*
+         // or 
+         console.log( i +') '+ zooAnimals[i].toString() ); 
+         */
+      }
+      // 4.c) For each animal in the array, print whether it is sick or not. 
+      // Use the forEach method of the Array.
+      zooAnimals.forEach( function(element, index){
+            console.log( index +') is ' + zooAnimals[index].name +
+                        ' sick? '+ zooAnimals[index].isSick); 
+      });
+      
+      // 4.d) Print the name for each HEALTHY (aka not sick) animal in the array. Use a for-loop.
+      console.log('=== Healty animals in the Zoo ===');
+      for (var i=0;i<zooAnimals.length;i++){
+         if (!zooAnimals[i].isSick){
+            console.log( i +') '+ zooAnimals[i].name); 
+         }
+      }
+      
+      // 4.e) [DIFFICULT]
+      console.log('=== All animals in the Zoo (sick first) ===');      
+      zooAnimals.sort(function(a,b){
+         var aPoints = 0;
+         var bPoints = 0;
+         if (a.isSick)
+            aPoints--;
+         if (b.isSick)
+            aPoints--;
+         return (aPoints < bPoints);
+      });
+      
+      /*
+      // or
+      zooAnimals.sort(function(a,b){
+         if (a.isSick && b.isSick){
+            return 0; // tie
+         }
+         if (a.isSick && !b.isSick){
+            return -1; // a wins
+         }
+         if (!a.isSick && b.isSick){
+            return +1; // b wins
+         }
+         
+         // both a and b are not sick: tie!
+         return 0;
+      });*/
+      
+      for (var i=0;i<zooAnimals.length;i++){
+         console.log( i +') '+ zooAnimals[i]); 
+      }
+   </script>
+   </body>
+</html>
