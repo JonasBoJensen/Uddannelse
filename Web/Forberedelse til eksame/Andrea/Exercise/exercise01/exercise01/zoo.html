@@ -1,0 +1,89 @@
+<html>
+   <body>
+   <h1>Zoo</h1>
+   <p>Open the javascript console to see the results of this program.</p>
+   
+   <script>
+
+      // the CONSTRUCTOR of Animal objects
+      function Animal(species,name,numCode,sick){
+          this.species = species;
+          this.name = name;
+          this.numCode = numCode;
+          this.sick = sick; // boolean
+         
+         
+         // FINISH THE IMPLEMENTATION OF THE toString METHOD
+         this.toString = function(){
+            var animals = this.species +" #" + this.name + "#, code:" + this.numCode+", ";
+             
+            if (!this.sick){
+                animals += "healthy";
+            }
+            else {
+                animals += "sick";
+            } 
+            return animals; 
+         }
+      }
+
+      // 1)
+      var a = new Animal('alligator','bob',12345,false);
+      console.log( a ); 
+      /* TO DO  
+         inspect object  a  in the browser's js console to see
+         if it has all the right attributes set with the correct values
+      */
+      
+      
+      // 2)
+      console.log( a.toString() );
+      console.assert( a.toString()=='alligator #bob#, code:12345, healthy', 
+                        'your toString function is not working properly for Bob :(');
+      
+      var b = new Animal('baboon','jack',6789,true);
+      console.log( b.toString() );
+      console.assert( b.toString()=='baboon #jack#, code:6789, sick', 
+                        'your toString function is not working properly for Jack :(');
+      
+      // 3)
+      var zooAnimals = [];
+      var animal1 = new Animal('alligator','bob',12345,false);
+      var animal2 = new Animal('baboon','jack',6789,true);
+      var animal3 = new Animal('cangaroo','roo',31415,false);
+      // TO DO: add the all animals to the zooAnimals array ...
+      zooAnimals.push(animal1, animal2, animal3);
+       
+      console.log( zooAnimals.join(';\n') );
+      console.assert( zooAnimals != null, 'Error: your zooAnimals array is not initialized :(');
+      console.assert( zooAnimals.length==3, 'Error: your zoo should have 3 animals :(');
+      
+       // 3.b
+      zooAnimals.splice(1, 1);
+       // 3.c
+      var animal4 = new Animal('turtle','Hitler',676,false);
+      var animal5 = new Animal('hippo','Stalin',666,true); 
+       zooAnimals.unshift(animal4, animal5);
+       
+      console.log( zooAnimals.join(';\n') );   
+       
+      // 4) print the array in various ways ...
+      // 4.a
+       for (i = 0; i < zooAnimals.length; i++){
+           console.log(zooAnimals[i].species + ", " + zooAnimals[i].name);
+       }
+       
+       // 4.b
+       zooAnimals.sort();       
+       for ( i = 0; i< zooAnimals.length; i++){
+           console.log(i +' - ' + zooAnimals[i]);
+       }
+       // 4.c
+       zooAnimals.forEach(function(element, index){
+           console.log(index + ') is ' + zooAnimals[index].name + ' sick? '+ zooAnimals[index].sick);
+       });
+       
+       
+   </script>
+   </body>
+</html>

@@ -1,0 +1,51 @@
+Exercise
+========
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+  NOTE: this exercise is more difficult than any you will get in the exam.
+        It is however good for practicing. 
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*      
+
+
+      
+Look in the files:
+- exercise02.html
+- js/ShoppingCart.js
+
+The ShoppingCart.js file define a ShoppingCart data-type, that represents a list of
+items with their prices, that somebody is buying.
+
+In the HTLM file you can see that an object of ShoppingCart type is created, using
+the constructor function.
+In the HMTL page there is also a form, with text inputs and buttons.
+
+1) Using jQuery, write an event handler for the click event of the 'addItem' button
+so that when the button is clicked, the text in 'itemInput' and 'priceInput' are used to
+add a new item to the ShoppingCart.
+After that you should appended the complete description of the shopping cart in the 'mainArea' DIV.
+Remember to clear the text in the form inputs, so the user can input something else.
+
+
+2) Modify the handler you just wrote for the 'addItem' button, so that it also 
+writes the total price of all items in the cart, in the last DIV of the page.
+
+3) Using jQuery, write an event handler for the click event of the 'reset' button
+After your clicked the 'reset' button, the shopping cart will be empty, and its total price 0.
+After the button is clicked you should refresh the 'mainArea' DIV, so that it shows
+that the shopping cart is now empty.
+
+[DIFFICULT]
+4) Add a button to the page to save the current ShoppingCart data into the localStorage.
+Use any key you like to save the data. Remember to JSON-ify your data before saving them.
+
+[DIFFICULT]
+5) Add a button to the page to load ShoppingCart data back from the localStorage.
+After you load the data, you should refresh both the 'mainArea' DIV and the total price of 
+all items in the cart, in the last DIV of the page.
+NOTE: after reloading an object from localStorage all methods are lost, so you
+have to find a way make your loaded object work as a ShoppingCart, with the right methods.
+SUGGESTION: consider not saving and loading an entire ShoppingCart object, but instead
+save and load the 2 arrays that are defined inside the ShoppingCart object.
+
+To test that both saving and loading work, add few items to the cart, save, close the page.
+Then reopen it and load: do you see the same items? and is the total correct?

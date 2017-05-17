@@ -1,0 +1,205 @@
+<html>   <!--
+
+
+
+         ##      ##    ###    ########  ##    ## #### ##    ##  ######   
+         ##  ##  ##   ## ##   ##     ## ###   ##  ##  ###   ## ##    ##  
+         ##  ##  ##  ##   ##  ##     ## ####  ##  ##  ####  ## ##        
+         ##  ##  ## ##     ## ########  ## ## ##  ##  ## ## ## ##   #### 
+         ##  ##  ## ######### ##   ##   ##  ####  ##  ##  #### ##    ##  
+         ##  ##  ## ##     ## ##    ##  ##   ###  ##  ##   ### ##    ##  
+          ###  ###  ##     ## ##     ## ##    ## #### ##    ##  ######   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         READ BELOW ONLY AFTER YOU HAVE SOLVED THE EXERCISE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         READ BELOW ONLY AFTER YOU HAVE SOLVED THE EXERCISE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   -->
+   <head>
+   <style>
+	.largeDiv {
+		width: 90%;
+		color: blue;
+	}
+	
+	label {
+		width: 250px;
+       display: inline-block;
+	}
+      
+	.total {
+		color: green;
+	}
+   </style>
+   <script src="js/jquery-3.2.1.min.js"></script>
+   <script src="js/ShoppingCart.js"></script>
+   <script>
+		var myCart = new ShoppingCart();
+      
+       /*
+        // test
+        console.log( myCart.toString() );
+        myCart.addToCart('apple', 10);
+        console.log( myCart.toString() );
+        myCart.addToCart('banana',100);
+        console.log( myCart.toString() ); // prints the 2 items with their prices
+        console.log( 'total price of items ' + myCart.computeTotal() ); // should be 110
+        myCart.clear();
+        console.log( myCart.toString() ); // emtpy again!
+       */
+		
+		$(function(){
+			$('#addItem').on('click',function(){
+                myCart.addToCart(
+                        $('#itemInput').val(),
+                        parseInt( $('#priceInput').val() )
+                );
+                
+                $('#mainArea').html( myCart.toString() );
+                //console.log ( myCart.toString() );
+                
+                $('.total').first().text( 'total = ' + myCart.computeTotal() );
+                
+                $('#itemInput').val('');
+                $('#priceInput').val('');
+            });
+
+			$('#reset').on('click',function(){
+                myCart.clear();
+                $('#mainArea').html( myCart.toString() );
+                $('.total').first().text( '' );
+            });
+            
+            
+            
+            
+			$('#save').on('click',function(){
+                localStorage.setItem('myCartData' ,
+                    JSON.stringify(
+                        [ myCart.items , myCart.prices ]
+                    )
+                );
+            });
+
+            $('#load').on('click',function(){
+                var temp = JSON.parse(
+                                localStorage.getItem('myCartData') 
+                );
+                
+                myCart.clear();
+                myCart.items = temp[0];
+                myCart.prices = temp[1];
+
+                // refresh the GUI
+                $('#mainArea').html( myCart.toString() );
+                $('.total').first().text( 'total = ' + myCart.computeTotal() );
+                
+            });
+            
+		});
+		
+		
+   </script>
+   </head>
+   <body>
+	   <h1>Shopping</h1>
+	   <p>Add items (with their prices) to your shopping cart.</p>
+	   <form>
+          <div>
+              <label for="newItem">Item to bring along</label> 
+              <input type="text" id="itemInput" name="newItem" placeholder="1 pair socks"><br>
+              <label for="itemPrice">Price</label> 
+              <input type="text" id="priceInput" name="itemPrice" placeholder="50"><br>
+          </div>
+        <br/>
+		<input type="button" id="addItem" value="add the item"></input>
+		<input type="button" id="reset" value="changed my mind"></input>
+        <br/>
+		<br/>
+		<input type="button" id="save" value="save data"></input>
+		<input type="button" id="load" value="load data"></input>
+	   </form>
+	   <div id="mainArea" class="largeDiv"></div>
+	   <div class="total"></div>
+   </body>
+</html>

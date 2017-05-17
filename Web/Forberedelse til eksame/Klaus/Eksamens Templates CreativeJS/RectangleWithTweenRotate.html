@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Opgave 1a</title>
+    <script src="../lib/easeljs-0.7.1.min.js"></script>
+    <script src="../lib/tweenjs-0.6.2.min.js"></script>
+    <script src="../lib/jquery.js"></script>
+
+    <script>
+        
+        var stage;
+        var container;
+
+        function init() {
+            stage = new createjs.Stage(document.getElementById('testCanvas'));
+            
+            createjs.Ticker.addEventListener("tick", handleTick);
+            createjs.Ticker.setFPS(60);
+            start();
+        }
+        
+        function handleTick() {
+        stage.update();
+        
+    }
+        
+        function start(){
+            container = new createjs.Container();
+                        
+            var text = new createjs.Text("Text on canvas...0", "36px Arial", "blue");
+            
+            g = new createjs.Graphics().setStrokeStyle(8).beginStroke('green').beginFill('#FF2A2A').drawRect(-10,-10,text.getMeasuredWidth()+50,text.getMeasuredHeight()+30);
+            var rectangle = new createjs.Shape(g);
+             
+            container.addChild(rectangle,text)
+            container.regX = 200;
+            container.regY = 30;
+            
+            container.x = testCanvas.width/2;
+            container.y = testCanvas.height/2
+                        
+            stage.addChild(container);
+            createjs.Tween.get(container).to({rotation:10},4000);
+            stage.update();
+
+        }
+
+
+    </script>
+</head>
+
+<body onload="init();">
+    <div>
+        <canvas id="testCanvas" width="800" height="600" style="border: black solid 1px"></canvas>
+    </div>
+</body>
+
+</html>

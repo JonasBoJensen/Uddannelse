@@ -1,0 +1,53 @@
+<html>
+<head>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+   function randInt(min,max){
+      return parseInt( Math.random()* (max+1 - min) ) + min;
+   }
+</script>
+   
+   
+<script>   
+   /* Problem definition:
+      Generate a description of a city that has from 4 to 10 buildings
+      (use a random value to decide how many).
+      Each building can have: 
+         - a rotten roof -> 50% probability of having it
+         - and 0 to 4 persons living in it (use a random value to decide how many)
+      A rotten roof can have:
+         - a rat living in it -> 40% probability of having it
+         
+      Using jQuery:
+      1) Write a program that generates a random city. Use objects and arrays if needed
+         to represent you city. Then save your city in localStorage with the key
+         'myCityData'.
+
+
+   */
+   
+	$(function() {
+        $('#output').append( 'Creating the city...<br/>' );
+        
+		var city = { }; 
+        city.buildings = [];
+        $('#output').append( 'adding a new building ...<br/>' );
+        var building = {name: 'building'+0 };
+        city.buildings.push( building );
+        // TO FINISH ...
+        
+        $('#output').append( 'city [done]' );
+        
+        console.log( city );
+        localStorage.setItem('myCityData', JSON.stringify(city) );
+
+	});
+</script>
+
+</head>
+
+<body>
+	<p>Generating a city</p>
+    <div id="output"></div>
+</body>
+</html>

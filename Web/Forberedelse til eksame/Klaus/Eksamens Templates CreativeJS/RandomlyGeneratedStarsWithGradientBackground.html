@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
+    <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+</head>
+
+<body onload="init()" style="margin: 20px">
+
+<canvas id="canvas" width="800" height="600" style="border: black solid 1px"></canvas>
+
+</body>
+
+<script>
+    var stage;
+    function init() {
+        stage = new createjs.Stage(document.getElementById('canvas'));
+        var bgShape = new createjs.Shape();
+        bgShape.graphics.beginLinearGradientFill(["blue", "black"],
+        [.1, .6],
+        0,0,
+        0, stage.canvas.height);
+        bgShape.graphics.drawRect(
+        0,
+        0,
+        stage.canvas.width,
+        stage.canvas.height);
+        bgShape.graphics.endFill();
+        stage.addChild(bgShape);
+        createjs.Ticker.addEventListener("tick", handleTick);
+        createjs.Ticker.setFPS(60);
+        start();
+    }
+    function handleTick(e) {
+        stage.update();
+    }
+
+    function start() {
+        
+        max = 2500;
+        
+        min = 1500;
+        
+        stars = Math.floor(Math.random()*(max-min))
+        
+        
+        console.log(stars)
+        console.log(posx)
+        console.log(posy)
+        console.log(size)
+        
+    
+        
+        for(i=0; i< stars; i++){
+        var poly = new createjs.Shape();
+        
+        var size = Math.floor(Math.random()*(5-1)+1)
+        
+        var posx = Math.floor(Math.random()*(800))
+        
+        var posy = Math.floor(Math.random()*(600))
+        
+//        poly.graphics.beginStroke('#000');
+        poly.graphics.beginFill('yellow');
+        poly.graphics.drawPolyStar(0, 0, size, 5, 0.6);
+        poly.x = posx;
+        poly.y = posy;
+        stage.addChild(poly);
+            
+        }
+    
+   
+      
+    }
+
+</script>
+
+</html>

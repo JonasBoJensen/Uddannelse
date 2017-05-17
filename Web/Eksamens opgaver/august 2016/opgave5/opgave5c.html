@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #canvas {
+            border: 1px solid black;
+            top: -10px;
+        }
+    </style>
+    <script src="../lib/easeljs-0.7.1.min.js"></script>
+    <script src="../lib/tweenjs-0.6.2.min.js"></script>
+
+    <script>
+        var stage;
+        function init(){
+            stage = new createjs.Stage(document.getElementById('canvas'));
+                        
+            start()            
+        }
+        
+        function start(){
+            // The circle
+            var g = new createjs.Graphics().beginRadialGradientFill(
+                ["#FF0000","#FFFF00"], 
+                [0, 1], 
+                200, 150, 0, 200, 150, 80)
+                .drawCircle(200, 150, 80);
+                       
+            var circle = new createjs.Shape(g);
+            
+            // background
+            var l = new createjs.Graphics().beginLinearGradientFill(
+                ['#000000','#0000ff'], 
+                [0,1],
+                0, 0, 
+                0, 400)
+                .drawRect(0,0,canvas.width,canvas.height);
+            var bg = new createjs.Shape(l);
+            
+            // star
+            
+            var star = new createjs.Shape()
+            star.graphics.beginFill('yellow');
+            star.graphics.drawPolyStar(0,0,20,5,0.6);
+            star.x = 20;
+            star.y = 300;
+//            star.regX = 10;
+//            star.regY = 10;
+            
+            stage.addChild(bg, circle, star);
+            stage.update();
+            
+        }
+        
+    </script>
+</head>
+
+<body onLoad="init()">
+    <canvas id="canvas" width="800" height="400" />
+</body>
+
+</html>

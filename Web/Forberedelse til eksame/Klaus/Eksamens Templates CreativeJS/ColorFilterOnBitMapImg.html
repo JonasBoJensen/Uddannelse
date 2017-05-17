@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Opgave 1a</title>
+    <script src="C:/AppServ/www/createJS/lib/easeljs-0.7.1.min.js"></script>
+    <script src="C:/AppServ/www/createJS/lib/tweenjs-0.6.2.min.js"></script>
+    <script src="C:/AppServ/www/createJS/lib/jquery.js"></script>
+
+    <script>
+    var stage, img;
+
+        function init() {
+            stage = new createjs.Stage('canvas');
+            img = new Image();
+            createjs.Ticker.setFPS(60);
+            createjs.Ticker.addEventListener('tick', handleTick);
+            img.onload = start;
+                img.src= "C:/AppServ/www/createJS/img/flowers.jpg";
+
+            start();
+        }
+        function handleTick(){
+            stage.update();
+        }
+        
+        function start(){
+            var flowers = new createjs.Bitmap(img);
+            flowers.x = 50;
+            flowers.y = 20;
+            
+            var color = new createjs.ColorFilter(1,0,0,1, 0,0,0,0);
+            flowers.filters = [color];
+            flowers.cache(0, 0, img.width, img.height)
+            stage.addChild(flowers);
+            
+            
+        }
+    </script>
+</head>
+
+<body onload="init()">
+    <canvas id="canvas" width="960" height="400"></canvas>
+</body>
+
+</html>

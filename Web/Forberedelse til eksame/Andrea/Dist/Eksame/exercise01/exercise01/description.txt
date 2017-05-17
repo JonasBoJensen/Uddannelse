@@ -1,0 +1,62 @@
+Exercise
+========
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+  NOTE: this exercise is more difficult than any you will get in the exam.
+        It is however good for practicing. 
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*      
+      
+      
+Look in the file zoo.html
+
+A zoo needs a program to manipulate data about their animals.
+An animal in the program should be represented by an object.
+All animals in the zoo will be placed in an array of objects.
+An animal is defined as follows:
+- it has a name, for example 'Bob'
+- it has a species name, for example 'alligator'
+- it has a numerical code, for example 12345
+- it can be sick or not
+
+What you have to do:
+1) Finish implementing the Animal constructor, so that each Animal object
+   has the right attributes.
+   To be sure that your job is done, when you are done the 
+   assertions in the file, in section:
+       // 1) 
+   should pass correctly, without errors.
+   
+2) Re-implementing the toString function, so that it
+   returns a string describing the animal.
+   For example, the Bob the alligator has 12345 as an id code,
+   and is currently not sick; the toString method should describe it like this:
+         'alligator #bob#, code:12345, healthy'
+   While Jack the baboon, with id code 6789 and sick, prints:
+      'baboon #jack#, code:6789, sick'
+   To be sure that your job is done, when you are done the 
+   assertions in the file, in section:  
+      // 2)
+   should pass correctly, without errors.
+   
+3) 
+3.a) I created 3 Animal objects, you have to create the array and place them into the array.
+   The variable containing the array is  zooAnimals .
+   To be sure that your job is done, when you are done the 
+   assertions in the file, in section:  
+      // 3)
+   should pass correctly, without errors.         
+3.b) Delete the second element of the array.
+3.c) Add 2 new animals (of your choice) to your array; the new animals should be the first 2 of the
+     array: so you need to prepend them, not append them. Your array should have 4 animals at this point.
+      
+4) 
+4.a) Print the species and name for each animal in the array. Use a for-loop.
+4.b) Sort the array by animal name, alphabetically. Then print a description of each animal in the array
+     using the toString method. Use a for-loop.
+4.c) For each animal in the array, print whether it is sick or not. Use the forEach method of the Array.
+     Hint: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach?v=control
+4.d) Print the name for each HEALTHY (aka not sick) animal in the array. Use a for-loop.
+4.e) [DIFFICULT] Sort your array so that the sick animals are all before the healthy ones. 
+     Use the .sort() method with an anonymous function to determine the sorting criteria. 
+     Then print each animal (using toString). Check that the sick animals are all printed before
+     the healthy ones. Use a for-loop.

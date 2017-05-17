@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Opgave 2c</title>
+
+    <script src="C:/AppServ/www/createJS/lib/easeljs-0.7.1.min.js"></script>
+    <script src="C:/AppServ/www/createJS/lib/jquery.js"></script>
+
+
+    <script id="editable">
+        var img;
+        var bmp;
+        var stage;
+        var canvas;
+        var redMultiplier = 0.0;
+        var increaseRed = 1;
+        
+        if ((localStorage.getItem('redMultiplier') == null)){
+            redMultiplier = 0.0;
+        }
+        else {
+            redMultiplier = parseFloat(localStorage.getItem('redMultiplier'));
+        }
+            
+        var increaseRed;
+        if ((localStorage.getItem('increaseRed') == null)){
+            increaseRed = 1;
+        }
+        else {
+            increaseRed = parseInt(localStorage.getItem('increaseRed'));
+        }
+        
+        function init() {
+
+            img = new Image();
+            img.onload = handleImageLoad;
+            img.src = "C:/AppServ/www/createJS/img/flowers.jpg";
+
+
+            $("#changeMultiplier").click(function() {
+                if (increaseRed == 1) {
+                    redMultiplier += 0.10;
+                    if (redMultiplier >= 1) increaseRed = 0;
+                } else {
+                    redMultiplier -= 0.10;
+                    if (redMultiplier <= 0) increaseRed = 1;
+                }
+                var color = new createjs.ColorFilter(redMultiplier, 0, 0, 1, 0, 0, 0, 0);
+                bmp.filters = [color];
+                bmp.cache(0, 0, img.width, img.height);
+                localStorage.setItem("redMultiplier", redMultiplier);
+                localStorage.setItem("increaseRed", increaseRed);
+                stage.update();
+            });
+           
+        }
+
+        function handleImageLoad() {
+             canvas = document.getElementById("testCanvas");
+            stage = new createjs.Stage(canvas);
+
+            bmp = new createjs.Bitmap(img);
+            bmp.x = 50;
+            bmp.y = 20;
+            var color = new createjs.ColorFilter(redMultiplier, 0, 0, 1, 0, 0, 0, 0);
+            bmp.filters = [color];
+            bmp.cache(0, 0, img.width, img.height);
+            stage.addChild(bmp);
+
+            createjs.Ticker.addEventListener("tick", tick);
+        }
+
+
+
+        function tick(event) {
+            stage.update(event);
+        }
+    </script>
+</head>
+
+<body onload="init()">
+
+    <canvas id="testCanvas" width="960" height="400"></canvas>
+    <br/>
+    <button id="changeMultiplier">Change Red Multiplier</button>
+
+</body>
+
+</html>

@@ -1,0 +1,252 @@
+<html>
+   <!--
+
+
+
+         ##      ##    ###    ########  ##    ## #### ##    ##  ######   
+         ##  ##  ##   ## ##   ##     ## ###   ##  ##  ###   ## ##    ##  
+         ##  ##  ##  ##   ##  ##     ## ####  ##  ##  ####  ## ##        
+         ##  ##  ## ##     ## ########  ## ## ##  ##  ## ## ## ##   #### 
+         ##  ##  ## ######### ##   ##   ##  ####  ##  ##  #### ##    ##  
+         ##  ##  ## ##     ## ##    ##  ##   ###  ##  ##   ### ##    ##  
+          ###  ###  ##     ## ##     ## ##    ## #### ##    ##  ######   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         READ BELOW ONLY AFTER YOU HAVE SOLVED THE EXERCISE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         READ BELOW ONLY AFTER YOU HAVE SOLVED THE EXERCISE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   -->    
+<head>
+   
+<style>
+   #city {
+      margin-left: 5px;
+      width: 300px;
+   }
+   .building {
+      padding: 5px;
+      border: 2px solid brown;
+   }
+   .rottenRoof {
+      margin-left: 25px;
+      border: 4px solid darkgreen;
+   }
+   .rat {
+      background-color: chocolate;
+       width: 30px;
+   }
+   .person {
+      margin-right: 3px;
+      border: 3px solid pink;
+   }
+    
+    .burned {
+        background-color: darkslategrey;
+        color: lightgray;
+    }
+   
+</style>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+   function randInt(min,max){
+      return parseInt( Math.random()* (max+1 - min) ) + min;
+   }
+</script>
+   
+   
+<script>   
+   /* Problem definition:
+      Generate a description of a city that has from 4 to 10 buildings
+      (use a random value to decide how many).
+      Each building can have: 
+         - a rotten roof -> 50% probability of having it
+         - and 0 to 4 persons living in it (use a random value to decide how many)
+      A rotten roof can have:
+         - a rat living in it -> 40% probability of having it
+         
+      Using jQuery:
+      2) Read the object describing the city from localstorage, using the key 'myCityData'
+         Then generate a city in this page, using nested DIVs to represent the 
+         buildings, rotten roofs and rats.
+         Use spans to represet individual persons.
+         So a building with a rotten roof, a rat inside it, and 3 persons should
+         be representend like this:
+            <div class='building'>building5
+                <div class='rottenRoof'>rotten roof
+                    <div class='rat'>rat</div>
+                </div>
+                <span class='person'>person</span>
+                <span class='person'>person</span>
+                <span class='person'>person</span>
+            </div>
+      3) When the user clicks the 'Burn it down!' button, burn all buildings with a
+         rotten roof, but no people and no rats inside.            
+         NOTE: 'burn' here means set a class .burned to a building 
+         So it is possible that sometimes the button has no visible effect.
+         
+      4) When the user clicks the 'Evacuate' button, remove all people from 
+         building with rotten roofs.
+         Since this button removes person spans, you can test it together with the
+         first button, to see if after you remove people from building with rotten roof
+         you can burn down more buildings.         
+         
+      5) Add a new button, to remove all rats from all buildings. 
+         Write the jQuery handler and test it.
+   */
+   
+	$(function() {
+
+        // if there is no city saved: error!
+        var city = JSON.parse( localStorage.getItem('myCityData' ) );
+        console.log( city );
+
+		$('#city').empty();
+        for (var i=0;i< city.buildings.length ;i++){
+            // DEBUG console.log( city.buildings[i] );
+            
+            var $building = $('<div>', {id:city.buildings[i].name,class: 'building'})
+                                    .text(city.buildings[i].name);
+            
+            $('#city').append( $building );    
+            $building.append( $('<br/>') );   
+            
+            if (city.buildings[i].rottenRoof){
+                var $roof = $('<div>', {class: 'rottenRoof'}).text('rotten roof')
+                $building.append( $roof );
+                
+                if (city.buildings[i].rottenRoof.rat){
+                    $roof.append( 
+                        $('<div>', {class: 'rat'}).text('rat')
+                    );
+                }                
+            }            
+            $building.append( $('<br/>') );                    
+            
+            for (var j=0;j<city.buildings[i].persons.length;j++){
+                $building.append(
+                        $('<span>', {class: 'person'}).text( city.buildings[i].persons[j].name )
+                );
+            }            
+        }
+        
+        
+        
+        $('#btn1').on('click',function(){
+            // burn all buildings with a rotten roof, but no people and no rats
+            // NOTE: 'burn' means set a class .burned to a building
+            $('div.building div.rottenRoof').parent().filter(
+                function(index,element){
+                    var noPeople = $(this).find('span.person').length == 0;
+                    var noRats = $(this).find('div.rat').length == 0;
+                    return noPeople && noRats;
+                }
+            ).addClass('burned');
+            
+        });
+        
+        $('#btn2').on('click',function(){
+            // remove all people from building with rotten roofs
+            $('div.building div.rottenRoof').parent().find('span.person').remove();
+        });
+        
+        $('#btn3').on('click',function(){
+            // remove all rats
+            $('div.rat').remove();
+        });
+        
+	});
+</script>
+
+</head>
+
+<body>
+	<p>A city</p>
+    <div id="city">... your city goes here...</div>
+    
+    <br/>
+    <button id="btn1">Burn it down!</button>
+    <button id="btn2">Evacuation</button>
+    <button id="btn3">Pied Piper of Hamelin</button>
+</body>
+</html>

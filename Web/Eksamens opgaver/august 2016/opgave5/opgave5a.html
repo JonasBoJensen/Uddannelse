@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #canvas {
+            border: 1px solid black;
+            top: -10px;
+        }
+    </style>
+    <script src="../lib/easeljs-0.7.1.min.js"></script>
+    <script src="../lib/tweenjs-0.6.2.min.js"></script>
+
+    <script>
+        var stage;
+        function init(){
+            stage = new createjs.Stage(document.getElementById('canvas'));
+                        
+            start()            
+        }
+        
+        function start(){
+            
+            var g = new createjs.Graphics().beginRadialGradientFill(
+                ["#FF0000","#FFFF00"], 
+                [0, 1], 
+                200, 150, 0, 200, 150, 80)
+                .drawCircle(200, 150, 80);
+                       
+            var circle = new createjs.Shape(g);
+            
+            stage.addChild(circle);
+            stage.update();
+        }
+        
+    </script>
+</head>
+
+<body onLoad="init()">
+    <canvas id="canvas" width="800" height="400" />
+</body>
+
+</html>

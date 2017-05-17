@@ -1,0 +1,200 @@
+<html>
+   <!--
+
+
+
+         ##      ##    ###    ########  ##    ## #### ##    ##  ######   
+         ##  ##  ##   ## ##   ##     ## ###   ##  ##  ###   ## ##    ##  
+         ##  ##  ##  ##   ##  ##     ## ####  ##  ##  ####  ## ##        
+         ##  ##  ## ##     ## ########  ## ## ##  ##  ## ## ## ##   #### 
+         ##  ##  ## ######### ##   ##   ##  ####  ##  ##  #### ##    ##  
+         ##  ##  ## ##     ## ##    ##  ##   ###  ##  ##   ### ##    ##  
+          ###  ###  ##     ## ##     ## ##    ## #### ##    ##  ######   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         READ BELOW ONLY AFTER YOU HAVE SOLVED THE EXERCISE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         READ BELOW ONLY AFTER YOU HAVE SOLVED THE EXERCISE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   -->    
+        
+<head>
+  <meta name="viewport" content="width=device-width">
+  <title>Chapter 2 - Foundation 4 grid</title>
+  <link rel="stylesheet" href="css/foundation.css">
+  <script src="js/custom.modernizr.js"></script>
+  <style>      
+    .row {
+		margin-bottom: 1vw;
+	}
+    .columns {
+		border: 1px solid lightgray; 
+
+        min-height: 50px; 
+		text-align: left; 
+	}
+     
+     
+     
+     body {
+       background-color: gray;
+       font-size: 1em;
+       font-weight: 1;
+     }
+    .title{
+       font-size: 4vw;
+       font-weight: 100;
+        
+       background-color: #35376d;
+       color: lightgray;
+    }
+    .description {
+       padding: 10px;
+       text-align: justify;
+    }
+  </style>
+  
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="js/foundation.min.js"></script>
+  
+</head>
+<body>
+
+
+  <div class="row" id="#titleBar">
+	<div class="small-12 large-12 columns title">Anime: Hokuto no Ken</div>
+  </div>
+
+  <div class="row">
+	<div class="small-12 large-4 columns">
+       <img src="images/dvdCover.jpg" style="margin: auto;display: block;"></img>
+	</div>
+	<div class="small-12 large-8 columns">
+       <b>Info</b>
+          <table width="100%" >
+              <tr><td>Main title:</td><td>Hokuto no Ken</td></tr>
+              <tr><td>Official title:</td><td>Fist of the Northern Star</td></tr>
+              <tr><td>Type:</td><td>TV Series, 109 Episodes</td></tr>
+              <tr><td>Year:</td><td>1984-1987</td></tr>
+              <tr><td>Rating:</td><td>7.16</td></tr>
+          </table>
+
+        <!-- sub columns -->
+        <div class="small-12 large-6 columns">
+           <b>Main Staff</b>
+              <table width="100%" >
+                  <tr><td>Original Work:</td><td>Buronson, Hara Tetsuo</td></tr>
+                  <tr><td>Direction:</td><td>Ashida Toyoo</td></tr>
+              </table>
+        </div>    
+        <div class="small-12 large-6 columns">
+           <b>Main Cast</b>
+              <table width="100%" >
+                  <tr><td>Kamiya Akira as </td><td>Kenshirou</td></tr>
+                  <tr><td>Andou Arisa as </td><td>Airi</td></tr>
+                  <tr><td>Suzuki Mie as </td><td>Bat</td></tr>
+              </table>
+        </div>
+    </div>
+    
+  </div>
+
+  <div class="row">
+      <div class="small-12 large-12 columns description">          
+          A legendary fighter able to call on secret powers, he is an unrivaled practitioner of a martial art that fights violence with worse violence to enforce justice. Kenshirou is the man with the seven scars, the heir to the ancient martial art of Hokuto Shinken. He is the Fist of The North Star. Hokuto Shinken is a masterful technique, based on the secret energy points of the human body that enable life. By striking them in various sequences, the practitioner of Hokuto Shinken can manipulate a persons body. Strike one combination and you cure disease. Another, and you wipe a man's memories away. Strike another, and a persons body will rip itself apart...
+      </div>
+  </div>       
+
+  <div class="row">
+      <div class="small-6 large-4 columns">
+          [<a href="https://anidb.net/perl-bin/animedb.pl?show=anime&aid=386">source</a>]    
+      </div>      
+      <div class="small-6 large-4 columns">
+          [<a href="https://www.youtube.com/watch?v=weoc5fA4200">video</a>]
+      </div>      
+  </div>       
+
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>

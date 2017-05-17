@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Opgave 1a</title>
+
+    <script src="../lib/easeljs-0.7.1.min.js"></script>
+    <script src="../lib/tweenjs-0.6.2.min.js"></script>
+    <script src="../lib/jquery.js"></script>
+
+    <script>
+	var stage;
+	var shape = new createjs.Shape();	
+    var text = new createjs.Text("this is my text", "36px Arial", "blue");
+
+        function init() {
+            
+        stage = new createjs.Stage("canvas");
+		shape.graphics.setStrokeStyle(8).beginStroke("#00FF00").beginFill("red").drawRect(0, 0, 300, 50 );
+		shape.x = $("canvas").width() / 2;
+		shape.y = $("canvas").width() / 2;
+		stage.addChild(shape);
+        shape.rotation = 20;
+        
+        text.x= shape.x;
+        text.y= shape.y + 40;
+        text.rotation = 20;
+        text.textBaseline = "alphabetic";
+        stage.addChild(text);
+            
+        createjs.Ticker.addEventListener("tick", handleTick);
+		createjs.Ticker.setFPS(60);
+
+        }
+
+	
+        function handleTick(e) {
+		stage.update();
+	}
+    </script>
+</head>
+
+<body onload="init();">
+    <div>
+        <canvas id="canvas" width="800" height="600" style="border: black solid 1px"></canvas>
+    </div>
+</body>
+
+</html>

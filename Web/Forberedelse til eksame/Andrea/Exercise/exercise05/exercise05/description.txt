@@ -1,0 +1,28 @@
+Exercise
+========
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+  NOTE: this exercise is more difficult than any you will get in the exam.
+        It is however good for practicing. 
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*      
+
+
+      
+Look in the file:
+- \foundation-grid\index.html
+
+Then consider the images:
+- large.png 
+and
+- small01.png
+- small02.png
+These images show how the page should look like on a large, and on a small screen.
+
+1) Using Foundation's 12-grid, complete the index.html page so that it looks correct on a large screen.
+   Use the large.png image as a wireframe to deduce how many columns (out of the 12) each DIV uses;
+   then change the DIVs in the html file accordingly.
+1.b) Load the image from the \foundation-grid\images folder.
+
+2) Using Foundation's 12-grid, complete the index.html page so that it looks correct on a small screen.
+   Use the small01.png and small02.png images as a wireframe to deduce how many columns 
+   each DIV uses; then change the DIVs in the html file accordingly.
